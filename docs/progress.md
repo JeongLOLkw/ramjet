@@ -19,7 +19,9 @@
   2. 저장소 골격: §7 구조 생성, `CLAUDE.md`(계획 §2 복사), `docs/plan.md`·`docs/science_prompt_I1.md` 이동, `.gitignore`, 본 파일 생성, `git init`
   3. HiSA 소스 clone(`~/src/hisa`, 태그 validated-v2512) 및 기능 정적 확인 → decisions.md D-004
   4. conda 환경 `inlet` 생성 (numpy, scipy, matplotlib, pyvista, fluidfoam, pytest; `PYTHONNOUSERSITE=1` 필요)
-  5. v2512 설치 명령 준비 — 사용자 실행 대기 (sudo)
+  5. 사용자가 v2512 설치 → HiSA 빌드(오류 0건)
+  6. forwardStep 예제 2종 실행 완료 (아래 결과). 밀도장 그림: `docs/benchmarks/I2_forwardStep_*.png`
+  7. `src/foam_reader.py` + `tests/test_foam_reader.py`(pytest 4개 통과 후 구현), `scripts/plot_forwardstep.py`
 - 환경 점검 기록 (2026-11-10):
   - OS: Ubuntu 24.04.5 LTS (noble) / WSL2 (Linux 6.6.87.2-microsoft-standard-WSL2)
   - CPU: 12 논리 코어 (`nproc` = 12)
@@ -30,14 +32,16 @@
   - HiSA: 미설치
   - 도구: git, mpirun, gcc, cmake, python3 3.12.3 있음
 - 결과 (성공 기준별):
-  - [ ] forwardStep(rhoCentralFoam)과 HiSA 예제 오류 없이 종료 — 미실행
+  - [x] forwardStep(rhoCentralFoam)과 HiSA 예제 오류 없이 종료 — rhoCentralFoam 직렬 6,694스텝 123 s(1.6만 셀);
+        HiSA 4 MPI 437 s(3.7만 셀). 두 해 모두 Mach 3 forward step의 활꼴 충격파·Mach stem·반사 구조. 셀 수·해상도가 달라 두 해의
+        정량 비교(밀도 최대 6.5 vs 8.2)는 하지 않음 — 검증이 아니라 '실행 확인'
   - [ ] `docs/benchmarks/I2.md` MPI 속도표 — 미작성
-  - [ ] HiSA 비정상 지원 여부 `decisions.md` 기록 — 미완 (HiSA 미설치)
+  - [x] HiSA 비정상 지원 여부 `decisions.md` 기록 — D-004, D-006 (소스 + 예제 실행)
   - [ ] WSL 최대 메모리 10 GB 이내 — 현재 설정 10 GB, 판정은 실측 후
-  - [ ] 커밋 — 골격 커밋 예정
+  - [ ] 커밋 — 진행 중(속도 실측 후 최종)
 - 남은 문제:
-  1. **OpenFOAM 판본 결정**: 계획은 ESI v2512 (사용자 승인 없이 다른 판본 금지). 현재 2412만 설치됨. 승인 필요
-  2. sudo 필요 설치 명령은 사용자가 직접 실행 (Claude 실행 불가)
+  1. (해소) OpenFOAM v2512 설치됨
+  2. 속도 실측(20만 셀, MPI 1/2/4/8) 미실시 — 다음 작업
   3. `.wslconfig` memory 10 GB vs 계획 12 GB 불일치
   4. 계획 자체 모순: §2 CLAUDE.md "WSL 12 GB" vs §8 성공 기준 "10 GB 이내"
 - 소요: 벽시계 — / 클라우드 $0 / /usage — 기록 예정

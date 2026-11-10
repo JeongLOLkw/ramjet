@@ -1,0 +1,54 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2512                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _bd2b6720-20260127 OPENFOAM=2512 version=2512
+Arch   : "LSB;label=32;scalar=64"
+Exec   : refineMesh -dict system/refineMeshDict.ocfd -overwrite
+Date   : Nov 10 2026
+Time   : 11:38:37
+Host   : DESKTOP-DMEHFG7
+PID    : 191289
+I/O    : uncollated
+Case   : /home/toto/ramjet/cases/validation/forwardStep/hisa/simulation
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+memory pool : not available
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create polyMesh for time = 0
+
+Mesh edge statistics:
+    x aligned :  number:73600	minLen:0.004166	maxLen:0.00834
+    y aligned :  number:73120	minLen:0.004166	maxLen:0.008334
+    z aligned :  number:36929	minLen:0.1	maxLen:0.1
+    other     :  number:0	minLen:1e+15	maxLen:-1e+15
+
+Refining according to "system/refineMeshDict.ocfd"
+
+Read 48 cells from cellSet "constant/polyMesh/sets/c0"
+
+Global Coordinate system:
+     normal : (0 0 1)
+     tan1   : (1 0 0)
+     tan2   : (0 1 0)
+
+Writing refined cells (192) to cellSet "constant/polyMesh/sets/refinedCells"
+
+Writing map from new to old cell to "/home/toto/ramjet/cases/validation/forwardStep/hisa/simulation/0/polyMesh/cellMap"
+
+Mesh edge statistics:
+    x aligned :  number:73904	minLen:0.002083	maxLen:0.00834
+    y aligned :  number:73424	minLen:0.002083	maxLen:0.008334
+    z aligned :  number:37089	minLen:0.1	maxLen:0.1
+    other     :  number:0	minLen:1e+15	maxLen:-1e+15
+
+End
+

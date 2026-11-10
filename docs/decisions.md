@@ -54,3 +54,11 @@ I1 점검에서 나온 문제와 담당 제안. 담당: **Code** = Claude Code, 
 | 10 | I9 차별점 | Galaktionov 외(2019)의 방법과 겹침을 인정하고 마하 간격·초기장 민감도 보고를 I9 성공 기준에 추가 제안 | User 승인 → Code | I9 전 |
 
 원칙: 위 1·10은 plan.md(계획 변경)에 해당하므로 사용자 승인 전에는 plan.md를 고치지 않는다.
+
+## D-006 OpenFOAM v2512 설치·HiSA 빌드 확인 (2026-11-10)
+- 사용자가 별도 터미널에서 `openfoam2512-default`, `openfoam2512-dev` (2512.0-2) 설치. 2412와 병존. D-002는 선택지 (a)로 해소.
+- HiSA `validated-v2512`(커밋 271b449)를 v2512에서 `./Allwmake -j 8`로 빌드: 오류 0건, `hisa` 등 설치됨
+  (`~/OpenFOAM/toto-v2512/platforms/linux64GccDPInt32Opt/`). 로그 `docs/benchmarks/I2_build.log`
+  (`wmkdepend parse error ... setSolidFields.H`는 의존성 스캔 경고, 링크에 영향 없음).
+- **HiSA 비정상 지원 실행 확인:** `examples/forwardStep`(fvSchemes `dualTime rPseudoDeltaT CrankNicolson 0.9`, `adjustTimeStep no`, deltaT 0.005)이
+  t=4까지 오류 없이 종료. D-004(소스 정적 확인)를 실행으로 뒷받침. 비정상 솔버는 후보 2개 모두 사용 가능; 최종 선택은 I2 속도 실측 후.
