@@ -16,12 +16,13 @@ Tolerance (why):
   point in question (for a log axis this is evaluated locally, so it scales
   with the value).  Error budget with the calibration pixels rounded to
   integers (a human reads integer pixel indices off a viewer):
-    marker/line snapping                    0 (disabled: snap=False, so the
-                                              synthetic figure carries the true
-                                              sub-pixel position; matplotlib's
-                                              default snaps markers to whole
-                                              pixels, which is a property of
-                                              the figure, not of the tool)
+    marker snapping                         0 (markers are drawn as patches
+                                              at exact sub-pixel positions, see
+                                              _markers; matplotlib's own
+                                              plot/scatter markers are snapped
+                                              to whole pixels by Agg, which is a
+                                              property of the renderer, not of
+                                              the tool under test)
     rounding of each calibration pixel     <= 0.5 px  (interior: <= 0.5 px
                                                        after interpolation)
     centroid of an anti-aliased marker      ~ 0.1-0.2 px
@@ -89,6 +90,25 @@ def _make_fig(xscale="linear", yscale="linear", xlim=(0, 10), ylim=(0, 100)):
     ax.set_ylim(*ylim)
     ax.grid(True, color="0.8", lw=0.8)  # distractor: light-grey grid
     return fig, ax
+
+
+def _markers(ax, xs, ys, color, radius_px=4.5):
+    """Draw disc markers at exact sub-pixel positions.
+
+    ax.plot/ax.scatter markers are snapped to the pixel grid by the Agg
+    backend (measured: up to ~1 px shift), which would put a property of the
+    renderer into the 'truth'.  Circle patches in display coordinates
+    (IdentityTransform) are anti-aliased at the exact position (measured
+    centroid error < 0.1 px), also on log axes where a data-space circle
+    would be distorted.
+    """
+    from matplotlib.patches import Circle
+    from matplotlib.transforms import IdentityTransform
+    for x, y in zip(xs, ys):
+        X, Y = ax.transData.transform((x, y))
+        ax.add_patch(Circle((X, Y), radius_px, color=color, lw=0,
+                            transform=IdentityTransform(), snap=False, zorder=3,
+                            clip_on=False))
 
 
 def _save(fig, path):
@@ -199,8 +219,8 @@ class TestMarkers:
              cal_x, cal_y):
         fig, ax = _make_fig(xscale, yscale, xlim, ylim)
         xs, ys = zip(*true_pts)
-        ax.plot(xs, ys, "o", color=(0, 0, 1), ms=9, mew=0, snap=False)   # series to extract
-        ax.plot([xs[0]], [ys[-1]], "s", color=(1, 0, 0), ms=9, snap=False)  # other series
+        _markers(ax, xs, ys, (0, 0, 1))                 # series to extract
+        _markers(ax, [xs[0]], [ys[-1]], (1, 0, 0))      # other series
         px = _calib_pixels(fig, ax, [(cal_x[0], ylim[0]), (cal_x[1], ylim[0])])
         py = _calib_pixels(fig, ax, [(xlim[0], cal_y[0]), (xlim[1], cal_y[1])])
         img = tmp_path / "fig.png"
@@ -344,6 +364,21 @@ class TestCurve:
             uy = _px_value(cal.y, cal.y.to_pixel(p.y))
             assert abs(p.y - f(p.x)) <= TOL_PX * uy
 
+    def test_interpolation_between_columns_exact(self, dg):
+        """Steep line (4 rows per column), identity calibration: x = column,
+        y = row.  x = 5.5 lies between columns 5 (row 20) and 6 (row 24), so
+        the answer must be 22 exactly, not 20 or 24."""
+        mask = np.zeros((60, 12), dtype=bool)
+        for c in range(10):
+            mask[4 * c, c] = True
+        cal = dg.Calibration(dg.AxisCal(0, 0.0, 11, 11.0),
+                             dg.AxisCal(0, 0.0, 59, 59.0))
+        pts = dg.extract_curve(mask, cal, x_values=[5.0, 5.5, 5.25])
+        assert [p.x for p in pts] == [5.0, 5.5, 5.25]
+        assert [p.y for p in pts] == pytest.approx([20.0, 22.0, 21.0])
+        # x = 9.5 needs column 10, which has no curve pixel -> skipped
+        assert dg.extract_curve(mask, cal, x_values=[9.5]) == []
+
     def test_x_outside_curve_skipped(self, dg):
         mask = np.zeros((20, 20), dtype=bool)
         mask[10, 5:15] = True
@@ -389,7 +424,7 @@ class TestCsv:
                      mode="curve", color=(255, 0, 0), tol=40, script_hash="x")
         rows = list(csv.DictReader(l for l in out.read_text().splitlines()
                                    if not l.startswith("#")))
-        assert rows[0]["x"] == "1.0" or float(rows[0]["x"]) == 1.0
+        assert float(rows[0]["x"]) == 1.0
         assert set(rows[0]) == {"x", "y", "x_unc", "y_unc"}
 
     def test_git_hash_of_script_is_returned(self, dg):
@@ -408,7 +443,7 @@ class TestCli:
         true = [(1.0, 10.0), (3.0, 55.0), (5.0, 30.0), (8.0, 90.0)]
         fig, ax = _make_fig("linear", "linear", (0, 10), (0, 100))
         xs, ys = zip(*true)
-        ax.plot(xs, ys, "o", color=(0, 0, 1), ms=9, mew=0, snap=False)
+        _markers(ax, xs, ys, (0, 0, 1))
         px = _calib_pixels(fig, ax, [(0, 0), (10, 0)])
         py = _calib_pixels(fig, ax, [(0, 0), (0, 100)])
         img = tmp_path / "fig.png"
@@ -446,4 +481,5 @@ class TestCli:
         r = subprocess.run(cmd, capture_output=True, text=True,
                            env={"PYTHONNOUSERSITE": "1", "PATH": "/usr/bin:/bin"})
         assert r.returncode != 0
+        assert "calibration" in r.stderr
         assert not (tmp_path / "o.csv").exists()
