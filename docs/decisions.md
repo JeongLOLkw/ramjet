@@ -80,3 +80,32 @@ I1 점검에서 나온 문제와 담당 제안. 담당: **Code** = Claude Code, 
 - 승인 후 np 6 실측 수행(같은 날, `scripts/run_bench_np6.sh`): rcf 0.0744 s/스텝(np 4 0.063, np 8 0.066), HiSA 8.82 s(np 4 8.55, np 8 8.15). np 6이 가장 느리다. → np 4 확정. 상세 `docs/benchmarks/I2.md`.
 - HiSA는 np 8이 np 4보다 5% 빠르나 12스텝·1회 측정의 차이이고 메모리·코어 점유가 더 크다. np 8을 쓰고 싶은 단계(I6 등)는 그 단계에서 짧게 재측정한 뒤 정한다.
 - 반영: `CLAUDE.md`·`docs/plan.md` §2 사본의 "MPI 8 프로세스" → "최대 8, 기본 4".
+
+## D-010 I3 솔버 검증 A — 케이스 설정과 판정 기준 (실행 전 고정, 2026-11-10)
+사용자 지시("물을 것이 생기면 알아서 판단")에 따라 Claude Code가 정함. 아래 기준은 **본 실행 전에** 적었고 결과를 보고 바꾸지 않는다.
+- **기체**: 열량적 완전기체 공기, `src/constants.py`(이번에 신설): γ = 1.4, M_air = 28.9644 kg/kmol(US Std Atm 1976),
+  RR = OpenFOAM v2512 값(1e3·NA·k) → R = 287.05 J/(kg·K), Cp = γR/(γ−1). 전진 계단만 Woodward–Colella 무차원 기체(R = 1/γ, 같은 γ).
+  Sutherland 계수는 I4(첫 점성 케이스)에서 승인 받아 추가 — 지금은 넣지 않음.
+- **수치 설정 = 튜토리얼/예제 기본값 그대로**(새로 고른 계수 없음). rcf: Kurganov, vanLeer(V), Euler, maxCo 0.2 (v2512 `rhoCentralFoam/shockTube`, `forwardStep`).
+  HiSA: AUSMPlusUp, wVanLeer; 비정상 dualTime CN 0.9(`examples/shockTube`, `forwardStep`의 fvSolution 그대로, forwardStep은 음향 Co ≈ 2.4 유지하도록 dt만 격자에 비례),
+  정상 `bounded dualTime steadyState` + 국소 시간 간격(`examples/flatPlate`에서 점성·난류 항목만 뺌, pseudoCoNum 10→200은 예제 값 = 사전 승인 (a)·(d)에 해당).
+  이 설정을 I4 이후 템플릿 기준으로 삼을지는 별도 사용자 결정.
+- **경계**: 초음속 유입 고정값, 출구 p zeroGradient·U/T inletOutlet(압력 지정 없음, 규칙 6), 비점성 벽 = slip
+  (HiSA는 예제와 같은 `characteristicWallPressure/Temperature`), 위·아래 경계 symmetryPlane. 초기장 = 균일 자유류(사전 승인 (c)).
+- **케이스**: `scripts/i3_cases.py`가 생성.
+  - Sod(Toro 2009 Test 1, SI 환산 ρL 1, pL 1e5 / ρR 0.125, pR 1e4, t = 0.2/√(pL/ρL)): rcf N 100~1600(5단계), HiSA N 100~800(4단계)
+  - 쐐기 A: M 2.5 / 15°(I1 연습 3), B: M 5 / 10° — n = 50, 100, 200 × 두 솔버
+  - 팽창 코너 A: M 2.5 / 15° — n = 50, 100, 200 × 두 솔버
+  - 전진 계단(Woodward & Colella 1984, M 3, t = 4): rcf Δ = 1/40, 1/80, 1/160, HiSA 1/80, 1/160 (같은 blockMesh → 셀 단위 비교 가능)
+- **판정 기준**:
+  1. 쐐기(plan §6): **최세 격자 n200**, 두 솔버 모두 β와 p₂/p₁가 이론(NACA 1135 식 138, `src/gasdynamics.py`)과 1% 이내.
+     β = 0.3 ≤ x ≤ 0.95 열마다 p 중간값(벽 셀과 맨 위 셀 평균) 교차점을 선형 보간 → 직선 맞춤. p₂/p₁ = 충격파 아래 5셀 이상 떨어진 셀 평균.
+  2. 충격파관(plan §6 "격자 세분화에 따라 해석해에 수렴"): 밀도 L1 오차(정확 리만 해, Toro 2009 4장)가 **모든 세분화 단계에서 단조 감소**하고
+     **최세 두 단계 관측 차수 ≥ 0.5**. 두 솔버 모두.
+  3. 팽창 코너(§6에 기준 없음 → 쐐기와 같은 1% 적용): 최세 격자에서 M₂, p₂/p₁가 Prandtl–Meyer 이론과 1% 이내.
+     표본 영역: 모서리 기준 0.6 ≤ r ≤ 1.1, 벽+1° ≤ ψ ≤ 이론 후방 마하선 − 3Δ/r.
+  4. 정상 판정(규칙 5를 검증 케이스에 맞게 적용): 위 지표(β·p₂/p₁ 또는 M₂·p₂/p₁)가 마지막 2,000 스텝 동안 0.2% 이내 + 유입/유출 질량 유량 불균형 0.5% 미만.
+     통과 못 한 케이스의 수치는 '수렴'으로 보고하지 않음.
+  5. 전진 계단(해석해 없음 → 강건성·일관성 확인): 모든 격자가 t = 4까지 p, T > 0으로 완주; rcf 3격자에서 활꼴 충격파 이격 거리(y ≈ 0.1)와
+     위 벽 충격파 위치의 격자 간 차이가 줄어듦(|세−중| ≤ |중−조|). rcf–HiSA 같은 격자 밀도 L1 차이와 계단 앞면 평균 압력 vs Rayleigh 피토압은 **정보로만** 보고(통과 기준 아님).
+- 실행: 직렬 케이스를 동시에 최대 4개(코어 4개, D-009 기본 4와 같은 점유).

@@ -9,3 +9,9 @@ docs/papers/
 cases/validation/**/[1-9]*/
 cases/validation/**/0.[0-9]*/
 cases/validation/**/polyMesh/
+# I3 생성 케이스: 셀 중심이 든 0/, 전체 솔버 로그(log.solver.tail만 커밋)
+cases/validation/sod/*/0/
+cases/validation/wedge/*/0/
+cases/validation/expansion/*/0/
+cases/validation/forwardStep/*_dx*/0/
+cases/validation/*/*/log.solver
