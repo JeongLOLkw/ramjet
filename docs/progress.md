@@ -7,9 +7,9 @@
   - `.wslconfig` (`C:\Users\User\.wslconfig`): `memory=10GB`, `swap=8GB`, `processors=12`
     → **계획 §8 전제는 `memory=12GB`**. 현재 값과 다름. 사용자 결정 필요 (아래 "남은 문제" 참고)
   - 홈 여유 공간: 826 GB (기준 20 GB 이상 통과)
-  - GitHub 저장소: 확인 안 됨 (로컬 `git init`만 완료)
-  - Fable 사용 조건: 확인 안 됨 (사용자 확인 필요)
-- 남은 문제: 위 세 항목 사용자 확인
+  - GitHub 저장소: 확인됨 (JeongLOLkw/ramjet, push는 사용자 인증 대기)
+  - Fable 사용 조건: 사용자 확인 — 사용 가능
+- 남은 문제: `.wslconfig` memory 10GB vs 12GB 결정 (D-003)
 - 소요: 벽시계 수 분 / 클라우드 $0 / /usage 미기록
 
 ## I2 — 설치·속도 실측 (2026-11-10 ~ ) — 진행 중
@@ -17,6 +17,9 @@
 - 한 일:
   1. 환경 점검 (아래 기록)
   2. 저장소 골격: §7 구조 생성, `CLAUDE.md`(계획 §2 복사), `docs/plan.md`·`docs/science_prompt_I1.md` 이동, `.gitignore`, 본 파일 생성, `git init`
+  3. HiSA 소스 clone(`~/src/hisa`, 태그 validated-v2512) 및 기능 정적 확인 → decisions.md D-004
+  4. conda 환경 `inlet` 생성 (numpy, scipy, matplotlib, pyvista, fluidfoam, pytest; `PYTHONNOUSERSITE=1` 필요)
+  5. v2512 설치 명령 준비 — 사용자 실행 대기 (sudo)
 - 환경 점검 기록 (2026-11-10):
   - OS: Ubuntu 24.04.5 LTS (noble) / WSL2 (Linux 6.6.87.2-microsoft-standard-WSL2)
   - CPU: 12 논리 코어 (`nproc` = 12)
