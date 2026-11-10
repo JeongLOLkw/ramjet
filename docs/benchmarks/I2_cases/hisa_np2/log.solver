@@ -1,0 +1,2092 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2512                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _bd2b6720-20260127 OPENFOAM=2512 version=2512
+Arch   : "LSB;label=32;scalar=64"
+Exec   : hisa -parallel
+Date   : Nov 10 2026
+Time   : 12:49:49
+Host   : DESKTOP-DMEHFG7
+PID    : 235674
+I/O    : uncollated
+Case   : /home/toto/ramjet/cases/runs/bench/hisa_np2
+nProcs : 2
+Hosts  :
+(
+    (DESKTOP-DMEHFG7 2)
+)
+Pstream initialized with:
+    node communication : off [type=host] (2 ranks, 1 nodes)
+    topology controls  : none
+    consensus exchange : 0 (tuning: 0)
+    exchange algorithm : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+memory pool : not available
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0, region region0
+Creating static mesh
+
+Transient analysis detected
+
+pseudoTime: max iterations = 1000, tolerance = 0.005 (0.005 0.005 0.005) 0.005 , relTol = 0 (0 0 0) 0 
+
+Local timestepping selected
+
+Reading thermophysical properties
+
+Selecting thermodynamics package 
+{
+    type            hePsiThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleInternalEnergy;
+}
+
+
+Inviscid analysis detected
+
+Reading field U
+
+Creating turbulence model
+
+Selecting turbulence model type laminar
+Selecting laminar stress model Stokes
+
+Creating flux scheme
+
+Selecting flux scheme AUSMPlusUp
+
+No finite volume options present
+Initial pseudo Courant No: Min: 2 Mean: 2 Max: 2
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50093 4.80032
+
+Starting time loop
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50093 4.80032
+Time = 0.002143
+
+pseudoTime: iteration 1
+Pseudo Courant No: 2
+Damped pseudo Courant No: Min: 2 Mean: 2 Max: 2
+Pseudo deltaT: Min: 0.00178572 Mean: 0.00178572 Max: 0.00178572
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 1 (1 1.29071e-17 0) 1 
+  GMRES iteration: 4   Residual: 6.53008e-14 (8.57483e-14 9.92783e-15 0) 7.29179e-14 
+pseudoTime: iteration 2
+Pseudo Courant No: 2
+Damped pseudo Courant No: Min: 1 Mean: 1.9993 Max: 2
+Pseudo deltaT: Min: 0.00063259 Mean: 0.00178497 Max: 0.00178719
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.57953 (0.204563 0.000357108 0) 0.118457 
+  GMRES iteration: 1   Residual: 2.9412e-05 (1.54109e-05 3.80041e-06 0) 1.36791e-05 
+pseudoTime: iteration 3
+Pseudo Courant No: 2.4
+Damped pseudo Courant No: Min: 0.6 Mean: 2.39906 Max: 2.4
+Pseudo deltaT: Min: 0.000369028 Mean: 0.00214193 Max: 0.00214298
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.57887 (0.155068 0.000297374 0) 0.0923349 
+  GMRES iteration: 1   Residual: 7.21939e-06 (2.44321e-06 9.16419e-07 0) 1.79885e-06 
+pseudoTime: iteration 4
+Pseudo Courant No: 2.88
+Damped pseudo Courant No: Min: 0.36 Mean: 2.87869 Max: 2.88
+Pseudo deltaT: Min: 0.000220126 Mean: 0.00257019 Max: 0.0025715
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.454399 (0.109558 0.000187776 0) 0.063889 
+  GMRES iteration: 1   Residual: 8.28303e-07 (4.61751e-07 1.48013e-07 0) 3.34031e-07 
+pseudoTime: iteration 5
+Pseudo Courant No: 3.456
+Damped pseudo Courant No: Min: 0.216 Mean: 3.4543 Max: 3.456
+Pseudo deltaT: Min: 0.000133158 Mean: 0.00308414 Max: 0.00308575
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.310866 (0.0637966 9.7578e-05 0) 0.0361022 
+  GMRES iteration: 1   Residual: 1.39072e-07 (9.74418e-08 1.39924e-08 0) 6.76759e-08 
+pseudoTime: iteration 6
+Pseudo Courant No: 4.1472
+Damped pseudo Courant No: Min: 0.1296 Mean: 4.14506 Max: 4.1472
+Pseudo deltaT: Min: 8.141e-05 Mean: 0.0037009 Max: 0.00370289
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.181827 (0.0331266 4.58902e-05 0) 0.0189327 
+  GMRES iteration: 1   Residual: 2.55448e-08 (1.73112e-08 2.00712e-09 0) 1.02602e-08 
+pseudoTime: iteration 7
+Pseudo Courant No: 4.97664
+Damped pseudo Courant No: Min: 0.12 Mean: 4.974 Max: 4.97664
+Pseudo deltaT: Min: 7.69795e-05 Mean: 0.00444104 Max: 0.00444346
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.139106 (0.0242677 2.57461e-05 0) 0.014667 
+  GMRES iteration: 1   Residual: 3.34136e-08 (1.69803e-08 2.45814e-09 0) 1.66359e-08 
+pseudoTime: iteration 8
+Pseudo Courant No: 5.97197
+Damped pseudo Courant No: Min: 0.12 Mean: 5.96874 Max: 5.97197
+Pseudo deltaT: Min: 7.83407e-05 Mean: 0.00532921 Max: 0.00533217
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.118024 (0.0198901 1.60781e-05 0) 0.0130846 
+  GMRES iteration: 1   Residual: 1.64549e-07 (4.10097e-08 3.67923e-09 0) 3.55315e-08 
+pseudoTime: iteration 9
+Pseudo Courant No: 7.16636
+Damped pseudo Courant No: Min: 0.12 Mean: 7.16244 Max: 7.16636
+Pseudo deltaT: Min: 7.96191e-05 Mean: 0.00639501 Max: 0.00639859
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.102945 (0.0167738 1.96859e-05 0) 0.0122754 
+  GMRES iteration: 1   Residual: 2.6152e-07 (6.91504e-08 5.48885e-09 0) 4.09156e-08 
+pseudoTime: iteration 10
+Pseudo Courant No: 8.59963
+Damped pseudo Courant No: Min: 0.12 Mean: 8.59488 Max: 8.59963
+Pseudo deltaT: Min: 8.08235e-05 Mean: 0.00767398 Max: 0.00767848
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0913659 (0.0141697 2.86724e-05 0) 0.0117341 
+  GMRES iteration: 1   Residual: 3.02967e-07 (9.62424e-08 8.76769e-09 0) 4.60008e-08 
+pseudoTime: iteration 11
+Pseudo Courant No: 10.3196
+Damped pseudo Courant No: Min: 0.12 Mean: 10.3138 Max: 10.3196
+Pseudo deltaT: Min: 8.19615e-05 Mean: 0.00920875 Max: 0.00921423
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0827715 (0.0118756 3.81849e-05 0) 0.0113455 
+  GMRES iteration: 1   Residual: 3.34948e-07 (1.38456e-07 1.9946e-08 0) 9.5812e-08 
+pseudoTime: iteration 12
+Pseudo Courant No: 12.3835
+Damped pseudo Courant No: Min: 0.12 Mean: 12.3768 Max: 12.3835
+Pseudo deltaT: Min: 8.35493e-05 Mean: 0.0110506 Max: 0.0110592
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.142081 (0.0193472 9.97745e-05 0) 0.0222605 
+  GMRES iteration: 1   Residual: 5.21997e-07 (2.33896e-07 5.39538e-08 0) 1.83452e-07 
+pseudoTime: iteration 13
+Pseudo Courant No: 14.8602
+Damped pseudo Courant No: Min: 0.12 Mean: 14.852 Max: 14.8602
+Pseudo deltaT: Min: 8.52466e-05 Mean: 0.0132607 Max: 0.0132726
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0906351 (0.0130037 7.37551e-05 0) 0.0179675 
+  GMRES iteration: 1   Residual: 1.24136e-06 (2.10231e-07 4.45811e-08 0) 2.19735e-07 
+pseudoTime: iteration 14
+Pseudo Courant No: 17.8322
+Damped pseudo Courant No: Min: 0.12 Mean: 17.8224 Max: 17.8322
+Pseudo deltaT: Min: 8.65683e-05 Mean: 0.0159128 Max: 0.0159282
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0598119 (0.00575968 6.34372e-05 0) 0.0117581 
+  GMRES iteration: 1   Residual: 1.36522e-06 (1.54806e-07 3.68507e-08 0) 2.26908e-07 
+pseudoTime: iteration 15
+Pseudo Courant No: 21.3986
+Damped pseudo Courant No: Min: 0.12 Mean: 21.3872 Max: 21.3986
+Pseudo deltaT: Min: 8.76569e-05 Mean: 0.0190956 Max: 0.0191081
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.103773 (0.00470687 0.000139079 0) 0.0211008 
+  GMRES iteration: 1   Residual: 3.25154e-06 (3.86827e-07 1.29819e-07 0) 6.70655e-07 
+pseudoTime: iteration 16
+Pseudo Courant No: 25.6784
+Damped pseudo Courant No: Min: 0.12 Mean: 25.6645 Max: 25.6784
+Pseudo deltaT: Min: 8.94787e-05 Mean: 0.0229146 Max: 0.0229404
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0660975 (0.00636831 0.000100133 0) 0.0172484 
+  GMRES iteration: 1   Residual: 1.93505e-06 (2.14458e-07 7.52184e-08 0) 4.81266e-07 
+pseudoTime: iteration 17
+Pseudo Courant No: 30.814
+Damped pseudo Courant No: Min: 0.12 Mean: 30.798 Max: 30.814
+Pseudo deltaT: Min: 9.07544e-05 Mean: 0.0274981 Max: 0.0275216
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.103627 (0.0186194 0.000218911 0) 0.0270335 
+  GMRES iteration: 1   Residual: 1.93252e-06 (1.28301e-06 4.89223e-07 0) 8.51936e-07 
+pseudoTime: iteration 18
+Pseudo Courant No: 31.8679
+Damped pseudo Courant No: Min: 0.10342 Mean: 31.8485 Max: 31.8679
+Pseudo deltaT: Min: 8.01103e-05 Mean: 0.0284362 Max: 0.0284737
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0637457 (0.0170308 0.000173043 0) 0.0227644 
+  GMRES iteration: 1   Residual: 1.10238e-06 (3.94778e-07 1.17203e-07 0) 4.29317e-07 
+pseudoTime: iteration 19
+Pseudo Courant No: 38.2415
+Damped pseudo Courant No: Min: 0.12 Mean: 38.2216 Max: 38.2415
+Pseudo deltaT: Min: 9.42723e-05 Mean: 0.0341263 Max: 0.0341554
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0903356 (0.038131 0.000335166 0) 0.0297906 
+  GMRES iteration: 1   Residual: 3.37225e-06 (2.67445e-06 1.06666e-06 0) 1.42641e-06 
+pseudoTime: iteration 20
+Pseudo Courant No: 33.8028
+Damped pseudo Courant No: Min: 0.088393 Mean: 33.7823 Max: 33.8028
+Pseudo deltaT: Min: 7.12325e-05 Mean: 0.0301628 Max: 0.0302051
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0477561 (0.0290893 0.000263296 0) 0.0195412 
+  GMRES iteration: 1   Residual: 1.06774e-06 (9.25932e-07 2.68977e-07 0) 4.73857e-07 
+pseudoTime: iteration 21
+Pseudo Courant No: 40.5634
+Damped pseudo Courant No: Min: 0.212143 Mean: 40.5424 Max: 40.5634
+Pseudo deltaT: Min: 0.000173243 Mean: 0.0361985 Max: 0.0362213
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0749419 (0.0621058 0.00048502 0) 0.0325944 
+  GMRES iteration: 1   Residual: 4.67589e-06 (4.30269e-06 1.45054e-06 0) 2.06564e-06 
+pseudoTime: iteration 22
+Pseudo Courant No: 33.7483
+Damped pseudo Courant No: Min: 0.132376 Mean: 33.7277 Max: 33.7483
+Pseudo deltaT: Min: 0.000111366 Mean: 0.030114 Max: 0.0301545
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0401731 (0.0442843 0.000351899 0) 0.0223708 
+  GMRES iteration: 1   Residual: 1.06546e-06 (1.39267e-06 2.34924e-07 0) 4.64133e-07 
+pseudoTime: iteration 23
+Pseudo Courant No: 40.4979
+Damped pseudo Courant No: Min: 0.204395 Mean: 40.4714 Max: 40.4979
+Pseudo deltaT: Min: 0.000174588 Mean: 0.0361352 Max: 0.03635
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0343357 (0.050977 0.000321458 0) 0.0176405 
+  GMRES iteration: 1   Residual: 1.40238e-06 (2.37281e-06 7.34387e-07 0) 9.54871e-07 
+pseudoTime: iteration 24
+Pseudo Courant No: 48.5975
+Damped pseudo Courant No: Min: 0.183956 Mean: 48.5712 Max: 48.5975
+Pseudo deltaT: Min: 0.000160871 Mean: 0.0433672 Max: 0.0436628
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0483424 (0.089147 0.000624931 0) 0.0258132 
+  GMRES iteration: 1   Residual: 2.45598e-06 (4.3665e-06 1.30994e-06 0) 1.38601e-06 
+pseudoTime: iteration 25
+Pseudo Courant No: 33.1029
+Damped pseudo Courant No: Min: 0.167072 Mean: 33.0829 Max: 33.1029
+Pseudo deltaT: Min: 0.000155947 Mean: 0.0295383 Max: 0.0298405
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0228441 (0.0641519 0.000452763 0) 0.011979 
+  GMRES iteration: 1   Residual: 1.39461e-06 (3.10553e-06 1.03582e-06 0) 9.91879e-07 
+pseudoTime: iteration 26
+Pseudo Courant No: 39.7235
+Damped pseudo Courant No: Min: 0.400973 Mean: 39.7024 Max: 39.7235
+Pseudo deltaT: Min: 0.00037626 Mean: 0.0354486 Max: 0.0359368
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0383275 (0.118285 0.000789503 0) 0.0220783 
+  GMRES iteration: 1   Residual: 4.46902e-06 (1.3785e-05 5.11065e-06 0) 3.28095e-06 
+pseudoTime: iteration 27
+Pseudo Courant No: 27.4304
+Damped pseudo Courant No: Min: 0.207664 Mean: 27.4135 Max: 27.4304
+Pseudo deltaT: Min: 0.00019591 Mean: 0.0244764 Max: 0.0249068
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0218531 (0.0992834 0.000742254 0) 0.0141803 
+  GMRES iteration: 1   Residual: 8.79559e-07 (3.83919e-06 1.45358e-06 0) 7.29138e-07 
+pseudoTime: iteration 28
+Pseudo Courant No: 32.9165
+Damped pseudo Courant No: Min: 0.498394 Mean: 32.8988 Max: 32.9165
+Pseudo deltaT: Min: 0.000472898 Mean: 0.029374 Max: 0.0299287
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0348883 (0.175462 0.0011 0) 0.0225454 
+  GMRES iteration: 1   Residual: 3.49959e-06 (7.85554e-06 5.96234e-06 0) 3.37168e-06 
+pseudoTime: iteration 29
+Pseudo Courant No: 19.2114
+Damped pseudo Courant No: Min: 0.218162 Mean: 19.1995 Max: 19.2114
+Pseudo deltaT: Min: 0.000211513 Mean: 0.0171424 Max: 0.0174979
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0186165 (0.155938 0.00117414 0) 0.0131618 
+  GMRES iteration: 1   Residual: 6.96727e-07 (6.29504e-06 1.96735e-06 0) 5.7887e-07 
+pseudoTime: iteration 30
+Pseudo Courant No: 21.9803
+Damped pseudo Courant No: Min: 0.363925 Mean: 21.9685 Max: 21.9803
+Pseudo deltaT: Min: 0.000371161 Mean: 0.0196147 Max: 0.0200438
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0290742 (0.257769 0.00177978 0) 0.0202993 
+  GMRES iteration: 1   Residual: 2.15078e-06 (9.40705e-06 7.18061e-06 0) 2.00588e-06 
+pseudoTime: iteration 31
+Pseudo Courant No: 13.3131
+Damped pseudo Courant No: Min: 0.234989 Mean: 13.3062 Max: 13.3131
+Pseudo deltaT: Min: 0.000226072 Mean: 0.0118806 Max: 0.012162
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0267708 (0.349668 0.00262292 0) 0.023816 
+  GMRES iteration: 1   Residual: 1.93346e-06 (9.79919e-06 9.86489e-06 0) 1.94248e-06 
+pseudoTime: iteration 32
+Pseudo Courant No: 9.85494
+Damped pseudo Courant No: Min: 0.347899 Mean: 9.85042 Max: 9.85494
+Pseudo deltaT: Min: 0.00033745 Mean: 0.00879506 Max: 0.00901439
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0272639 (0.507911 0.00298142 0) 0.0255341 
+  GMRES iteration: 1   Residual: 3.87735e-06 (3.32244e-05 2.59941e-05 0) 3.68044e-06 
+pseudoTime: iteration 33
+Pseudo Courant No: 6.80181
+Damped pseudo Courant No: Min: 0.480234 Mean: 6.79934 Max: 6.80181
+Pseudo deltaT: Min: 0.00047159 Mean: 0.00607091 Max: 0.00701843
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0275921 (0.313358 0.00217315 0) 0.0288006 
+  GMRES iteration: 1   Residual: 6.56739e-06 (4.13273e-05 3.69211e-05 0) 5.86316e-06 
+pseudoTime: iteration 34
+Pseudo Courant No: 8.16217
+Damped pseudo Courant No: Min: 1.15256 Mean: 8.16048 Max: 8.16217
+Pseudo deltaT: Min: 0.0011502 Mean: 0.0072863 Max: 0.0084301
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0326218 (0.166866 0.00171054 0) 0.0296085 
+  GMRES iteration: 1   Residual: 1.77932e-05 (5.75886e-05 8.26008e-05 0) 1.3551e-05 
+pseudoTime: iteration 35
+Pseudo Courant No: 9.79461
+Damped pseudo Courant No: Min: 1.03731 Mean: 9.79057 Max: 9.79461
+Pseudo deltaT: Min: 0.00105981 Mean: 0.00874173 Max: 0.0101305
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0326441 (0.0491574 0.00149682 0) 0.0283819 
+  GMRES iteration: 1   Residual: 1.01079e-05 (2.88006e-05 3.40823e-05 0) 4.93772e-06 
+pseudoTime: iteration 36
+Pseudo Courant No: 11.7535
+Damped pseudo Courant No: Min: 0.744618 Mean: 11.7474 Max: 11.7535
+Pseudo deltaT: Min: 0.000665079 Mean: 0.0104889 Max: 0.0126061
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.027179 (0.0437027 0.000980587 0) 0.0286636 
+  GMRES iteration: 1   Residual: 6.18815e-06 (1.60682e-05 1.63282e-05 0) 4.73466e-06 
+pseudoTime: iteration 37
+Pseudo Courant No: 14.1042
+Damped pseudo Courant No: Min: 0.446771 Mean: 14.0958 Max: 14.1042
+Pseudo deltaT: Min: 0.000399276 Mean: 0.0125856 Max: 0.0151576
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0159894 (0.0353287 0.00060283 0) 0.0176737 
+  GMRES iteration: 1   Residual: 4.1632e-06 (1.19275e-05 6.75455e-06 0) 3.42547e-06 
+pseudoTime: iteration 38
+Pseudo Courant No: 16.9251
+Damped pseudo Courant No: Min: 0.60314 Mean: 16.9142 Max: 16.9251
+Pseudo deltaT: Min: 0.000538893 Mean: 0.0151022 Max: 0.0181905
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00906218 (0.0140768 0.000548282 0) 0.00593585 
+  GMRES iteration: 1   Residual: 2.40527e-06 (5.76083e-06 1.51716e-06 0) 1.6643e-06 
+pseudoTime: iteration 39
+Pseudo Courant No: 20.3101
+Damped pseudo Courant No: Min: 1.44754 Mean: 20.2997 Max: 20.3101
+Pseudo deltaT: Min: 0.00129328 Mean: 0.0181251 Max: 0.0218678
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00619154 (0.0115173 0.000405232 0) 0.00259836 
+  GMRES iteration: 1   Residual: 4.55053e-06 (8.40082e-06 6.51684e-06 0) 1.72342e-06 
+pseudoTime: iteration 40
+Pseudo Courant No: 24.3721
+Damped pseudo Courant No: Min: 1.64883 Mean: 24.3639 Max: 24.3721
+Pseudo deltaT: Min: 0.00147194 Mean: 0.0217541 Max: 0.0262098
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0030605 (0.00919124 0.000315678 0) 0.00143979 
+  GMRES iteration: 1   Residual: 5.6511e-06 (1.12075e-05 3.53821e-06 0) 2.17292e-06 
+pseudoTime: iteration 41
+Pseudo Courant No: 29.2465
+Damped pseudo Courant No: Min: 3.9572 Mean: 29.2419 Max: 29.2465
+Pseudo deltaT: Min: 0.00353213 Mean: 0.0261102 Max: 0.0314379
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00143936 (0.00473741 0.000248635 0) 0.000849135 
+  GMRES iteration: 1   Residual: 3.27375e-06 (8.12537e-06 2.29672e-06 0) 1.42745e-06 
+pseudoTime: iteration 42
+Pseudo Courant No: 35.0958
+Damped pseudo Courant No: Min: 9.49729 Mean: 35.0954 Max: 35.0958
+Pseudo deltaT: Min: 0.00847533 Mean: 0.031337 Max: 0.0377119
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.000605135 (0.00303528 0.000123339 0) 0.000553668 
+  GMRES iteration: 1   Residual: 1.18495e-06 (5.61763e-06 1.60585e-06 0) 1.03257e-06 
+pseudoTime: converged in 42 iterations
+ExecutionTime = 31.61 s  ExecutionStepTime = 31.13 s  ClockTime = 31 s
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50095 4.80032
+Time = 0.004286
+
+pseudoTime: iteration 1
+Pseudo Courant No: 35.0958
+Damped pseudo Courant No: Min: 18.9946 Mean: 35.0957 Max: 35.0958
+Pseudo deltaT: Min: 0.016955 Mean: 0.0313373 Max: 0.0377023
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.218688 (0.200617 0.0160112 0) 0.217046 
+  GMRES iteration: 1   Residual: 3.70004e-05 (6.32527e-05 5.59382e-05 0) 2.6614e-05 
+pseudoTime: iteration 2
+Pseudo Courant No: 9.41286
+Damped pseudo Courant No: Min: 2.54722 Mean: 9.40764 Max: 9.41286
+Pseudo deltaT: Min: 0.00237891 Mean: 0.00840011 Max: 0.00841025
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.18645 (0.338666 0.00633963 0) 0.18054 
+  GMRES iteration: 1   Residual: 1.4274e-05 (1.5035e-05 3.36527e-05 0) 1.87503e-05 
+pseudoTime: iteration 3
+Pseudo Courant No: 8.1179
+Damped pseudo Courant No: Min: 1.09839 Mean: 8.11128 Max: 8.1179
+Pseudo deltaT: Min: 0.00100828 Mean: 0.00724239 Max: 0.00725706
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.164223 (0.0332207 0.00282574 0) 0.13554 
+  GMRES iteration: 1   Residual: 1.50077e-05 (6.14696e-06 3.60368e-06 0) 6.86357e-06 
+pseudoTime: iteration 4
+Pseudo Courant No: 9.74148
+Damped pseudo Courant No: Min: 0.659036 Mean: 9.73388 Max: 9.74148
+Pseudo deltaT: Min: 0.000616266 Mean: 0.00869109 Max: 0.00869888
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.128692 (0.068898 0.00157236 0) 0.112033 
+  GMRES iteration: 1   Residual: 3.87557e-06 (3.16808e-06 3.23854e-06 0) 3.29043e-06 
+pseudoTime: iteration 5
+Pseudo Courant No: 11.6898
+Damped pseudo Courant No: Min: 0.395421 Mean: 11.6803 Max: 11.6898
+Pseudo deltaT: Min: 0.000366271 Mean: 0.0104289 Max: 0.0104375
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.113164 (0.041247 0.000963896 0) 0.0872591 
+  GMRES iteration: 1   Residual: 7.42596e-07 (1.13743e-06 1.16971e-06 0) 8.85574e-07 
+pseudoTime: iteration 6
+Pseudo Courant No: 14.0277
+Damped pseudo Courant No: Min: 0.237253 Mean: 14.0161 Max: 14.0277
+Pseudo deltaT: Min: 0.000217473 Mean: 0.0125144 Max: 0.0125252
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0843173 (0.0172228 0.000625518 0) 0.0655032 
+  GMRES iteration: 1   Residual: 6.37654e-07 (5.58795e-07 3.17463e-07 0) 3.58669e-07 
+pseudoTime: iteration 7
+Pseudo Courant No: 16.8333
+Damped pseudo Courant No: Min: 0.213528 Mean: 16.8199 Max: 16.8333
+Pseudo deltaT: Min: 0.000194746 Mean: 0.0150178 Max: 0.0150301
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0545659 (0.0058792 0.000436614 0) 0.0457125 
+  GMRES iteration: 1   Residual: 1.18254e-06 (3.92575e-07 1.08654e-07 0) 9.79352e-07 
+pseudoTime: iteration 8
+Pseudo Courant No: 20.1999
+Damped pseudo Courant No: Min: 0.355077 Mean: 20.1854 Max: 20.1999
+Pseudo deltaT: Min: 0.000360485 Mean: 0.0180227 Max: 0.0180363
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0590042 (0.00901871 0.000448096 0) 0.051059 
+  GMRES iteration: 1   Residual: 1.70862e-06 (1.28813e-06 7.2373e-07 0) 1.87769e-06 
+pseudoTime: iteration 9
+Pseudo Courant No: 24.2399
+Damped pseudo Courant No: Min: 0.378749 Mean: 24.2254 Max: 24.2399
+Pseudo deltaT: Min: 0.0004464 Mean: 0.0216299 Max: 0.0217845
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0328032 (0.0139884 0.000375391 0) 0.0306587 
+  GMRES iteration: 1   Residual: 4.37272e-07 (8.53464e-07 3.3927e-07 0) 4.90887e-07 
+pseudoTime: iteration 10
+Pseudo Courant No: 29.0879
+Damped pseudo Courant No: Min: 0.908997 Mean: 29.0723 Max: 29.0879
+Pseudo deltaT: Min: 0.0010705 Mean: 0.0259574 Max: 0.0261406
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0299457 (0.0173399 0.00052046 0) 0.029362 
+  GMRES iteration: 1   Residual: 8.65215e-07 (1.16643e-06 1.25279e-06 0) 1.18946e-06 
+pseudoTime: iteration 11
+Pseudo Courant No: 34.9055
+Damped pseudo Courant No: Min: 2.18159 Mean: 34.8878 Max: 34.9055
+Pseudo deltaT: Min: 0.00257598 Mean: 0.03115 Max: 0.0332547
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0180634 (0.0166279 0.000468858 0) 0.0196672 
+  GMRES iteration: 1   Residual: 2.30802e-06 (2.31335e-06 2.25916e-06 0) 2.05431e-06 
+pseudoTime: iteration 12
+Pseudo Courant No: 41.8866
+Damped pseudo Courant No: Min: 1.96343 Mean: 41.8619 Max: 41.8866
+Pseudo deltaT: Min: 0.0023463 Mean: 0.0373769 Max: 0.0399241
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00650446 (0.00879476 0.000355034 0) 0.00855811 
+  GMRES iteration: 1   Residual: 9.75564e-07 (2.26222e-06 1.40538e-06 0) 1.11621e-06 
+pseudoTime: iteration 13
+Pseudo Courant No: 50.2639
+Damped pseudo Courant No: Min: 4.71224 Mean: 50.2396 Max: 50.2639
+Pseudo deltaT: Min: 0.00565657 Mean: 0.0448573 Max: 0.0479157
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0039115 (0.00225817 0.000243622 0) 0.0035048 
+  GMRES iteration: 1   Residual: 1.67964e-06 (1.55825e-06 9.49806e-07 0) 1.37782e-06 
+pseudoTime: iteration 14
+Pseudo Courant No: 60.3167
+Damped pseudo Courant No: Min: 11.3094 Mean: 60.2923 Max: 60.3167
+Pseudo deltaT: Min: 0.0136117 Mean: 0.0538337 Max: 0.0661495
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00218479 (0.00279328 0.000123922 0) 0.00140474 
+  GMRES iteration: 1   Residual: 1.38171e-06 (1.42942e-06 9.15365e-07 0) 5.49224e-07 
+pseudoTime: converged in 14 iterations
+ExecutionTime = 42.03 s  ExecutionStepTime = 10.42 s  ClockTime = 42 s
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50094 4.80032
+Time = 0.006429
+
+pseudoTime: iteration 1
+Pseudo Courant No: 60.3167
+Damped pseudo Courant No: Min: 22.6187 Mean: 60.3006 Max: 60.3167
+Pseudo deltaT: Min: 0.0272537 Mean: 0.0538423 Max: 0.0726386
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.130458 (0.189433 0.0115803 0) 0.126266 
+  GMRES iteration: 1   Residual: 2.74304e-05 (5.22641e-05 4.45937e-05 0) 3.58747e-05 
+pseudoTime: iteration 2
+Pseudo Courant No: 13.1894
+Damped pseudo Courant No: Min: 2.47301 Mean: 13.1799 Max: 13.1894
+Pseudo deltaT: Min: 0.00322303 Mean: 0.0117682 Max: 0.0117881
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.106308 (0.13252 0.00620867 0) 0.103334 
+  GMRES iteration: 1   Residual: 9.56095e-06 (1.96998e-05 1.3556e-05 0) 7.3986e-06 
+pseudoTime: iteration 3
+Pseudo Courant No: 15.8272
+Damped pseudo Courant No: Min: 1.4838 Mean: 15.8126 Max: 15.8272
+Pseudo deltaT: Min: 0.00192916 Mean: 0.0141187 Max: 0.014141
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0786263 (0.078698 0.00288845 0) 0.0722684 
+  GMRES iteration: 1   Residual: 9.44434e-06 (1.68941e-05 9.08035e-06 0) 7.3121e-06 
+pseudoTime: iteration 4
+Pseudo Courant No: 18.9927
+Damped pseudo Courant No: Min: 1.33542 Mean: 18.9733 Max: 18.9927
+Pseudo deltaT: Min: 0.0014106 Mean: 0.0169407 Max: 0.0169664
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0646461 (0.0619441 0.00161992 0) 0.0579566 
+  GMRES iteration: 1   Residual: 5.26256e-06 (9.61247e-06 5.3959e-06 0) 4.38429e-06 
+pseudoTime: iteration 5
+Pseudo Courant No: 22.7912
+Damped pseudo Courant No: Min: 0.801254 Mean: 22.7669 Max: 22.7912
+Pseudo deltaT: Min: 0.000861215 Mean: 0.0203278 Max: 0.0203529
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0557212 (0.0243305 0.00161244 0) 0.061472 
+  GMRES iteration: 1   Residual: 2.81745e-06 (4.04739e-06 2.99067e-06 0) 2.37533e-06 
+pseudoTime: iteration 6
+Pseudo Courant No: 27.3495
+Damped pseudo Courant No: Min: 0.480752 Mean: 27.3198 Max: 27.3495
+Pseudo deltaT: Min: 0.000517268 Mean: 0.0243928 Max: 0.0244199
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0573623 (0.00824428 0.00126663 0) 0.0688236 
+  GMRES iteration: 1   Residual: 2.01852e-06 (1.36491e-06 1.01674e-06 0) 1.90161e-06 
+pseudoTime: iteration 7
+Pseudo Courant No: 32.8194
+Damped pseudo Courant No: Min: 0.288451 Mean: 32.7862 Max: 32.8194
+Pseudo deltaT: Min: 0.000310729 Mean: 0.0292735 Max: 0.0293036
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0531214 (0.00556431 0.00079666 0) 0.0673598 
+  GMRES iteration: 1   Residual: 8.62484e-07 (5.02864e-07 3.7704e-07 0) 7.43235e-07 
+pseudoTime: iteration 8
+Pseudo Courant No: 39.3832
+Damped pseudo Courant No: Min: 0.173071 Mean: 39.3485 Max: 39.3832
+Pseudo deltaT: Min: 0.000186573 Mean: 0.0351326 Max: 0.0351646
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0429455 (0.00527567 0.000642581 0) 0.0644658 
+  GMRES iteration: 1   Residual: 1.29236e-06 (2.47055e-07 2.3689e-07 0) 1.68999e-06 
+pseudoTime: iteration 9
+Pseudo Courant No: 44.6159
+Damped pseudo Courant No: Min: 0.113287 Mean: 44.5772 Max: 44.6159
+Pseudo deltaT: Min: 0.000114039 Mean: 0.0398011 Max: 0.0398363
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0328457 (0.00532422 0.000436774 0) 0.0618089 
+  GMRES iteration: 1   Residual: 9.09509e-07 (2.11097e-07 1.46802e-07 0) 1.53281e-06 
+pseudoTime: iteration 10
+Pseudo Courant No: 49.3478
+Damped pseudo Courant No: Min: 0.110606 Mean: 49.3052 Max: 49.3478
+Pseudo deltaT: Min: 0.000111156 Mean: 0.0440225 Max: 0.044061
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0273955 (0.00560162 0.00032721 0) 0.0521425 
+  GMRES iteration: 1   Residual: 1.0429e-06 (3.06506e-07 1.91705e-07 0) 1.80769e-06 
+pseudoTime: iteration 11
+Pseudo Courant No: 58.547
+Damped pseudo Courant No: Min: 0.118642 Mean: 58.4973 Max: 58.547
+Pseudo deltaT: Min: 0.000119049 Mean: 0.0522299 Max: 0.0523119
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0317032 (0.00862095 0.000387729 0) 0.0562544 
+  GMRES iteration: 1   Residual: 1.41649e-06 (1.09144e-06 5.26092e-07 0) 1.53398e-06 
+pseudoTime: iteration 12
+Pseudo Courant No: 53.1737
+Damped pseudo Courant No: Min: 0.0908221 Mean: 53.1288 Max: 53.1737
+Pseudo deltaT: Min: 8.406e-05 Mean: 0.0474365 Max: 0.0475081
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.020653 (0.00826335 0.000271716 0) 0.0427168 
+  GMRES iteration: 1   Residual: 2.75364e-07 (2.82503e-07 1.4052e-07 0) 3.72091e-07 
+pseudoTime: iteration 13
+Pseudo Courant No: 63.8084
+Damped pseudo Courant No: Min: 0.12 Mean: 63.7557 Max: 63.8084
+Pseudo deltaT: Min: 0.000111004 Mean: 0.0569251 Max: 0.063556
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0241372 (0.00743756 0.000400977 0) 0.0469583 
+  GMRES iteration: 1   Residual: 2.16639e-06 (1.40223e-06 9.08836e-07 0) 2.77175e-06 
+pseudoTime: iteration 14
+Pseudo Courant No: 64.9666
+Damped pseudo Courant No: Min: 0.101815 Mean: 64.913 Max: 64.9666
+Pseudo deltaT: Min: 9.41262e-05 Mean: 0.0579583 Max: 0.0706966
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0165916 (0.00921906 0.000353329 0) 0.0346339 
+  GMRES iteration: 1   Residual: 3.58842e-07 (5.07458e-07 1.98522e-07 0) 6.16707e-07 
+pseudoTime: iteration 15
+Pseudo Courant No: 77.9599
+Damped pseudo Courant No: Min: 0.12 Mean: 77.897 Max: 77.9599
+Pseudo deltaT: Min: 0.000110911 Mean: 0.0695517 Max: 0.0893126
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.019331 (0.00785694 0.000508405 0) 0.0361838 
+  GMRES iteration: 1   Residual: 2.14447e-06 (2.26438e-06 1.81145e-06 0) 2.67679e-06 
+pseudoTime: iteration 16
+Pseudo Courant No: 82.9277
+Damped pseudo Courant No: Min: 0.106372 Mean: 82.8632 Max: 82.9277
+Pseudo deltaT: Min: 9.83013e-05 Mean: 0.0739868 Max: 0.0975592
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0170875 (0.0152249 0.000647443 0) 0.0336376 
+  GMRES iteration: 1   Residual: 3.16858e-06 (4.7762e-06 4.9836e-06 0) 3.91587e-06 
+pseudoTime: iteration 17
+Pseudo Courant No: 85.1338
+Damped pseudo Courant No: Min: 0.10266 Mean: 85.0727 Max: 85.1338
+Pseudo deltaT: Min: 0.000105575 Mean: 0.0759613 Max: 0.125201
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0147434 (0.0211699 0.000732131 0) 0.0284756 
+  GMRES iteration: 1   Residual: 3.43939e-06 (7.06542e-06 8.16092e-06 0) 3.26829e-06 
+pseudoTime: iteration 18
+Pseudo Courant No: 90.1386
+Damped pseudo Courant No: Min: 0.105879 Mean: 90.084 Max: 90.1386
+Pseudo deltaT: Min: 0.000108844 Mean: 0.0804391 Max: 0.133627
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0145039 (0.0177417 0.000764864 0) 0.0247754 
+  GMRES iteration: 1   Residual: 4.6507e-06 (8.0965e-06 8.7445e-06 0) 3.46828e-06 
+pseudoTime: iteration 19
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.234924 Mean: 99.9584 Max: 100
+Pseudo deltaT: Min: 0.000241315 Mean: 0.0892628 Max: 0.148793
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0407087 (0.0156316 0.00106623 0) 0.0573087 
+  GMRES iteration: 1   Residual: 1.45224e-05 (1.41056e-05 1.42869e-05 0) 1.32201e-05 
+pseudoTime: iteration 20
+Pseudo Courant No: 48.0987
+Damped pseudo Courant No: Min: 0.0616967 Mean: 48.0697 Max: 48.0987
+Pseudo deltaT: Min: 6.13443e-05 Mean: 0.042925 Max: 0.0715231
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0152956 (0.0242443 0.00114714 0) 0.0194846 
+  GMRES iteration: 1   Residual: 1.7351e-06 (3.59244e-06 2.94385e-06 0) 1.87858e-06 
+pseudoTime: iteration 21
+Pseudo Courant No: 57.7185
+Damped pseudo Courant No: Min: 0.148072 Mean: 57.6832 Max: 57.7185
+Pseudo deltaT: Min: 0.000147245 Mean: 0.0515123 Max: 0.0870686
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0278442 (0.0360851 0.00126251 0) 0.0429714 
+  GMRES iteration: 1   Residual: 2.93092e-06 (5.5691e-06 5.8301e-06 0) 2.23808e-06 
+pseudoTime: iteration 22
+Pseudo Courant No: 55.2891
+Damped pseudo Courant No: Min: 0.283679 Mean: 55.2621 Max: 55.2891
+Pseudo deltaT: Min: 0.000282051 Mean: 0.0493504 Max: 0.0833652
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0182272 (0.0285317 0.00102022 0) 0.0254693 
+  GMRES iteration: 1   Residual: 2.24821e-06 (4.65871e-06 3.23578e-06 0) 1.88769e-06 
+pseudoTime: iteration 23
+Pseudo Courant No: 66.3469
+Damped pseudo Courant No: Min: 0.376414 Mean: 66.3093 Max: 66.3469
+Pseudo deltaT: Min: 0.000403401 Mean: 0.0592157 Max: 0.100037
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0219665 (0.0273043 0.00100805 0) 0.0318542 
+  GMRES iteration: 1   Residual: 2.63564e-06 (5.04211e-06 5.01738e-06 0) 2.27498e-06 
+pseudoTime: iteration 24
+Pseudo Courant No: 73.1311
+Damped pseudo Courant No: Min: 0.829808 Mean: 73.0867 Max: 73.1311
+Pseudo deltaT: Min: 0.000890149 Mean: 0.0652683 Max: 0.110295
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0177778 (0.0196177 0.000820898 0) 0.023794 
+  GMRES iteration: 1   Residual: 1.78028e-06 (3.51072e-06 3.23071e-06 0) 1.33206e-06 
+pseudoTime: iteration 25
+Pseudo Courant No: 87.7574
+Damped pseudo Courant No: Min: 0.746827 Mean: 87.701 Max: 87.7574
+Pseudo deltaT: Min: 0.000801309 Mean: 0.0783192 Max: 0.132358
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0175714 (0.0152767 0.000884496 0) 0.0262408 
+  GMRES iteration: 1   Residual: 2.45471e-06 (4.08482e-06 3.45997e-06 0) 2.41657e-06 
+pseudoTime: iteration 26
+Pseudo Courant No: 98.713
+Damped pseudo Courant No: Min: 0.630046 Mean: 98.6614 Max: 98.713
+Pseudo deltaT: Min: 0.000676038 Mean: 0.0881076 Max: 0.148915
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0058198 (0.0100183 0.000679067 0) 0.00786531 
+  GMRES iteration: 1   Residual: 1.64291e-06 (4.47225e-06 2.77559e-06 0) 1.23807e-06 
+pseudoTime: iteration 27
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 1.27652 Mean: 99.9556 Max: 100
+Pseudo deltaT: Min: 0.00136973 Mean: 0.0892638 Max: 0.150855
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00496302 (0.00298406 0.000666227 0) 0.00598336 
+  GMRES iteration: 1   Residual: 1.24621e-06 (2.979e-06 2.24705e-06 0) 9.63348e-07 
+pseudoTime: iteration 28
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 2.55304 Mean: 99.9622 Max: 100
+Pseudo deltaT: Min: 0.00273947 Mean: 0.0892702 Max: 0.150858
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00342117 (0.0040268 0.000745414 0) 0.00356765 
+  GMRES iteration: 1   Residual: 6.5961e-07 (1.31874e-06 1.25242e-06 0) 6.27531e-07 
+pseudoTime: iteration 29
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 1.66855 Mean: 99.9743 Max: 100
+Pseudo deltaT: Min: 0.00148705 Mean: 0.089282 Max: 0.150836
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0021551 (0.00242358 0.000515873 0) 0.00236162 
+  GMRES iteration: 1   Residual: 5.34416e-07 (1.27494e-06 8.394e-07 0) 5.93193e-07 
+pseudoTime: converged in 29 iterations
+ExecutionTime = 62.42 s  ExecutionStepTime = 20.39 s  ClockTime = 62 s
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.5009 4.80032
+Time = 0.008572
+
+pseudoTime: iteration 1
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.834274 Mean: 99.9882 Max: 100
+Pseudo deltaT: Min: 0.000745173 Mean: 0.0892957 Max: 0.150842
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.156919 (0.176544 0.0152033 0) 0.169638 
+  GMRES iteration: 1   Residual: 3.4829e-05 (0.000116238 8.78749e-05 0) 4.30525e-05 
+pseudoTime: iteration 2
+Pseudo Courant No: 11.8958
+Damped pseudo Courant No: Min: 0.0496218 Mean: 11.8869 Max: 11.8958
+Pseudo deltaT: Min: 4.60107e-05 Mean: 0.0106158 Max: 0.0149886
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.155603 (0.207176 0.00797459 0) 0.17419 
+  GMRES iteration: 1   Residual: 3.38952e-05 (8.0083e-05 3.52913e-05 0) 2.30869e-05 
+pseudoTime: iteration 3
+Pseudo Courant No: 11.0917
+Damped pseudo Courant No: Min: 0.0932405 Mean: 11.0802 Max: 11.0917
+Pseudo deltaT: Min: 8.62113e-05 Mean: 0.00989468 Max: 0.0107208
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.125838 (0.0745946 0.00517639 0) 0.124185 
+  GMRES iteration: 1   Residual: 1.54341e-05 (2.18189e-05 1.63026e-05 0) 1.19393e-05 
+pseudoTime: iteration 4
+Pseudo Courant No: 13.3101
+Damped pseudo Courant No: Min: 0.12 Mean: 13.2948 Max: 13.3101
+Pseudo deltaT: Min: 0.000110335 Mean: 0.0118718 Max: 0.0118903
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.108238 (0.0842499 0.00394023 0) 0.108405 
+  GMRES iteration: 1   Residual: 9.29077e-06 (1.43777e-05 7.14569e-06 0) 6.10272e-06 
+pseudoTime: iteration 5
+Pseudo Courant No: 15.9721
+Damped pseudo Courant No: Min: 0.12 Mean: 15.9541 Max: 15.9721
+Pseudo deltaT: Min: 0.000109845 Mean: 0.014246 Max: 0.0142616
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0932699 (0.0369677 0.00311787 0) 0.0938785 
+  GMRES iteration: 1   Residual: 3.85801e-06 (5.25967e-06 2.75956e-06 0) 3.92298e-06 
+pseudoTime: iteration 6
+Pseudo Courant No: 19.1665
+Damped pseudo Courant No: Min: 0.12 Mean: 19.1451 Max: 19.1665
+Pseudo deltaT: Min: 0.000109554 Mean: 0.0170949 Max: 0.0171883
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0741676 (0.0282188 0.00234513 0) 0.0763611 
+  GMRES iteration: 1   Residual: 1.65898e-06 (1.68908e-06 9.23328e-07 0) 1.65138e-06 
+pseudoTime: iteration 7
+Pseudo Courant No: 22.9998
+Damped pseudo Courant No: Min: 0.12 Mean: 22.9741 Max: 22.9998
+Pseudo deltaT: Min: 0.000109349 Mean: 0.0205135 Max: 0.0206223
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0564451 (0.0159546 0.00172561 0) 0.0578234 
+  GMRES iteration: 1   Residual: 6.60774e-07 (4.58749e-07 3.4502e-07 0) 6.28301e-07 
+pseudoTime: iteration 8
+Pseudo Courant No: 27.5997
+Damped pseudo Courant No: Min: 0.12 Mean: 27.5693 Max: 27.5997
+Pseudo deltaT: Min: 0.000109204 Mean: 0.0246162 Max: 0.0247333
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0387568 (0.00930442 0.0011769 0) 0.0402217 
+  GMRES iteration: 1   Residual: 5.40302e-07 (1.93292e-07 1.5308e-07 0) 5.94878e-07 
+pseudoTime: iteration 9
+Pseudo Courant No: 33.1197
+Damped pseudo Courant No: Min: 0.12 Mean: 33.0851 Max: 33.1197
+Pseudo deltaT: Min: 0.000109111 Mean: 0.0295423 Max: 0.0402092
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0302603 (0.00831779 0.000860646 0) 0.032346 
+  GMRES iteration: 1   Residual: 2.19301e-07 (2.14797e-07 1.06868e-07 0) 2.46955e-07 
+pseudoTime: iteration 10
+Pseudo Courant No: 39.7436
+Damped pseudo Courant No: Min: 0.12 Mean: 39.7055 Max: 39.7436
+Pseudo deltaT: Min: 0.000109141 Mean: 0.035456 Max: 0.0673883
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0337995 (0.0133529 0.00105032 0) 0.0347442 
+  GMRES iteration: 1   Residual: 4.52868e-07 (5.93532e-07 4.05663e-07 0) 3.32744e-07 
+pseudoTime: iteration 11
+Pseudo Courant No: 47.6924
+Damped pseudo Courant No: Min: 0.12 Mean: 47.653 Max: 47.6924
+Pseudo deltaT: Min: 0.000113053 Mean: 0.0425576 Max: 0.082257
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0255884 (0.0149184 0.000934268 0) 0.0277451 
+  GMRES iteration: 1   Residual: 4.07266e-07 (5.6352e-07 3.74156e-07 0) 3.25187e-07 
+pseudoTime: iteration 12
+Pseudo Courant No: 57.2308
+Damped pseudo Courant No: Min: 0.12 Mean: 57.1841 Max: 57.2308
+Pseudo deltaT: Min: 0.000112885 Mean: 0.0510699 Max: 0.0987674
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0165324 (0.0116317 0.00090321 0) 0.0217074 
+  GMRES iteration: 1   Residual: 4.38719e-07 (8.07451e-07 5.523e-07 0) 4.57524e-07 
+pseudoTime: iteration 13
+Pseudo Courant No: 68.677
+Damped pseudo Courant No: Min: 0.288 Mean: 68.6229 Max: 68.677
+Pseudo deltaT: Min: 0.000270587 Mean: 0.0612859 Max: 0.118524
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0160536 (0.0110382 0.000948757 0) 0.0207373 
+  GMRES iteration: 1   Residual: 9.88853e-07 (2.53448e-06 1.48633e-06 0) 9.36863e-07 
+pseudoTime: iteration 14
+Pseudo Courant No: 82.4124
+Damped pseudo Courant No: Min: 0.1728 Mean: 82.347 Max: 82.4124
+Pseudo deltaT: Min: 0.000162345 Mean: 0.0735428 Max: 0.142173
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0102431 (0.00727785 0.000742696 0) 0.0151494 
+  GMRES iteration: 1   Residual: 9.90483e-07 (1.16545e-06 1.22375e-06 0) 9.57059e-07 
+pseudoTime: iteration 15
+Pseudo Courant No: 98.8949
+Damped pseudo Courant No: Min: 0.149299 Mean: 98.8195 Max: 98.8949
+Pseudo deltaT: Min: 0.000140486 Mean: 0.0882544 Max: 0.170421
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00937748 (0.00475835 0.000628201 0) 0.01285 
+  GMRES iteration: 1   Residual: 1.0571e-06 (1.14545e-06 8.21645e-07 0) 1.32172e-06 
+pseudoTime: iteration 16
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.169839 Mean: 99.9244 Max: 100
+Pseudo deltaT: Min: 0.000156934 Mean: 0.0892411 Max: 0.172193
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0101675 (0.00290906 0.000505642 0) 0.0123659 
+  GMRES iteration: 1   Residual: 8.56276e-07 (6.29333e-07 5.30089e-07 0) 1.12949e-06 
+pseudoTime: iteration 17
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.339677 Mean: 99.9286 Max: 100
+Pseudo deltaT: Min: 0.000314322 Mean: 0.0892451 Max: 0.172018
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0112539 (0.00189324 0.000420835 0) 0.0116973 
+  GMRES iteration: 1   Residual: 8.35729e-07 (8.17805e-07 3.97608e-07 0) 1.01207e-06 
+pseudoTime: iteration 18
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.254758 Mean: 99.9336 Max: 100
+Pseudo deltaT: Min: 0.000236434 Mean: 0.0892499 Max: 0.171942
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0114696 (0.00244038 0.000352259 0) 0.0116183 
+  GMRES iteration: 1   Residual: 9.70165e-07 (6.81686e-07 3.09772e-07 0) 1.18769e-06 
+pseudoTime: iteration 19
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.419354 Mean: 99.9431 Max: 100
+Pseudo deltaT: Min: 0.000396925 Mean: 0.0892593 Max: 0.171906
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0118594 (0.00365464 0.000314324 0) 0.0112591 
+  GMRES iteration: 1   Residual: 1.07629e-06 (6.36183e-07 3.70017e-07 0) 1.34362e-06 
+pseudoTime: iteration 20
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.838709 Mean: 99.9545 Max: 100
+Pseudo deltaT: Min: 0.000795685 Mean: 0.0892707 Max: 0.171881
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0115685 (0.00334957 0.000325456 0) 0.0106871 
+  GMRES iteration: 1   Residual: 1.10314e-06 (6.8958e-07 4.38896e-07 0) 1.40799e-06 
+pseudoTime: iteration 21
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.509516 Mean: 99.9599 Max: 100
+Pseudo deltaT: Min: 0.000479107 Mean: 0.0892775 Max: 0.171871
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0102195 (0.00278315 0.000304853 0) 0.00943526 
+  GMRES iteration: 1   Residual: 8.59206e-07 (7.08112e-07 4.48091e-07 0) 1.15221e-06 
+pseudoTime: iteration 22
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 1.01903 Mean: 99.9698 Max: 100
+Pseudo deltaT: Min: 0.000961034 Mean: 0.0892898 Max: 0.171878
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00832582 (0.00229788 0.000248944 0) 0.00761889 
+  GMRES iteration: 1   Residual: 5.44668e-07 (5.96526e-07 4.10686e-07 0) 7.25499e-07 
+pseudoTime: iteration 23
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 2.03806 Mean: 99.9801 Max: 100
+Pseudo deltaT: Min: 0.0019307 Mean: 0.0893021 Max: 0.171897
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00625343 (0.00164439 0.000178696 0) 0.00571604 
+  GMRES iteration: 1   Residual: 5.05879e-07 (5.11668e-07 3.01219e-07 0) 4.56945e-07 
+pseudoTime: iteration 24
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 4.07612 Mean: 99.9869 Max: 100
+Pseudo deltaT: Min: 0.00388086 Mean: 0.0893089 Max: 0.171922
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00448126 (0.00123973 0.000155809 0) 0.00408298 
+  GMRES iteration: 1   Residual: 4.69778e-07 (3.7172e-07 1.52993e-07 0) 4.34485e-07 
+pseudoTime: iteration 25
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 8.15225 Mean: 99.9973 Max: 100
+Pseudo deltaT: Min: 0.00779712 Mean: 0.089319 Max: 0.171948
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00309548 (0.00100969 0.000140738 0) 0.00281599 
+  GMRES iteration: 1   Residual: 2.96622e-07 (2.42539e-07 1.18591e-07 0) 3.05919e-07 
+pseudoTime: converged in 25 iterations
+ExecutionTime = 80 s  ExecutionStepTime = 17.58 s  ClockTime = 80 s
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50087 4.80032
+Time = 0.010715
+
+pseudoTime: iteration 1
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 16.3045 Mean: 99.9986 Max: 100
+Pseudo deltaT: Min: 0.0156491 Mean: 0.0893203 Max: 0.171969
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.134578 (0.0993865 0.0148543 0) 0.142243 
+  GMRES iteration: 1   Residual: 3.0987e-05 (7.58987e-05 6.15165e-05 0) 2.13246e-05 
+pseudoTime: iteration 2
+Pseudo Courant No: 15.739
+Damped pseudo Courant No: Min: 1.28308 Mean: 15.7252 Max: 15.739
+Pseudo deltaT: Min: 0.00131419 Mean: 0.0140441 Max: 0.0199631
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.108001 (0.0842396 0.00849817 0) 0.106506 
+  GMRES iteration: 1   Residual: 1.96587e-05 (4.98356e-05 2.43336e-05 0) 1.6573e-05 
+pseudoTime: iteration 3
+Pseudo Courant No: 18.8868
+Damped pseudo Courant No: Min: 0.769849 Mean: 18.8633 Max: 18.8868
+Pseudo deltaT: Min: 0.000812818 Mean: 0.0168455 Max: 0.0182226
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0866138 (0.0195988 0.005503 0) 0.0746173 
+  GMRES iteration: 1   Residual: 1.91767e-05 (3.98487e-05 1.61908e-05 0) 1.58675e-05 
+pseudoTime: iteration 4
+Pseudo Courant No: 22.6642
+Damped pseudo Courant No: Min: 0.46191 Mean: 22.635 Max: 22.6642
+Pseudo deltaT: Min: 0.000500968 Mean: 0.0202129 Max: 0.0392119
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0712848 (0.0500737 0.00319057 0) 0.0648567 
+  GMRES iteration: 1   Residual: 8.5993e-06 (1.33654e-05 4.54178e-06 0) 5.86164e-06 
+pseudoTime: iteration 5
+Pseudo Courant No: 27.197
+Damped pseudo Courant No: Min: 0.277146 Mean: 27.1638 Max: 27.197
+Pseudo deltaT: Min: 0.000299009 Mean: 0.024259 Max: 0.0472102
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0733786 (0.0351393 0.00275155 0) 0.0616821 
+  GMRES iteration: 1   Residual: 4.3319e-06 (5.35976e-06 2.23324e-06 0) 4.08513e-06 
+pseudoTime: iteration 6
+Pseudo Courant No: 32.6364
+Damped pseudo Courant No: Min: 0.166287 Mean: 32.5979 Max: 32.6364
+Pseudo deltaT: Min: 0.000177699 Mean: 0.029113 Max: 0.056804
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0674298 (0.0130022 0.00243841 0) 0.0577116 
+  GMRES iteration: 1   Residual: 1.89099e-06 (1.57559e-06 9.61245e-07 0) 2.21425e-06 
+pseudoTime: iteration 7
+Pseudo Courant No: 38.6036
+Damped pseudo Courant No: Min: 0.118284 Mean: 38.5592 Max: 38.6036
+Pseudo deltaT: Min: 0.000126241 Mean: 0.034437 Max: 0.0673076
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0583522 (0.00820169 0.00165196 0) 0.0528119 
+  GMRES iteration: 1   Residual: 2.36097e-06 (1.77011e-06 1.13563e-06 0) 2.5271e-06 
+pseudoTime: iteration 8
+Pseudo Courant No: 43.7685
+Damped pseudo Courant No: Min: 0.113379 Mean: 43.7207 Max: 43.7685
+Pseudo deltaT: Min: 0.000121241 Mean: 0.0390467 Max: 0.0763567
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0472871 (0.00790652 0.00110497 0) 0.0432981 
+  GMRES iteration: 1   Residual: 1.73506e-06 (1.32567e-06 9.45727e-07 0) 1.77076e-06 
+pseudoTime: iteration 9
+Pseudo Courant No: 52.5223
+Damped pseudo Courant No: Min: 0.12 Mean: 52.4676 Max: 52.5223
+Pseudo deltaT: Min: 0.000128579 Mean: 0.0468584 Max: 0.0916172
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0365037 (0.00758952 0.000748981 0) 0.0337255 
+  GMRES iteration: 1   Residual: 5.22159e-07 (1.17835e-06 9.29378e-07 0) 5.22745e-07 
+pseudoTime: iteration 10
+Pseudo Courant No: 63.0267
+Damped pseudo Courant No: Min: 0.123099 Mean: 62.9628 Max: 63.0267
+Pseudo deltaT: Min: 0.000121235 Mean: 0.056232 Max: 0.109986
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.031489 (0.00808461 0.000680095 0) 0.0294503 
+  GMRES iteration: 1   Residual: 7.31594e-07 (1.5259e-06 8.20087e-07 0) 7.62925e-07 
+pseudoTime: iteration 11
+Pseudo Courant No: 75.6321
+Damped pseudo Courant No: Min: 0.12 Mean: 75.5614 Max: 75.6321
+Pseudo deltaT: Min: 0.000117969 Mean: 0.0674845 Max: 0.132446
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0291823 (0.00815791 0.000785322 0) 0.0272255 
+  GMRES iteration: 1   Residual: 4.53835e-07 (7.09137e-07 3.57442e-07 0) 4.74219e-07 
+pseudoTime: iteration 12
+Pseudo Courant No: 85.023
+Damped pseudo Courant No: Min: 0.112417 Mean: 84.9529 Max: 85.023
+Pseudo deltaT: Min: 0.000110371 Mean: 0.0758722 Max: 0.149173
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0210581 (0.00410066 0.000699885 0) 0.0197129 
+  GMRES iteration: 1   Residual: 1.03799e-06 (1.22571e-06 8.80107e-07 0) 1.12307e-06 
+pseudoTime: iteration 13
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.117615 Mean: 99.9229 Max: 100
+Pseudo deltaT: Min: 0.000115314 Mean: 0.0892442 Max: 0.175719
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0192768 (0.0046075 0.000901963 0) 0.018088 
+  GMRES iteration: 1   Residual: 7.93824e-07 (1.33837e-06 5.50731e-07 0) 8.11437e-07 
+pseudoTime: iteration 14
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9298 Max: 100
+Pseudo deltaT: Min: 9.78949e-05 Mean: 0.0892542 Max: 0.175918
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0147261 (0.00381929 0.000946839 0) 0.0142577 
+  GMRES iteration: 1   Residual: 1.58398e-06 (1.73525e-06 7.53499e-07 0) 1.61002e-06 
+pseudoTime: iteration 15
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.2 Mean: 99.9408 Max: 100
+Pseudo deltaT: Min: 0.000195583 Mean: 0.0892699 Max: 0.176015
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0108074 (0.00437436 0.000845762 0) 0.0108392 
+  GMRES iteration: 1   Residual: 1.27442e-06 (1.59886e-06 7.43186e-07 0) 1.44165e-06 
+pseudoTime: iteration 16
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9478 Max: 100
+Pseudo deltaT: Min: 9.7825e-05 Mean: 0.0892806 Max: 0.176081
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0077415 (0.00259668 0.00079062 0) 0.00741637 
+  GMRES iteration: 1   Residual: 1.02597e-06 (1.32139e-06 5.32388e-07 0) 1.3388e-06 
+pseudoTime: iteration 17
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.2 Mean: 99.9514 Max: 100
+Pseudo deltaT: Min: 0.000195615 Mean: 0.0892841 Max: 0.176106
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00519871 (0.00335311 0.000684777 0) 0.00472542 
+  GMRES iteration: 1   Residual: 7.05053e-07 (1.1018e-06 6.30151e-07 0) 8.01037e-07 
+pseudoTime: iteration 18
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.4 Mean: 99.9593 Max: 100
+Pseudo deltaT: Min: 0.000391128 Mean: 0.0892916 Max: 0.176091
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00288551 (0.00292385 0.000538849 0) 0.00248275 
+  GMRES iteration: 1   Residual: 3.38584e-07 (7.02108e-07 3.57868e-07 0) 4.24768e-07 
+pseudoTime: iteration 19
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.2 Mean: 99.974 Max: 100
+Pseudo deltaT: Min: 0.00019606 Mean: 0.0893058 Max: 0.176068
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00169978 (0.00203609 0.000520486 0) 0.00155512 
+  GMRES iteration: 1   Residual: 2.65443e-07 (5.36984e-07 2.42203e-07 0) 3.2908e-07 
+pseudoTime: converged in 19 iterations
+ExecutionTime = 93.64 s  ExecutionStepTime = 13.64 s  ClockTime = 93 s
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50083 4.80032
+Time = 0.012858
+
+pseudoTime: iteration 1
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.4 Mean: 99.9874 Max: 100
+Pseudo deltaT: Min: 0.000392345 Mean: 0.0893197 Max: 0.176053
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.085699 (0.143484 0.0165304 0) 0.086942 
+  GMRES iteration: 1   Residual: 5.29431e-05 (6.2406e-05 5.7721e-05 0) 4.80398e-05 
+pseudoTime: iteration 2
+Pseudo Courant No: 18.3175
+Damped pseudo Courant No: Min: 0.0366351 Mean: 18.3022 Max: 18.3175
+Pseudo deltaT: Min: 3.6751e-05 Mean: 0.0163496 Max: 0.0329566
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0809766 (0.147452 0.00903357 0) 0.0861396 
+  GMRES iteration: 1   Residual: 1.80806e-05 (1.92057e-05 1.02815e-05 0) 1.4371e-05 
+pseudoTime: iteration 3
+Pseudo Courant No: 18.3081
+Damped pseudo Courant No: Min: 0.0999485 Mean: 18.2874 Max: 18.3081
+Pseudo deltaT: Min: 9.31802e-05 Mean: 0.0163351 Max: 0.0328965
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0684846 (0.0686255 0.00513156 0) 0.0649037 
+  GMRES iteration: 1   Residual: 1.05063e-05 (1.21392e-05 6.54852e-06 0) 1.12144e-05 
+pseudoTime: iteration 4
+Pseudo Courant No: 21.9697
+Damped pseudo Courant No: Min: 0.12 Mean: 21.9426 Max: 21.9697
+Pseudo deltaT: Min: 0.000112204 Mean: 0.0195992 Max: 0.0391031
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0543554 (0.0602706 0.00395196 0) 0.053869 
+  GMRES iteration: 1   Residual: 4.05851e-06 (3.64684e-06 2.81257e-06 0) 3.14157e-06 
+pseudoTime: iteration 5
+Pseudo Courant No: 26.3637
+Damped pseudo Courant No: Min: 0.12 Mean: 26.3328 Max: 26.3637
+Pseudo deltaT: Min: 0.000112715 Mean: 0.0235197 Max: 0.0470836
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.042813 (0.0248488 0.00303865 0) 0.044089 
+  GMRES iteration: 1   Residual: 1.45159e-06 (9.36968e-07 2.15793e-06 0) 1.15558e-06 
+pseudoTime: iteration 6
+Pseudo Courant No: 31.6364
+Damped pseudo Courant No: Min: 0.12 Mean: 31.6005 Max: 31.6364
+Pseudo deltaT: Min: 0.00011272 Mean: 0.0282242 Max: 0.0566591
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0293156 (0.0132336 0.00258372 0) 0.0325631 
+  GMRES iteration: 1   Residual: 6.35653e-07 (4.80733e-07 8.89982e-07 0) 4.61982e-07 
+pseudoTime: iteration 7
+Pseudo Courant No: 37.9637
+Damped pseudo Courant No: Min: 0.12 Mean: 37.922 Max: 37.9637
+Pseudo deltaT: Min: 0.00011246 Mean: 0.0338703 Max: 0.0680256
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0185261 (0.00719079 0.00220949 0) 0.0238727 
+  GMRES iteration: 1   Residual: 2.42836e-07 (2.76656e-07 3.95268e-07 0) 2.55633e-07 
+pseudoTime: iteration 8
+Pseudo Courant No: 45.5564
+Damped pseudo Courant No: Min: 0.12 Mean: 45.5098 Max: 45.5564
+Pseudo deltaT: Min: 0.000112214 Mean: 0.0406496 Max: 0.0816168
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0122962 (0.00614518 0.00185293 0) 0.018241 
+  GMRES iteration: 1   Residual: 1.42563e-07 (2.30714e-07 2.21657e-07 0) 1.99138e-07 
+pseudoTime: iteration 9
+Pseudo Courant No: 54.6677
+Damped pseudo Courant No: Min: 0.12 Mean: 54.6172 Max: 54.6677
+Pseudo deltaT: Min: 0.000111962 Mean: 0.0487881 Max: 0.0979527
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00876847 (0.00526467 0.00156872 0) 0.01594 
+  GMRES iteration: 1   Residual: 2.10308e-07 (3.38455e-07 2.72174e-07 0) 2.34385e-07 
+pseudoTime: iteration 10
+Pseudo Courant No: 65.6012
+Damped pseudo Courant No: Min: 0.12 Mean: 65.5445 Max: 65.6012
+Pseudo deltaT: Min: 0.000111767 Mean: 0.0585524 Max: 0.117567
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00644399 (0.00456602 0.00132579 0) 0.0153224 
+  GMRES iteration: 1   Residual: 1.54833e-07 (2.29349e-07 1.8611e-07 0) 1.69961e-07 
+pseudoTime: iteration 11
+Pseudo Courant No: 78.7215
+Damped pseudo Courant No: Min: 0.12 Mean: 78.655 Max: 78.7215
+Pseudo deltaT: Min: 0.000111634 Mean: 0.0702644 Max: 0.141105
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00561133 (0.00352136 0.00111176 0) 0.0146219 
+  GMRES iteration: 1   Residual: 1.36574e-07 (3.16098e-07 2.2059e-07 0) 2.07055e-07 
+pseudoTime: iteration 12
+Pseudo Courant No: 94.4657
+Damped pseudo Courant No: Min: 0.12 Mean: 94.3866 Max: 94.4657
+Pseudo deltaT: Min: 0.000113764 Mean: 0.0843179 Max: 0.16933
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00575693 (0.00278899 0.00101038 0) 0.0137545 
+  GMRES iteration: 1   Residual: 7.75876e-08 (1.47879e-07 1.22987e-07 0) 9.32833e-08 
+pseudoTime: iteration 13
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.105858 Mean: 99.9168 Max: 100
+Pseudo deltaT: Min: 0.000100271 Mean: 0.0892583 Max: 0.179251
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00525676 (0.00179469 0.000761404 0) 0.0118182 
+  GMRES iteration: 1   Residual: 6.89575e-08 (1.44302e-07 9.88657e-08 0) 6.893e-08 
+pseudoTime: iteration 14
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.211717 Mean: 99.9189 Max: 100
+Pseudo deltaT: Min: 0.000200284 Mean: 0.0892604 Max: 0.179246
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00651852 (0.00195688 0.00073252 0) 0.0129812 
+  GMRES iteration: 1   Residual: 1.50208e-07 (2.84342e-07 2.04803e-07 0) 1.98713e-07 
+pseudoTime: iteration 15
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.105858 Mean: 99.9198 Max: 100
+Pseudo deltaT: Min: 0.0001 Mean: 0.0892612 Max: 0.179208
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00585709 (0.00312079 0.000546983 0) 0.0112826 
+  GMRES iteration: 1   Residual: 1.17603e-07 (2.36611e-07 2.00081e-07 0) 1.56357e-07 
+pseudoTime: iteration 16
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.211717 Mean: 99.9212 Max: 100
+Pseudo deltaT: Min: 0.000199981 Mean: 0.0892626 Max: 0.179197
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00718209 (0.0030075 0.000437879 0) 0.0122949 
+  GMRES iteration: 1   Residual: 2.2299e-07 (2.90853e-07 1.83672e-07 0) 2.65981e-07 
+pseudoTime: iteration 17
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.105858 Mean: 99.9233 Max: 100
+Pseudo deltaT: Min: 0.00010111 Mean: 0.0892646 Max: 0.179146
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00781398 (0.00448399 0.00033589 0) 0.0114755 
+  GMRES iteration: 1   Residual: 3.36661e-07 (4.30867e-07 2.61621e-07 0) 2.97641e-07 
+pseudoTime: iteration 18
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.119091 Mean: 99.9236 Max: 100
+Pseudo deltaT: Min: 0.000113229 Mean: 0.0892649 Max: 0.179063
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00729113 (0.00528377 0.000255672 0) 0.0105093 
+  GMRES iteration: 1   Residual: 6.30171e-08 (1.4282e-07 1.3475e-07 0) 8.69789e-08 
+pseudoTime: iteration 19
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.238182 Mean: 99.9264 Max: 100
+Pseudo deltaT: Min: 0.000226616 Mean: 0.0892677 Max: 0.179054
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00769388 (0.0039086 0.00018964 0) 0.00993133 
+  GMRES iteration: 1   Residual: 2.37029e-07 (2.94971e-07 1.76871e-07 0) 1.61312e-07 
+pseudoTime: iteration 20
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.476363 Mean: 99.9303 Max: 100
+Pseudo deltaT: Min: 0.000454194 Mean: 0.0892716 Max: 0.179014
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00709656 (0.00505536 0.000175796 0) 0.00888958 
+  GMRES iteration: 1   Residual: 2.60085e-07 (3.59567e-07 2.54063e-07 0) 1.94776e-07 
+pseudoTime: iteration 21
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.357272 Mean: 99.9368 Max: 100
+Pseudo deltaT: Min: 0.000341999 Mean: 0.0892781 Max: 0.178974
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00656114 (0.00637625 0.000157923 0) 0.00771302 
+  GMRES iteration: 1   Residual: 2.95438e-07 (3.39394e-07 3.10135e-07 0) 2.6911e-07 
+pseudoTime: iteration 22
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.714545 Mean: 99.948 Max: 100
+Pseudo deltaT: Min: 0.000685838 Mean: 0.0892891 Max: 0.178957
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00612727 (0.00498575 0.000164901 0) 0.00679434 
+  GMRES iteration: 1   Residual: 2.81169e-07 (3.15138e-07 2.66283e-07 0) 3.02959e-07 
+pseudoTime: iteration 23
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 1.42909 Mean: 99.9594 Max: 100
+Pseudo deltaT: Min: 0.00137662 Mean: 0.0893011 Max: 0.178973
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00508694 (0.00289831 0.000131366 0) 0.00538193 
+  GMRES iteration: 1   Residual: 1.96362e-07 (2.73577e-07 1.91203e-07 0) 2.3636e-07 
+pseudoTime: iteration 24
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 2.85818 Mean: 99.9684 Max: 100
+Pseudo deltaT: Min: 0.00276573 Mean: 0.0893126 Max: 0.179007
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00374945 (0.00157101 9.83549e-05 0) 0.00374552 
+  GMRES iteration: 1   Residual: 1.60592e-07 (2.07793e-07 1.2643e-07 0) 1.69242e-07 
+pseudoTime: iteration 25
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 5.71636 Mean: 99.9807 Max: 100
+Pseudo deltaT: Min: 0.00555209 Mean: 0.089328 Max: 0.179034
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00248584 (0.000827378 8.70737e-05 0) 0.00241336 
+  GMRES iteration: 1   Residual: 1.13249e-07 (1.33991e-07 7.75982e-08 0) 1.07888e-07 
+pseudoTime: converged in 25 iterations
+ExecutionTime = 111.59 s  ExecutionStepTime = 17.95 s  ClockTime = 111 s
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50081 4.80032
+Time = 0.015001
+
+pseudoTime: iteration 1
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 11.4327 Mean: 99.9878 Max: 100
+Pseudo deltaT: Min: 0.0111319 Mean: 0.0893351 Max: 0.179048
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0841487 (0.113183 0.0177239 0) 0.088244 
+  GMRES iteration: 1   Residual: 1.93368e-05 (4.77041e-05 2.17749e-05 0) 2.10792e-05 
+pseudoTime: iteration 2
+Pseudo Courant No: 20.7047
+Damped pseudo Courant No: Min: 1.18356 Mean: 20.6834 Max: 20.7047
+Pseudo deltaT: Min: 0.00124264 Mean: 0.0184772 Max: 0.0366853
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0708647 (0.0893987 0.00992704 0) 0.072932 
+  GMRES iteration: 1   Residual: 8.03022e-06 (8.52879e-06 7.5084e-06 0) 9.50714e-06 
+pseudoTime: iteration 3
+Pseudo Courant No: 24.8457
+Damped pseudo Courant No: Min: 0.710134 Mean: 24.8149 Max: 24.8457
+Pseudo deltaT: Min: 0.000755637 Mean: 0.0221691 Max: 0.0442417
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0648495 (0.0197785 0.00577851 0) 0.0585144 
+  GMRES iteration: 1   Residual: 6.79425e-06 (6.29502e-06 4.24503e-06 0) 7.12039e-06 
+pseudoTime: iteration 4
+Pseudo Courant No: 29.8148
+Damped pseudo Courant No: Min: 0.42608 Mean: 29.7782 Max: 29.8148
+Pseudo deltaT: Min: 0.00046764 Mean: 0.0266028 Max: 0.0529392
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0576849 (0.0448265 0.00328162 0) 0.0545942 
+  GMRES iteration: 1   Residual: 2.87626e-06 (4.39493e-06 2.81497e-06 0) 2.77354e-06 
+pseudoTime: iteration 5
+Pseudo Courant No: 35.7778
+Damped pseudo Courant No: Min: 0.255648 Mean: 35.734 Max: 35.7778
+Pseudo deltaT: Min: 0.000277655 Mean: 0.0319231 Max: 0.0636656
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0580201 (0.0261267 0.00271715 0) 0.0480489 
+  GMRES iteration: 1   Residual: 1.16796e-06 (2.69966e-06 1.38112e-06 0) 1.27591e-06 
+pseudoTime: iteration 6
+Pseudo Courant No: 42.9333
+Damped pseudo Courant No: Min: 0.153389 Mean: 42.8824 Max: 42.9333
+Pseudo deltaT: Min: 0.000165177 Mean: 0.0383087 Max: 0.0764191
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0525813 (0.0091265 0.0021015 0) 0.0447368 
+  GMRES iteration: 1   Residual: 8.02719e-07 (1.29339e-06 6.38338e-07 0) 7.21936e-07 
+pseudoTime: iteration 7
+Pseudo Courant No: 49.7217
+Damped pseudo Courant No: Min: 0.115811 Mean: 49.6667 Max: 49.7217
+Pseudo deltaT: Min: 0.000124584 Mean: 0.0443691 Max: 0.0885214
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0445745 (0.00912669 0.00144937 0) 0.0401805 
+  GMRES iteration: 1   Residual: 6.87648e-07 (4.86573e-07 4.95803e-07 0) 6.25035e-07 
+pseudoTime: iteration 8
+Pseudo Courant No: 57.0517
+Damped pseudo Courant No: Min: 0.114742 Mean: 56.9931 Max: 57.0517
+Pseudo deltaT: Min: 0.000123682 Mean: 0.0509138 Max: 0.101609
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0358913 (0.00794146 0.00108384 0) 0.0328014 
+  GMRES iteration: 1   Residual: 6.05447e-07 (3.83141e-07 4.96658e-07 0) 5.76833e-07 
+pseudoTime: iteration 9
+Pseudo Courant No: 68.462
+Damped pseudo Courant No: Min: 0.12 Mean: 68.3913 Max: 68.462
+Pseudo deltaT: Min: 0.000129606 Mean: 0.0610963 Max: 0.122007
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0271694 (0.00748705 0.000989163 0) 0.0254957 
+  GMRES iteration: 1   Residual: 2.7084e-07 (3.06351e-07 3.38478e-07 0) 2.70185e-07 
+pseudoTime: iteration 10
+Pseudo Courant No: 82.1544
+Damped pseudo Courant No: Min: 0.130451 Mean: 82.0709 Max: 82.1544
+Pseudo deltaT: Min: 0.000140037 Mean: 0.073318 Max: 0.146626
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0226192 (0.00687586 0.000960501 0) 0.0212652 
+  GMRES iteration: 1   Residual: 2.01456e-07 (1.47809e-07 2.63933e-07 0) 2.06486e-07 
+pseudoTime: iteration 11
+Pseudo Courant No: 98.5853
+Damped pseudo Courant No: Min: 0.12 Mean: 98.4953 Max: 98.5853
+Pseudo deltaT: Min: 0.000118518 Mean: 0.0879929 Max: 0.176001
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0223772 (0.00716701 0.00106664 0) 0.0208373 
+  GMRES iteration: 1   Residual: 4.31451e-07 (4.80755e-07 4.08318e-07 0) 5.24324e-07 
+pseudoTime: iteration 12
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.174689 Mean: 99.928 Max: 100
+Pseudo deltaT: Min: 0.000184796 Mean: 0.0892776 Max: 0.17845
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0229164 (0.00257918 0.00100283 0) 0.0230572 
+  GMRES iteration: 1   Residual: 7.49928e-07 (7.05413e-07 7.53613e-07 0) 7.95194e-07 
+pseudoTime: iteration 13
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.121722 Mean: 99.9236 Max: 100
+Pseudo deltaT: Min: 0.000120188 Mean: 0.0892734 Max: 0.178462
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.015248 (0.00730929 0.000756769 0) 0.0154909 
+  GMRES iteration: 1   Residual: 3.16567e-07 (4.47691e-07 4.70318e-07 0) 3.05878e-07 
+pseudoTime: iteration 14
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.238182 Mean: 99.9385 Max: 100
+Pseudo deltaT: Min: 0.000240451 Mean: 0.0892925 Max: 0.178487
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0134665 (0.00412164 0.000752541 0) 0.0128968 
+  GMRES iteration: 1   Residual: 3.33727e-07 (5.74919e-07 4.56726e-07 0) 4.23049e-07 
+pseudoTime: iteration 15
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.476363 Mean: 99.9446 Max: 100
+Pseudo deltaT: Min: 0.000481206 Mean: 0.0893014 Max: 0.178445
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0104724 (0.00322804 0.000644869 0) 0.00998067 
+  GMRES iteration: 1   Residual: 5.57134e-07 (7.35432e-07 4.59352e-07 0) 6.75393e-07 
+pseudoTime: iteration 16
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.243444 Mean: 99.9469 Max: 100
+Pseudo deltaT: Min: 0.000241204 Mean: 0.0893037 Max: 0.178404
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00727193 (0.00263125 0.000513505 0) 0.00681046 
+  GMRES iteration: 1   Residual: 4.88134e-07 (6.33534e-07 3.7971e-07 0) 6.19402e-07 
+pseudoTime: iteration 17
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.486888 Mean: 99.9497 Max: 100
+Pseudo deltaT: Min: 0.000483155 Mean: 0.0893065 Max: 0.178398
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00493577 (0.00224675 0.000361576 0) 0.00426593 
+  GMRES iteration: 1   Residual: 3.70795e-07 (5.03385e-07 3.61195e-07 0) 4.82193e-07 
+pseudoTime: iteration 18
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.973776 Mean: 99.9557 Max: 100
+Pseudo deltaT: Min: 0.000967689 Mean: 0.0893123 Max: 0.178411
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00310998 (0.00286599 0.000258779 0) 0.00246487 
+  GMRES iteration: 1   Residual: 1.6976e-07 (3.18344e-07 2.24265e-07 0) 2.23976e-07 
+pseudoTime: converged in 18 iterations
+ExecutionTime = 124.26 s  ExecutionStepTime = 12.67 s  ClockTime = 124 s
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50078 4.80032
+Time = 0.017144
+
+pseudoTime: iteration 1
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 1.94755 Mean: 99.9662 Max: 100
+Pseudo deltaT: Min: 0.00194126 Mean: 0.0893224 Max: 0.178422
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0769278 (0.0991179 0.0199039 0) 0.0819185 
+  GMRES iteration: 1   Residual: 1.58949e-05 (2.83444e-05 1.73283e-05 0) 1.84799e-05 
+pseudoTime: iteration 2
+Pseudo Courant No: 22.9169
+Damped pseudo Courant No: Min: 0.22316 Mean: 22.893 Max: 22.9169
+Pseudo deltaT: Min: 0.000231264 Mean: 0.0204551 Max: 0.0413398
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.066093 (0.113673 0.0107828 0) 0.0681062 
+  GMRES iteration: 1   Residual: 5.68191e-06 (7.95283e-06 3.87392e-06 0) 5.70206e-06 
+pseudoTime: iteration 3
+Pseudo Courant No: 23.3313
+Damped pseudo Courant No: Min: 0.113597 Mean: 23.3008 Max: 23.3313
+Pseudo deltaT: Min: 0.000117651 Mean: 0.0208187 Max: 0.0421363
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.052861 (0.0468492 0.00555831 0) 0.0451691 
+  GMRES iteration: 1   Residual: 2.81822e-06 (6.21043e-06 3.1763e-06 0) 2.63954e-06 
+pseudoTime: iteration 4
+Pseudo Courant No: 27.9976
+Damped pseudo Courant No: Min: 0.12 Mean: 27.9622 Max: 27.9976
+Pseudo deltaT: Min: 0.000124026 Mean: 0.0249825 Max: 0.0506112
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0398164 (0.0438362 0.00368455 0) 0.0391419 
+  GMRES iteration: 1   Residual: 9.99507e-07 (2.08749e-06 1.26269e-06 0) 1.03697e-06 
+pseudoTime: iteration 5
+Pseudo Courant No: 33.5971
+Damped pseudo Courant No: Min: 0.12 Mean: 33.5557 Max: 33.5971
+Pseudo deltaT: Min: 0.000113158 Mean: 0.0299791 Max: 0.0606584
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0310684 (0.013207 0.0027113 0) 0.0320983 
+  GMRES iteration: 1   Residual: 3.40686e-07 (8.98363e-07 3.89718e-07 0) 4.1969e-07 
+pseudoTime: iteration 6
+Pseudo Courant No: 40.3165
+Damped pseudo Courant No: Min: 0.12 Mean: 40.2692 Max: 40.3165
+Pseudo deltaT: Min: 0.000111609 Mean: 0.0359766 Max: 0.0728078
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.021182 (0.00753317 0.00175632 0) 0.0233176 
+  GMRES iteration: 1   Residual: 5.3655e-07 (5.12262e-07 4.72851e-07 0) 5.73675e-07 
+pseudoTime: iteration 7
+Pseudo Courant No: 48.3798
+Damped pseudo Courant No: Min: 0.12 Mean: 48.3299 Max: 48.3798
+Pseudo deltaT: Min: 0.000110605 Mean: 0.0431805 Max: 0.0873252
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0157746 (0.00688036 0.00146999 0) 0.0184737 
+  GMRES iteration: 1   Residual: 2.95136e-07 (3.33265e-07 2.99953e-07 0) 2.92112e-07 
+pseudoTime: iteration 8
+Pseudo Courant No: 58.0557
+Damped pseudo Courant No: Min: 0.12 Mean: 58.0039 Max: 58.0557
+Pseudo deltaT: Min: 0.000110486 Mean: 0.0518292 Max: 0.104758
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0121794 (0.00591791 0.00128549 0) 0.0153183 
+  GMRES iteration: 1   Residual: 1.29065e-07 (1.80951e-07 1.3168e-07 0) 1.19495e-07 
+pseudoTime: iteration 9
+Pseudo Courant No: 69.6669
+Damped pseudo Courant No: Min: 0.12 Mean: 69.6076 Max: 69.6669
+Pseudo deltaT: Min: 0.000110492 Mean: 0.0621986 Max: 0.12572
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00927139 (0.00438952 0.00113244 0) 0.0124371 
+  GMRES iteration: 1   Residual: 1.75016e-07 (2.87219e-07 1.76387e-07 0) 2.45065e-07 
+pseudoTime: iteration 10
+Pseudo Courant No: 83.6003
+Damped pseudo Courant No: Min: 0.12 Mean: 83.5309 Max: 83.6003
+Pseudo deltaT: Min: 0.00011108 Mean: 0.0746404 Max: 0.150908
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00720326 (0.00292985 0.000958545 0) 0.0102975 
+  GMRES iteration: 1   Residual: 1.32944e-07 (2.49319e-07 1.71301e-07 0) 2.17433e-07 
+pseudoTime: iteration 11
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.119617 Mean: 99.9176 Max: 100
+Pseudo deltaT: Min: 0.000110778 Mean: 0.0892832 Max: 0.180548
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0055998 (0.00239941 0.000903551 0) 0.00844204 
+  GMRES iteration: 1   Residual: 1.033e-07 (1.97077e-07 1.61116e-07 0) 1.61212e-07 
+pseudoTime: iteration 12
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9197 Max: 100
+Pseudo deltaT: Min: 9.26967e-05 Mean: 0.0892851 Max: 0.180532
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00547994 (0.00223397 0.000930953 0) 0.00838495 
+  GMRES iteration: 1   Residual: 1.31587e-07 (2.65699e-07 1.8224e-07 0) 1.96337e-07 
+pseudoTime: iteration 13
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9208 Max: 100
+Pseudo deltaT: Min: 9.27724e-05 Mean: 0.0892864 Max: 0.18053
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00446138 (0.00197981 0.000796607 0) 0.00741705 
+  GMRES iteration: 1   Residual: 6.96024e-08 (1.53457e-07 1.67336e-07 0) 1.24672e-07 
+pseudoTime: iteration 14
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.923 Max: 100
+Pseudo deltaT: Min: 9.35541e-05 Mean: 0.0892885 Max: 0.180513
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00508318 (0.00136194 0.000725785 0) 0.00785982 
+  GMRES iteration: 1   Residual: 9.43626e-08 (2.02041e-07 1.3475e-07 0) 1.08571e-07 
+pseudoTime: iteration 15
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9248 Max: 100
+Pseudo deltaT: Min: 9.35976e-05 Mean: 0.0892904 Max: 0.180468
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00582347 (0.00139001 0.000539511 0) 0.0080531 
+  GMRES iteration: 1   Residual: 1.46854e-07 (1.77679e-07 1.37294e-07 0) 2.08322e-07 
+pseudoTime: iteration 16
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9284 Max: 100
+Pseudo deltaT: Min: 9.35285e-05 Mean: 0.0892938 Max: 0.180442
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0068851 (0.00116161 0.000441537 0) 0.0083427 
+  GMRES iteration: 1   Residual: 1.81033e-07 (1.98427e-07 1.18912e-07 0) 2.02627e-07 
+pseudoTime: iteration 17
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9325 Max: 100
+Pseudo deltaT: Min: 9.36463e-05 Mean: 0.0892978 Max: 0.180435
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00724401 (0.00227514 0.000399239 0) 0.00827847 
+  GMRES iteration: 1   Residual: 1.09904e-07 (2.36857e-07 1.6612e-07 0) 1.53197e-07 
+pseudoTime: iteration 18
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1125 Mean: 99.9329 Max: 100
+Pseudo deltaT: Min: 0.000105735 Mean: 0.0892983 Max: 0.180425
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00699482 (0.00312262 0.000373812 0) 0.00799584 
+  GMRES iteration: 1   Residual: 6.16313e-08 (1.63509e-07 1.22999e-07 0) 9.61945e-08 
+pseudoTime: iteration 19
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1125 Mean: 99.9384 Max: 100
+Pseudo deltaT: Min: 0.000107063 Mean: 0.0893035 Max: 0.180427
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00706298 (0.00241226 0.000300977 0) 0.00743966 
+  GMRES iteration: 1   Residual: 1.25511e-07 (1.94345e-07 1.0565e-07 0) 1.1987e-07 
+pseudoTime: iteration 20
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1125 Mean: 99.9463 Max: 100
+Pseudo deltaT: Min: 0.000106063 Mean: 0.0893108 Max: 0.180425
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00621672 (0.00315167 0.000280983 0) 0.00671168 
+  GMRES iteration: 1   Residual: 1.50676e-07 (2.41013e-07 1.86242e-07 0) 1.80422e-07 
+pseudoTime: iteration 21
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.225 Mean: 99.9554 Max: 100
+Pseudo deltaT: Min: 0.000212382 Mean: 0.0893196 Max: 0.180417
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00575536 (0.00390229 0.000251325 0) 0.00598977 
+  GMRES iteration: 1   Residual: 1.62887e-07 (3.07675e-07 2.68456e-07 0) 1.91028e-07 
+pseudoTime: iteration 22
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.45 Mean: 99.9584 Max: 100
+Pseudo deltaT: Min: 0.000426114 Mean: 0.0893233 Max: 0.180421
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00551515 (0.0031945 0.000213107 0) 0.00570472 
+  GMRES iteration: 1   Residual: 1.97306e-07 (4.17835e-07 3.02971e-07 0) 2.36755e-07 
+pseudoTime: iteration 23
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.9 Mean: 99.9632 Max: 100
+Pseudo deltaT: Min: 0.000856542 Mean: 0.0893292 Max: 0.180424
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00411591 (0.00218889 0.000146753 0) 0.00406804 
+  GMRES iteration: 1   Residual: 2.01297e-07 (3.71096e-07 2.20409e-07 0) 2.22248e-07 
+pseudoTime: iteration 24
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 1.8 Mean: 99.9721 Max: 100
+Pseudo deltaT: Min: 0.00172337 Mean: 0.0893403 Max: 0.180417
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00307995 (0.00172016 0.000109904 0) 0.00296342 
+  GMRES iteration: 1   Residual: 1.54407e-07 (2.68261e-07 1.65307e-07 0) 1.78815e-07 
+pseudoTime: converged in 24 iterations
+ExecutionTime = 141.3 s  ExecutionStepTime = 17.04 s  ClockTime = 141 s
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50078 4.80032
+Time = 0.019287
+
+pseudoTime: iteration 1
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 3.6 Mean: 99.9827 Max: 100
+Pseudo deltaT: Min: 0.0034667 Mean: 0.0893531 Max: 0.180405
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0639117 (0.0832446 0.0197631 0) 0.0644888 
+  GMRES iteration: 1   Residual: 1.12699e-05 (1.6473e-05 9.96395e-06 0) 1.31915e-05 
+pseudoTime: iteration 2
+Pseudo Courant No: 27.7673
+Damped pseudo Courant No: Min: 0.499811 Mean: 27.7358 Max: 27.7673
+Pseudo deltaT: Min: 0.000512116 Mean: 0.0247843 Max: 0.0500206
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.052207 (0.0617961 0.0117332 0) 0.0494179 
+  GMRES iteration: 1   Residual: 6.49547e-06 (1.17583e-05 5.37969e-06 0) 7.41444e-06 
+pseudoTime: iteration 3
+Pseudo Courant No: 33.3208
+Damped pseudo Courant No: Min: 0.299887 Mean: 33.276 Max: 33.3208
+Pseudo deltaT: Min: 0.000313866 Mean: 0.029736 Max: 0.0601395
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0495351 (0.0165994 0.00660653 0) 0.0438605 
+  GMRES iteration: 1   Residual: 4.31027e-06 (7.15349e-06 3.71024e-06 0) 5.11223e-06 
+pseudoTime: iteration 4
+Pseudo Courant No: 39.9849
+Damped pseudo Courant No: Min: 0.179932 Mean: 39.9318 Max: 39.9849
+Pseudo deltaT: Min: 0.000190754 Mean: 0.0356834 Max: 0.0721572
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0442034 (0.036723 0.00356573 0) 0.0411433 
+  GMRES iteration: 1   Residual: 2.13123e-06 (4.54808e-06 1.84128e-06 0) 2.40628e-06 
+pseudoTime: iteration 5
+Pseudo Courant No: 47.9819
+Damped pseudo Courant No: Min: 0.12 Mean: 47.921 Max: 47.9819
+Pseudo deltaT: Min: 0.000126144 Mean: 0.042822 Max: 0.0866403
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0437332 (0.0189331 0.00282114 0) 0.0362236 
+  GMRES iteration: 1   Residual: 1.13431e-06 (2.49523e-06 1.03485e-06 0) 1.3495e-06 
+pseudoTime: iteration 6
+Pseudo Courant No: 57.5783
+Damped pseudo Courant No: Min: 0.12 Mean: 57.5086 Max: 57.5783
+Pseudo deltaT: Min: 0.000126401 Mean: 0.051389 Max: 0.104003
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0387325 (0.00652689 0.00203984 0) 0.0344037 
+  GMRES iteration: 1   Residual: 7.01143e-07 (1.08663e-06 5.50721e-07 0) 7.42254e-07 
+pseudoTime: iteration 7
+Pseudo Courant No: 66.2922
+Damped pseudo Courant No: Min: 0.115134 Mean: 66.2187 Max: 66.2922
+Pseudo deltaT: Min: 0.000121932 Mean: 0.0591718 Max: 0.119708
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0320323 (0.00650596 0.00145544 0) 0.0297354 
+  GMRES iteration: 1   Residual: 3.0435e-07 (4.44126e-07 2.3991e-07 0) 3.22157e-07 
+pseudoTime: iteration 8
+Pseudo Courant No: 78.3519
+Damped pseudo Courant No: Min: 0.118192 Mean: 78.2672 Max: 78.3519
+Pseudo deltaT: Min: 0.00012761 Mean: 0.0699381 Max: 0.141532
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0256298 (0.00546362 0.0011795 0) 0.0240496 
+  GMRES iteration: 1   Residual: 1.67208e-07 (1.7281e-07 1.14611e-07 0) 1.74567e-07 
+pseudoTime: iteration 9
+Pseudo Courant No: 94.0223
+Damped pseudo Courant No: Min: 0.12 Mean: 93.9247 Max: 94.0223
+Pseudo deltaT: Min: 0.000129167 Mean: 0.0839309 Max: 0.169849
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0208067 (0.0049001 0.00100761 0) 0.019692 
+  GMRES iteration: 1   Residual: 1.12332e-07 (1.54304e-07 1.05161e-07 0) 1.10615e-07 
+pseudoTime: iteration 10
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.106358 Mean: 99.9052 Max: 100
+Pseudo deltaT: Min: 0.000116674 Mean: 0.0892785 Max: 0.180651
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0189242 (0.00409914 0.00090302 0) 0.0179362 
+  GMRES iteration: 1   Residual: 1.91906e-07 (3.16569e-07 1.20046e-07 0) 1.98891e-07 
+pseudoTime: iteration 11
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9108 Max: 100
+Pseudo deltaT: Min: 9.34856e-05 Mean: 0.0892828 Max: 0.180665
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0150546 (0.00349004 0.000791145 0) 0.0151881 
+  GMRES iteration: 1   Residual: 2.78772e-07 (4.45671e-07 2.06491e-07 0) 2.88372e-07 
+pseudoTime: iteration 12
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9278 Max: 100
+Pseudo deltaT: Min: 9.3367e-05 Mean: 0.0893024 Max: 0.180665
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0131154 (0.00265623 0.000757341 0) 0.0126462 
+  GMRES iteration: 1   Residual: 2.51065e-07 (3.85502e-07 2.61954e-07 0) 2.76302e-07 
+pseudoTime: iteration 13
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9405 Max: 100
+Pseudo deltaT: Min: 9.327e-05 Mean: 0.0893209 Max: 0.180672
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.010766 (0.00304638 0.000742275 0) 0.0104729 
+  GMRES iteration: 1   Residual: 3.92111e-07 (5.30612e-07 2.89435e-07 0) 4.10046e-07 
+pseudoTime: iteration 14
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.2 Mean: 99.943 Max: 100
+Pseudo deltaT: Min: 0.000186408 Mean: 0.0893238 Max: 0.180684
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00829059 (0.00455848 0.000667772 0) 0.00838117 
+  GMRES iteration: 1   Residual: 4.7049e-07 (6.57405e-07 3.99082e-07 0) 4.96159e-07 
+pseudoTime: iteration 15
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9464 Max: 100
+Pseudo deltaT: Min: 9.71605e-05 Mean: 0.0893272 Max: 0.180701
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00626357 (0.00360116 0.000559879 0) 0.0061796 
+  GMRES iteration: 1   Residual: 3.88122e-07 (6.99707e-07 4.38293e-07 0) 4.4242e-07 
+pseudoTime: iteration 16
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.2 Mean: 99.9516 Max: 100
+Pseudo deltaT: Min: 0.000194133 Mean: 0.0893324 Max: 0.180708
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00466603 (0.00125636 0.000476209 0) 0.00434037 
+  GMRES iteration: 1   Residual: 2.61485e-07 (5.82925e-07 3.80711e-07 0) 3.66056e-07 
+pseudoTime: iteration 17
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9619 Max: 100
+Pseudo deltaT: Min: 9.70232e-05 Mean: 0.0893421 Max: 0.180698
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00309136 (0.00180969 0.000429611 0) 0.00274743 
+  GMRES iteration: 1   Residual: 1.56085e-07 (3.23259e-07 2.40673e-07 0) 2.14093e-07 
+pseudoTime: converged in 17 iterations
+ExecutionTime = 153.38 s  ExecutionStepTime = 12.08 s  ClockTime = 153 s
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50074 4.80032
+Time = 0.02143
+
+pseudoTime: iteration 1
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.2 Mean: 99.977 Max: 100
+Pseudo deltaT: Min: 0.00019402 Mean: 0.0893564 Max: 0.180696
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0587759 (0.088017 0.0219394 0) 0.0603479 
+  GMRES iteration: 1   Residual: 1.46619e-05 (2.74655e-05 1.61653e-05 0) 1.44226e-05 
+pseudoTime: iteration 2
+Pseudo Courant No: 27.9829
+Damped pseudo Courant No: Min: 0.0279829 Mean: 27.952 Max: 27.9829
+Pseudo deltaT: Min: 2.76462e-05 Mean: 0.0249819 Max: 0.0504063
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0540008 (0.0895928 0.0113651 0) 0.0551911 
+  GMRES iteration: 1   Residual: 5.18141e-06 (1.2048e-05 4.79869e-06 0) 5.1854e-06 
+pseudoTime: iteration 3
+Pseudo Courant No: 29.1542
+Damped pseudo Courant No: Min: 0.104186 Mean: 29.1142 Max: 29.1542
+Pseudo deltaT: Min: 9.97135e-05 Mean: 0.0260192 Max: 0.0524964
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0433454 (0.0454255 0.00600221 0) 0.0385476 
+  GMRES iteration: 1   Residual: 3.28087e-06 (5.59857e-06 2.46785e-06 0) 3.10163e-06 
+pseudoTime: iteration 4
+Pseudo Courant No: 34.9851
+Damped pseudo Courant No: Min: 0.12 Mean: 34.9344 Max: 34.9851
+Pseudo deltaT: Min: 0.000115645 Mean: 0.0312193 Max: 0.0629305
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0347188 (0.0400051 0.00408686 0) 0.0338062 
+  GMRES iteration: 1   Residual: 1.55966e-06 (3.13061e-06 1.28468e-06 0) 1.50929e-06 
+pseudoTime: iteration 5
+Pseudo Courant No: 41.9821
+Damped pseudo Courant No: Min: 0.12 Mean: 41.9275 Max: 41.9821
+Pseudo deltaT: Min: 0.000116573 Mean: 0.0374675 Max: 0.075526
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0283424 (0.0131855 0.00304794 0) 0.0291206 
+  GMRES iteration: 1   Residual: 8.11068e-07 (1.50245e-06 6.38717e-07 0) 7.84652e-07 
+pseudoTime: iteration 6
+Pseudo Courant No: 50.3785
+Damped pseudo Courant No: Min: 0.12 Mean: 50.3178 Max: 50.3785
+Pseudo deltaT: Min: 0.000117354 Mean: 0.0449645 Max: 0.0906678
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0187361 (0.00706995 0.00214631 0) 0.0206531 
+  GMRES iteration: 1   Residual: 3.56633e-07 (6.76639e-07 2.77922e-07 0) 3.2924e-07 
+pseudoTime: iteration 7
+Pseudo Courant No: 60.4542
+Damped pseudo Courant No: Min: 0.12 Mean: 60.3903 Max: 60.4542
+Pseudo deltaT: Min: 0.000118065 Mean: 0.0539686 Max: 0.108816
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.012887 (0.00711705 0.0016163 0) 0.0158769 
+  GMRES iteration: 1   Residual: 2.0461e-07 (3.45585e-07 1.40645e-07 0) 1.77426e-07 
+pseudoTime: iteration 8
+Pseudo Courant No: 72.545
+Damped pseudo Courant No: Min: 0.12 Mean: 72.4788 Max: 72.545
+Pseudo deltaT: Min: 0.000118711 Mean: 0.0647791 Max: 0.130582
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00916663 (0.00667955 0.00125523 0) 0.0127867 
+  GMRES iteration: 1   Residual: 1.2673e-07 (1.8385e-07 8.33746e-08 0) 1.26617e-07 
+pseudoTime: iteration 9
+Pseudo Courant No: 87.054
+Damped pseudo Courant No: Min: 0.12 Mean: 86.9775 Max: 87.054
+Pseudo deltaT: Min: 0.000119341 Mean: 0.0777385 Max: 0.156703
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00681248 (0.00566167 0.00103322 0) 0.0117123 
+  GMRES iteration: 1   Residual: 8.28918e-08 (1.227e-07 6.69308e-08 0) 9.18627e-08 
+pseudoTime: iteration 10
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.114871 Mean: 99.9137 Max: 100
+Pseudo deltaT: Min: 0.000114754 Mean: 0.0893009 Max: 0.180016
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0052388 (0.00430581 0.000899084 0) 0.0113329 
+  GMRES iteration: 1   Residual: 8.01592e-08 (1.67341e-07 8.59038e-08 0) 1.01472e-07 
+pseudoTime: iteration 11
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9149 Max: 100
+Pseudo deltaT: Min: 9.40915e-05 Mean: 0.0893021 Max: 0.180038
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00393342 (0.00248973 0.000757422 0) 0.00993875 
+  GMRES iteration: 1   Residual: 4.61387e-08 (1.16294e-07 6.2166e-08 0) 7.82197e-08 
+pseudoTime: iteration 12
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9163 Max: 100
+Pseudo deltaT: Min: 9.56891e-05 Mean: 0.0893035 Max: 0.180048
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00349563 (0.00126216 0.000642015 0) 0.00866089 
+  GMRES iteration: 1   Residual: 3.20613e-08 (8.31418e-08 4.97212e-08 0) 5.57415e-08 
+pseudoTime: iteration 13
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9186 Max: 100
+Pseudo deltaT: Min: 9.55464e-05 Mean: 0.0893058 Max: 0.180048
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00389447 (0.00166068 0.000684628 0) 0.00918852 
+  GMRES iteration: 1   Residual: 4.64642e-08 (9.88365e-08 6.02015e-08 0) 8.25488e-08 
+pseudoTime: iteration 14
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9197 Max: 100
+Pseudo deltaT: Min: 9.55317e-05 Mean: 0.0893068 Max: 0.180042
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00343226 (0.00271401 0.000575606 0) 0.0080458 
+  GMRES iteration: 1   Residual: 2.63931e-08 (4.07683e-08 3.30057e-08 0) 4.36432e-08 
+pseudoTime: iteration 15
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9221 Max: 100
+Pseudo deltaT: Min: 9.5317e-05 Mean: 0.0893092 Max: 0.180028
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00396713 (0.00280719 0.000508114 0) 0.00846718 
+  GMRES iteration: 1   Residual: 4.57724e-08 (6.66916e-08 4.46825e-08 0) 6.21071e-08 
+pseudoTime: iteration 16
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.925 Max: 100
+Pseudo deltaT: Min: 9.55247e-05 Mean: 0.0893121 Max: 0.180023
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00362272 (0.00344502 0.000409284 0) 0.00733828 
+  GMRES iteration: 1   Residual: 4.471e-08 (7.41476e-08 4.98401e-08 0) 7.22022e-08 
+pseudoTime: iteration 17
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.2 Mean: 99.928 Max: 100
+Pseudo deltaT: Min: 0.000191087 Mean: 0.0893151 Max: 0.18002
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00408015 (0.00321899 0.000368233 0) 0.007377 
+  GMRES iteration: 1   Residual: 8.16494e-08 (1.4728e-07 7.97852e-08 0) 9.65843e-08 
+pseudoTime: iteration 18
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.15 Mean: 99.9306 Max: 100
+Pseudo deltaT: Min: 0.000143434 Mean: 0.0893176 Max: 0.180019
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00409304 (0.00395329 0.000313157 0) 0.00690366 
+  GMRES iteration: 1   Residual: 1.23257e-07 (1.62686e-07 9.98732e-08 0) 1.4035e-07 
+pseudoTime: iteration 19
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1125 Mean: 99.9311 Max: 100
+Pseudo deltaT: Min: 0.000107685 Mean: 0.0893182 Max: 0.18002
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00379955 (0.00452208 0.000244469 0) 0.0059637 
+  GMRES iteration: 1   Residual: 6.92018e-08 (1.2053e-07 8.05533e-08 0) 8.46481e-08 
+pseudoTime: iteration 20
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.225 Mean: 99.9352 Max: 100
+Pseudo deltaT: Min: 0.000215439 Mean: 0.0893223 Max: 0.180026
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00412249 (0.00317748 0.000195378 0) 0.00579444 
+  GMRES iteration: 1   Residual: 1.10473e-07 (1.59701e-07 9.48292e-08 0) 1.32388e-07 
+pseudoTime: iteration 21
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.45 Mean: 99.9412 Max: 100
+Pseudo deltaT: Min: 0.000431418 Mean: 0.0893282 Max: 0.180028
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00354024 (0.00347368 0.000182053 0) 0.00505135 
+  GMRES iteration: 1   Residual: 1.11345e-07 (1.9034e-07 1.01383e-07 0) 1.26534e-07 
+pseudoTime: iteration 22
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.9 Mean: 99.9495 Max: 100
+Pseudo deltaT: Min: 0.000864688 Mean: 0.0893361 Max: 0.180027
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00318302 (0.00395241 0.000139846 0) 0.00415578 
+  GMRES iteration: 1   Residual: 1.27854e-07 (2.11356e-07 1.47943e-07 0) 1.40523e-07 
+pseudoTime: iteration 23
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 1.8 Mean: 99.9586 Max: 100
+Pseudo deltaT: Min: 0.00173476 Mean: 0.0893451 Max: 0.180028
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0029678 (0.00300518 0.000108436 0) 0.00361873 
+  GMRES iteration: 1   Residual: 1.29469e-07 (2.24699e-07 1.75485e-07 0) 1.58858e-07 
+pseudoTime: converged in 23 iterations
+ExecutionTime = 169.3 s  ExecutionStepTime = 15.92 s  ClockTime = 169 s
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50074 4.80032
+Time = 0.023573
+
+pseudoTime: iteration 1
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 3.6 Mean: 99.9631 Max: 100
+Pseudo deltaT: Min: 0.0034815 Mean: 0.0893509 Max: 0.180036
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0580233 (0.082914 0.0220691 0) 0.0601242 
+  GMRES iteration: 1   Residual: 1.4689e-05 (1.63225e-05 1.46647e-05 0) 1.51467e-05 
+pseudoTime: iteration 2
+Pseudo Courant No: 28.9244
+Damped pseudo Courant No: Min: 0.520639 Mean: 28.8853 Max: 28.9244
+Pseudo deltaT: Min: 0.000534642 Mean: 0.0258158 Max: 0.0515918
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0506217 (0.0600226 0.0116395 0) 0.0511691 
+  GMRES iteration: 1   Residual: 4.00035e-06 (7.49194e-06 3.97035e-06 0) 4.48325e-06 
+pseudoTime: iteration 3
+Pseudo Courant No: 34.7093
+Damped pseudo Courant No: Min: 0.312384 Mean: 34.6598 Max: 34.7093
+Pseudo deltaT: Min: 0.000326219 Mean: 0.0309779 Max: 0.0618782
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0415567 (0.0163809 0.00617869 0) 0.037298 
+  GMRES iteration: 1   Residual: 2.35298e-06 (4.35731e-06 2.25988e-06 0) 2.68999e-06 
+pseudoTime: iteration 4
+Pseudo Courant No: 41.6511
+Damped pseudo Courant No: Min: 0.18743 Mean: 41.5914 Max: 41.6511
+Pseudo deltaT: Min: 0.000197986 Mean: 0.0371735 Max: 0.0742996
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0353434 (0.0251463 0.00348878 0) 0.0314819 
+  GMRES iteration: 1   Residual: 1.06715e-06 (2.15408e-06 9.68185e-07 0) 1.20632e-06 
+pseudoTime: iteration 5
+Pseudo Courant No: 49.9814
+Damped pseudo Courant No: Min: 0.12 Mean: 49.9147 Max: 49.9814
+Pseudo deltaT: Min: 0.000125845 Mean: 0.0446124 Max: 0.0892079
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0332948 (0.00808771 0.0025283 0) 0.0307917 
+  GMRES iteration: 1   Residual: 6.68647e-07 (1.16734e-06 5.55386e-07 0) 7.5781e-07 
+pseudoTime: iteration 6
+Pseudo Courant No: 59.9776
+Damped pseudo Courant No: Min: 0.12 Mean: 59.905 Max: 59.9776
+Pseudo deltaT: Min: 0.000126133 Mean: 0.0535412 Max: 0.107053
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.027234 (0.00586372 0.00190208 0) 0.0260996 
+  GMRES iteration: 1   Residual: 3.4273e-07 (5.15868e-07 2.86818e-07 0) 3.85707e-07 
+pseudoTime: iteration 7
+Pseudo Courant No: 71.9732
+Damped pseudo Courant No: Min: 0.12 Mean: 71.8918 Max: 71.9732
+Pseudo deltaT: Min: 0.000126747 Mean: 0.064255 Max: 0.12844
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0231172 (0.00375794 0.00142815 0) 0.0225318 
+  GMRES iteration: 1   Residual: 2.37977e-07 (2.76148e-07 1.65788e-07 0) 2.52258e-07 
+pseudoTime: iteration 8
+Pseudo Courant No: 86.3678
+Damped pseudo Courant No: Min: 0.12 Mean: 86.2823 Max: 86.3678
+Pseudo deltaT: Min: 0.000128023 Mean: 0.0771183 Max: 0.154139
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0217094 (0.00334845 0.00115912 0) 0.0212122 
+  GMRES iteration: 1   Residual: 2.37622e-07 (4.97478e-07 2.41237e-07 0) 2.67549e-07 
+pseudoTime: iteration 9
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.115784 Mean: 99.8997 Max: 100
+Pseudo deltaT: Min: 0.000124051 Mean: 0.0892893 Max: 0.178468
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0172922 (0.00672739 0.000873034 0) 0.016773 
+  GMRES iteration: 1   Residual: 1.31345e-07 (1.89348e-07 1.25068e-07 0) 1.36753e-07 
+pseudoTime: iteration 10
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9151 Max: 100
+Pseudo deltaT: Min: 0.000107514 Mean: 0.0893054 Max: 0.178467
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0166647 (0.00280814 0.000690304 0) 0.0165627 
+  GMRES iteration: 1   Residual: 2.44063e-07 (4.22686e-07 2.05272e-07 0) 2.52353e-07 
+pseudoTime: iteration 11
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9175 Max: 100
+Pseudo deltaT: Min: 9.68985e-05 Mean: 0.0893072 Max: 0.178472
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0150788 (0.00462127 0.000635133 0) 0.0164048 
+  GMRES iteration: 1   Residual: 8.18662e-07 (8.41467e-07 5.21244e-07 0) 1.0026e-06 
+pseudoTime: iteration 12
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.125047 Mean: 99.9195 Max: 100
+Pseudo deltaT: Min: 0.000135439 Mean: 0.0893125 Max: 0.178474
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0120219 (0.00175991 0.000628766 0) 0.0126104 
+  GMRES iteration: 1   Residual: 1.51536e-07 (2.27668e-07 1.62248e-07 0) 1.81434e-07 
+pseudoTime: iteration 13
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9357 Max: 100
+Pseudo deltaT: Min: 9.64752e-05 Mean: 0.0893328 Max: 0.178465
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0111849 (0.00199199 0.00060326 0) 0.0113317 
+  GMRES iteration: 1   Residual: 2.6168e-07 (3.25614e-07 2.17877e-07 0) 2.97175e-07 
+pseudoTime: iteration 14
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.2 Mean: 99.943 Max: 100
+Pseudo deltaT: Min: 0.000192635 Mean: 0.0893429 Max: 0.178455
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00945006 (0.0028709 0.000556263 0) 0.00986712 
+  GMRES iteration: 1   Residual: 3.88933e-07 (5.65873e-07 3.11337e-07 0) 4.3029e-07 
+pseudoTime: iteration 15
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9468 Max: 100
+Pseudo deltaT: Min: 9.62167e-05 Mean: 0.0893469 Max: 0.178452
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0075116 (0.00419403 0.000460808 0) 0.00802848 
+  GMRES iteration: 1   Residual: 4.24081e-07 (6.49506e-07 4.08969e-07 0) 4.41209e-07 
+pseudoTime: iteration 16
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.2 Mean: 99.952 Max: 100
+Pseudo deltaT: Min: 0.00019233 Mean: 0.0893519 Max: 0.178523
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00587737 (0.0038376 0.000402585 0) 0.00606982 
+  GMRES iteration: 1   Residual: 3.65769e-07 (6.38792e-07 4.62203e-07 0) 3.7161e-07 
+pseudoTime: iteration 17
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.4 Mean: 99.9605 Max: 100
+Pseudo deltaT: Min: 0.000384327 Mean: 0.08936 Max: 0.178596
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00439737 (0.00133826 0.000386547 0) 0.00419765 
+  GMRES iteration: 1   Residual: 2.75039e-07 (5.38153e-07 3.77437e-07 0) 3.53606e-07 
+pseudoTime: iteration 18
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.2 Mean: 99.9519 Max: 100
+Pseudo deltaT: Min: 0.000192522 Mean: 0.0893526 Max: 0.178611
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00288732 (0.00204845 0.000377042 0) 0.00258046 
+  GMRES iteration: 1   Residual: 1.28253e-07 (2.47696e-07 1.67512e-07 0) 1.63157e-07 
+pseudoTime: converged in 18 iterations
+ExecutionTime = 182.11 s  ExecutionStepTime = 12.81 s  ClockTime = 182 s
+
+Mesh region: region0
+Mean and max Courant Numbers = 1.50073 4.80032
+Time = 0.025716
+
+pseudoTime: iteration 1
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.4 Mean: 99.9641 Max: 100
+Pseudo deltaT: Min: 0.000385249 Mean: 0.0893638 Max: 0.178599
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0583845 (0.0788473 0.0225998 0) 0.0625037 
+  GMRES iteration: 1   Residual: 8.06931e-06 (1.44252e-05 1.30175e-05 0) 8.77161e-06 
+pseudoTime: iteration 2
+Pseudo Courant No: 29.232
+Damped pseudo Courant No: Min: 0.058464 Mean: 29.195 Max: 29.232
+Pseudo deltaT: Min: 5.7559e-05 Mean: 0.0260989 Max: 0.0529828
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0465841 (0.0739837 0.0111517 0) 0.0464326 
+  GMRES iteration: 1   Residual: 3.90168e-06 (7.69939e-06 3.81928e-06 0) 4.10641e-06 
+pseudoTime: iteration 3
+Pseudo Courant No: 34.7734
+Damped pseudo Courant No: Min: 0.118956 Mean: 34.7212 Max: 34.7734
+Pseudo deltaT: Min: 0.000117198 Mean: 0.0310379 Max: 0.0635219
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0385141 (0.0274653 0.00560897 0) 0.0323943 
+  GMRES iteration: 1   Residual: 1.99663e-06 (4.27162e-06 2.11809e-06 0) 2.29756e-06 
+pseudoTime: iteration 4
+Pseudo Courant No: 41.728
+Damped pseudo Courant No: Min: 0.12 Mean: 41.6702 Max: 41.728
+Pseudo deltaT: Min: 0.000118978 Mean: 0.0372483 Max: 0.0763594
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0280279 (0.0270197 0.00333656 0) 0.0273825 
+  GMRES iteration: 1   Residual: 1.29888e-06 (2.08509e-06 1.0736e-06 0) 1.45275e-06 
+pseudoTime: iteration 5
+Pseudo Courant No: 50.0737
+Damped pseudo Courant No: Min: 0.12 Mean: 50.0104 Max: 50.0737
+Pseudo deltaT: Min: 0.000119784 Mean: 0.0447022 Max: 0.0915567
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.021358 (0.0069571 0.00248446 0) 0.0214399 
+  GMRES iteration: 1   Residual: 4.8188e-07 (8.73475e-07 4.14833e-07 0) 5.21031e-07 
+pseudoTime: iteration 6
+Pseudo Courant No: 60.0884
+Damped pseudo Courant No: Min: 0.12 Mean: 60.0194 Max: 60.0884
+Pseudo deltaT: Min: 0.000114147 Mean: 0.0536522 Max: 0.109801
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0163225 (0.0055189 0.00197624 0) 0.0170183 
+  GMRES iteration: 1   Residual: 2.56172e-07 (4.43612e-07 2.2779e-07 0) 2.66516e-07 
+pseudoTime: iteration 7
+Pseudo Courant No: 72.1061
+Damped pseudo Courant No: Min: 0.12 Mean: 72.0341 Max: 72.1061
+Pseudo deltaT: Min: 0.000114033 Mean: 0.0643972 Max: 0.131684
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.012625 (0.00462518 0.00167938 0) 0.0141649 
+  GMRES iteration: 1   Residual: 1.45428e-07 (2.48978e-07 1.35034e-07 0) 1.47469e-07 
+pseudoTime: iteration 8
+Pseudo Courant No: 86.5273
+Damped pseudo Courant No: Min: 0.12 Mean: 86.4461 Max: 86.5273
+Pseudo deltaT: Min: 0.000109969 Mean: 0.0772823 Max: 0.157957
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0101445 (0.00462489 0.00134894 0) 0.0119329 
+  GMRES iteration: 1   Residual: 1.17377e-07 (2.24303e-07 1.38432e-07 0) 1.16912e-07 
+pseudoTime: iteration 9
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.11557 Mean: 99.9108 Max: 100
+Pseudo deltaT: Min: 0.000105759 Mean: 0.0893201 Max: 0.182484
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00807593 (0.00306946 0.00109828 0) 0.00984591 
+  GMRES iteration: 1   Residual: 9.62553e-08 (1.31976e-07 1.0094e-07 0) 9.7999e-08 
+pseudoTime: iteration 10
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9132 Max: 100
+Pseudo deltaT: Min: 9.16911e-05 Mean: 0.0893231 Max: 0.182421
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00619297 (0.00217751 0.000949216 0) 0.00787986 
+  GMRES iteration: 1   Residual: 8.23745e-08 (1.02323e-07 7.54834e-08 0) 9.80055e-08 
+pseudoTime: iteration 11
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9174 Max: 100
+Pseudo deltaT: Min: 9.18621e-05 Mean: 0.0893273 Max: 0.182409
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00616687 (0.00182434 0.000990915 0) 0.00797343 
+  GMRES iteration: 1   Residual: 1.12438e-07 (1.76933e-07 1.08571e-07 0) 1.37729e-07 
+pseudoTime: iteration 12
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9192 Max: 100
+Pseudo deltaT: Min: 9.20421e-05 Mean: 0.089329 Max: 0.182443
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00458801 (0.00184895 0.000840755 0) 0.00639412 
+  GMRES iteration: 1   Residual: 7.15975e-08 (9.91949e-08 6.20123e-08 0) 9.96776e-08 
+pseudoTime: iteration 13
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.923 Max: 100
+Pseudo deltaT: Min: 9.22222e-05 Mean: 0.0893327 Max: 0.182394
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00461016 (0.00153057 0.000762214 0) 0.00626553 
+  GMRES iteration: 1   Residual: 7.01094e-08 (1.46024e-07 7.70585e-08 0) 9.46888e-08 
+pseudoTime: iteration 14
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9246 Max: 100
+Pseudo deltaT: Min: 9.24023e-05 Mean: 0.0893344 Max: 0.18232
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00377906 (0.00154258 0.000637961 0) 0.00547984 
+  GMRES iteration: 1   Residual: 4.58092e-08 (6.52364e-08 5.11677e-08 0) 6.86935e-08 
+pseudoTime: iteration 15
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9278 Max: 100
+Pseudo deltaT: Min: 9.25767e-05 Mean: 0.0893376 Max: 0.182271
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.004367 (0.00110432 0.000560286 0) 0.00584629 
+  GMRES iteration: 1   Residual: 5.87042e-08 (1.18847e-07 7.98513e-08 0) 7.76259e-08 
+pseudoTime: iteration 16
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1 Mean: 99.9302 Max: 100
+Pseudo deltaT: Min: 9.27532e-05 Mean: 0.0893402 Max: 0.182253
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00439095 (0.00153105 0.000520975 0) 0.0055946 
+  GMRES iteration: 1   Residual: 5.68594e-08 (1.15258e-07 7.58059e-08 0) 8.07954e-08 
+pseudoTime: iteration 17
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.2 Mean: 99.935 Max: 100
+Pseudo deltaT: Min: 0.000185861 Mean: 0.0893447 Max: 0.182262
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00484512 (0.00156815 0.000479555 0) 0.00569768 
+  GMRES iteration: 1   Residual: 4.52594e-08 (7.61565e-08 5.6027e-08 0) 5.29498e-08 
+pseudoTime: iteration 18
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.15 Mean: 99.9408 Max: 100
+Pseudo deltaT: Min: 0.00013993 Mean: 0.0893503 Max: 0.182288
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00487017 (0.00205362 0.000419083 0) 0.00557337 
+  GMRES iteration: 1   Residual: 6.92337e-08 (1.22798e-07 7.55933e-08 0) 8.04723e-08 
+pseudoTime: iteration 19
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.1125 Mean: 99.9405 Max: 100
+Pseudo deltaT: Min: 0.000105258 Mean: 0.0893502 Max: 0.182291
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00461656 (0.00277522 0.000353044 0) 0.00516221 
+  GMRES iteration: 1   Residual: 5.59391e-08 (1.33048e-07 9.17852e-08 0) 7.40346e-08 
+pseudoTime: iteration 20
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.225 Mean: 99.9491 Max: 100
+Pseudo deltaT: Min: 0.000210898 Mean: 0.0893582 Max: 0.182289
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.0045585 (0.00211977 0.000291361 0) 0.0048311 
+  GMRES iteration: 1   Residual: 9.16134e-08 (1.63573e-07 1.07041e-07 0) 1.00854e-07 
+pseudoTime: iteration 21
+Pseudo Courant No: 100
+Damped pseudo Courant No: Min: 0.45 Mean: 99.9568 Max: 100
+Pseudo deltaT: Min: 0.000423572 Mean: 0.0893654 Max: 0.182301
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00387125 (0.00237692 0.000233454 0) 0.00427815 
+  GMRES iteration: 1   Residual: 1.04886e-07 (1.98279e-07 1.43928e-07 0) 1.16349e-07 
+pseudoTime: converged in 21 iterations
+ExecutionTime = 197.11 s  ExecutionStepTime = 15 s  ClockTime = 197 s
+
+End
+
+Finalising parallel run

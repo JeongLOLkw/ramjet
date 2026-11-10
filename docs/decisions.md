@@ -63,3 +63,13 @@ I1 점검에서 나온 문제와 담당 제안. 담당: **Code** = Claude Code, 
   (`wmkdepend parse error ... setSolidFields.H`는 의존성 스캔 경고, 링크에 영향 없음).
 - **HiSA 비정상 지원 실행 확인:** `examples/forwardStep`(fvSchemes `dualTime rPseudoDeltaT CrankNicolson 0.9`, `adjustTimeStep no`, deltaT 0.005)이
   t=4까지 오류 없이 종료. D-004(소스 정적 확인)를 실행으로 뒷받침. 비정상 솔버는 후보 2개 모두 사용 가능; 최종 선택은 I2 속도 실측 후.
+
+## D-008 비정상 솔버 선택 자료 — 제안, 승인 대기 (2026-11-10)
+- plan.md 표: 비정상 솔버는 "rhoCentralFoam, 또는 HiSA가 비정상을 지원하면 HiSA, I2에서 결정". HiSA 비정상은 지원 확인됨(D-004, D-007).
+- 실측(`docs/benchmarks/I2.md`, 19.8만 셀 무점성 forwardStep, np 4): 물리시간 1 s당 rhoCentralFoam ≈ 280 s, HiSA(이중 시간) ≈ 4,000 s. HiSA ≈ 14배 비쌈.
+- 이 비교의 한계: 무점성·층류. I9·I10은 벽 격자(y+ ≤ 5) 포함 점성 계산이라, 얇은 셀에서 명시적 rhoCentralFoam의 dt가 크게 줄 수 있음. 이 예제만으로 결론 내리지 않음.
+- 제안: I9 직전에 실제 흡입구 격자(또는 근사 격자)에서 두 솔버의 물리시간당 비용을 한 번 더 재서 결정. 그때까지 둘 다 후보 유지. 사용자 승인 필요.
+
+## D-009 MPI 프로세스 수 — 제안, 승인 대기 (2026-11-10)
+- CLAUDE.md 환경 항목은 "로컬 실행은 MPI 8 프로세스". 실측상 np 8은 np 4와 속도가 같고 효율 41~43%.
+- 제안: 8은 상한으로 읽고, 기본값은 np 4로 한다. 최적(np 5~7)을 알려면 np 6 실측 필요 — 사용자가 요청할 때만 수행.
