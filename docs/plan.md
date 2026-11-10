@@ -115,22 +115,22 @@ docs/plan.md와 docs/progress.md를 읽고 I□ 단계를 진행해.
 | I0 | 환경 준비 | `.wslconfig`, 저장소, Fable 조건 확인 | 사용자 | 노트북 | — | GitHub | 2일 | $0 |
 | I1 | 문헌·검증 자료 | 서지 확인, 검증 데이터 조건 추출, 선행연구 점검, 손계산 연습 | 사용자 + Claude | Claude Science | — | — | 2주(병행) | $0 |
 | I2 | 설치·속도 실측 | OpenFOAM v2512 + HiSA, 예제, MPI 속도표, HiSA 비정상 지원 확인 | Claude | Claude Code | 8스레드 / 불필요 / 8 GB | — | 3~5일 | $0 |
-| I3 | 솔버 검증 A | 충격파관, 경사충격파 쐐기, 팽창 코너, 전진 계단 | Claude + 노트북 | Claude Code | MPI 4~8 / 불필요 / 4~8 GB | — | 1주 | $0 |
-| I4 | 솔버 검증 B | 평판 경계층 마찰·열유속, 24° 압축 램프 | Claude + 노트북 | Claude Code | MPI 8 / 불필요 / 8~10 GB | 선택 GCP | 2주 | $0~10 |
+| I3 | 솔버 검증 A | 충격파관, 경사충격파 쐐기, 팽창 코너, 전진 계단 | Claude + 노트북 | Claude Code | MPI 4(최대 8, D-009) / 불필요 / 4~8 GB | — | 1주 | $0 |
+| I4 | 솔버 검증 B | 평판 경계층 마찰·열유속, 24° 압축 램프 | Claude + 노트북 | Claude Code | MPI 4(최대 8, D-009) / 불필요 / 8~10 GB | 선택 GCP | 2주 | $0~10 |
 | I5 | 형상·격자 생성기 | 매개변수 2D 흡입구 격자 스크립트 | Claude + 사용자(형상 승인) | Claude Code | 2~4코어 / 불필요 / 4 GB | — | 1.5주 | $0 |
-| I6 | 격자 수렴 | 3단계 격자 GCI | 노트북 | Claude Code | MPI 8 / 불필요 / 10 GB | — | 1주 | $0 |
-| I7 | 2D 마하 스윕 | 마하 0.6~7, 12점 준정상 | 노트북 | Claude Code | MPI 8 / 불필요 / 6~8 GB | 선택 GCP | 2주 | $0~30 |
-| I8 | 시동 한계 | 수축비 스윕, 이론 한계 비교 | Claude + 노트북 | Claude Code | MPI 8 / 불필요 / 8 GB | 선택 GCP | 1.5주 | $0~20 |
-| I11a | 2D 열유속 | 벽 조건 3종, 카울 립 Edney 간섭 | Claude + 노트북 | Claude Code | MPI 8 / 불필요 / 10 GB | — | 2주 | $0 |
+| I6 | 격자 수렴 | 3단계 격자 GCI | 노트북 | Claude Code | MPI 4(최대 8, D-009) / 불필요 / 10 GB | — | 1주 | $0 |
+| I7 | 2D 마하 스윕 | 마하 0.6~7, 12점 준정상 | 노트북 | Claude Code | MPI 4(최대 8, D-009) / 불필요 / 6~8 GB | 선택 GCP | 2주 | $0~30 |
+| I8 | 시동 한계 | 수축비 스윕, 이론 한계 비교 | Claude + 노트북 | Claude Code | MPI 4(최대 8, D-009) / 불필요 / 8 GB | 선택 GCP | 1.5주 | $0~20 |
+| I11a | 2D 열유속 | 벽 조건 3종, 카울 립 Edney 간섭 | Claude + 노트북 | Claude Code | MPI 4(최대 8, D-009) / 불필요 / 10 GB | — | 2주 | $0 |
 | R1 | 1차 보고서 | 그림·결과 정리, 한계 서술 | 사용자 + Claude | Claude Science(대체: 채팅) | — | — | 1.5주 | $0 |
 
 ### 2차 (1차 완결 후 재검토)
 
 | 단계 | 단계명 | 행위 | 주체 | 객체 | CPU / GPU / RAM | 클라우드 | 시간 | 비용 [추정] |
 |---|---|---|---|---|---|---|---|---|
-| I9 | 히스테리시스 | **연속 추적**: 이전 마하 해를 초기값으로 상승·하강 경로 준정상 계산 | Claude + 노트북 | Claude Code | MPI 8 / 불필요 / 8 GB | 선택 GCP | 1.5주 | $0~15 |
+| I9 | 히스테리시스 | **연속 추적**: 이전 마하 해를 초기값으로 상승·하강 경로 준정상 계산 | Claude + 노트북 | Claude Code | MPI 4(최대 8, D-009) / 불필요 / 8 GB | 선택 GCP | 1.5주 | $0~15 |
 | I10 | 스로틀·버즈 | 하류 저항 영역을 키워 충격파열 이동·불시동·버즈 FFT | Claude | Claude Code | 32 vCPU / 불필요 / 16 GB | GCP Spot | 2주 | $10~40 |
-| I12 | 천이 민감도 | **고정 천이 위치 3곳** 강제, 결론 변화 여부 | Claude | Claude Code | MPI 8 / 불필요 / 10 GB | — | 1주 | $0~10 |
+| I12 | 천이 민감도 | **고정 천이 위치 3곳** 강제, 결론 변화 여부 | Claude | Claude Code | MPI 4(최대 8, D-009) / 불필요 / 10 GB | — | 1주 | $0~10 |
 | I13 | 클라우드 파이프라인 | 체크포인트·재시작·동기화·예산 알림 | Claude + 사용자(결제) | Claude Code | 2~4 vCPU / 불필요 / 8 GB | GCP | 1주 | $5 미만 |
 | I14 | 3D 확장 | 측벽, 받음각·옆미끄럼 2~4 변종 | Claude(제출·감시) | Claude Code | 64~96 vCPU / 불필요 / 64~128 GB | GCP Spot | 3주 | $60~250 |
 | I15 | 난류 모델 불확실성 | SST vs Spalart–Allmaras 열유속 차이. IDDES는 고 예산일 때만 | Claude | Claude Code | MPI 8~32 / 불필요 / 10~16 GB | 선택 GCP | 1주 | $5~20 (+IDDES $60~250) |
