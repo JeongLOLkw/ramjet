@@ -1,0 +1,6 @@
+__pycache__/
+.venv/
+*.pyc
+cases/runs/
+cases/**/processor*/
+.claude/
