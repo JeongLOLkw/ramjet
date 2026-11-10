@@ -123,7 +123,7 @@ def main():
     cmd = spec["exe"]
     if a.np > 1:
         assert sh("decomposePar", case, case / "log.decomposePar") == 0, "decomposePar failed"
-        cmd = f"mpirun -np {a.np} --bind-to core {spec['exe']} -parallel"
+        cmd = f"mpirun -np {a.np} --oversubscribe --bind-to none {spec['exe']} -parallel"
     stop, peak = threading.Event(), {"rss_gb": 0.0, "avail_gb": 1e9}
     th = threading.Thread(target=sample_memory, args=(spec["exe"], stop, peak), daemon=True)
     th.start()
