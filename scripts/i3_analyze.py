@@ -108,8 +108,8 @@ def sod_case(case):
                 **run_meta(case))
 
 
-def sod(solver):
-    cases = sorted((VAL / "sod").glob(f"{solver}_N*"), key=lambda d: int(d.name.split("N")[1]))
+def sod(prefix):
+    cases = sorted((VAL / "sod").glob(f"{prefix}_N*"), key=lambda d: int(d.name.split("_N")[1]))
     rows = [sod_case(c) | {"case": c.name} for c in cases if time_dirs(c)]
     if len(rows) >= 2:
         h = [r["dx"] for r in rows]
@@ -234,15 +234,14 @@ def forward_step():
         r, f = fs_case(case)
         rows.append(r)
         fields[case.name] = f
-    # cross-solver (identical meshes): relative L1 of density
-    for tag in ("dx80", "dx160"):
-        a, b = fields.get(f"rcf_{tag}"), fields.get(f"hisa_{tag}")
-        if a is not None and b is not None:
-            d = float(np.sum(np.abs(a["rho"] - b["rho"])) / np.sum(b["rho"]))
-            for r in rows:
-                if r["case"].endswith(tag):
-                    r["rel_L1_rho_rcf_vs_hisa"] = d
-    return rows
+    # identical meshes -> cell-by-cell relative L1 of density between pairs of runs
+    pairs = {}
+    for a, b in (("rcf_dx80", "hisa_dx80"), ("rcf_dx160", "hisa_dx160"), ("rcf_co01_dx80", "hisa_tol6_dx80"),
+                 ("rcf_co01_dx160", "hisa_dx160"), ("rcf_dx80", "rcf_co01_dx80"), ("rcf_dx160", "rcf_co01_dx160"),
+                 ("hisa_dx80", "hisa_tol6_dx80")):
+        if a in fields and b in fields:
+            pairs[f"{a} vs {b}"] = float(np.sum(np.abs(fields[a]["rho"] - fields[b]["rho"])) / np.sum(fields[b]["rho"]))
+    return {"cases": rows, "rel_L1_rho_pairs": pairs}
 
 
 # --------------------------------------------------------------------------- main
@@ -253,7 +252,7 @@ def main():
     a = ap.parse_args()
     res = {}
     if "sod" in a.families:
-        res["sod"] = {s: sod(s) for s in ("rcf", "hisa")}
+        res["sod"] = {s: sod(s) for s in ("rcf", "hisa", "rcf_co01", "hisa_tol6")}
     if "wedge" in a.families:
         res["wedge"] = steady_family("wedge", WEDGE, wedge_metrics, ("beta", "p2_p1"))
         for r in res["wedge"]:

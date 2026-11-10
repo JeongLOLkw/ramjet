@@ -326,7 +326,7 @@ ALLRUN = """#!/bin/bash
 cd "${{0%/*}}" || exit 1
 source /usr/lib/openfoam/openfoam2512/etc/bashrc >/dev/null 2>&1
 REPO=$(git rev-parse --show-toplevel)
-{{ echo "commit $(git -C "$REPO" rev-parse HEAD)"; echo "dirty_files $(git -C "$REPO" status --porcelain | wc -l)";
+{{ echo "commit $(git -C "$REPO" rev-parse HEAD)"; echo "dirty_files $(git -C "$REPO" status --porcelain --untracked-files=no | wc -l)";
    echo "start $(date -Is)"; echo "host $(hostname)"; }} > run_info.txt
 foamListTimes -rm -noZero > /dev/null 2>&1; rm -rf 0 postProcessing && cp -r 0.orig 0
 blockMesh > log.blockMesh 2>&1 || exit 1
@@ -340,6 +340,9 @@ exit $rc
 
 
 def make_case(d, solver, mesh, fields, ctrl, schemes, solution, thermo_txt, setfields=None):
+    """Write the case; returns False (untouched) if it has already been run (run_info.txt exists)."""
+    if (d / "run_info.txt").exists():
+        return False
     if d.exists():
         shutil.rmtree(d)
     write(d / "system/blockMeshDict", "dictionary", "blockMeshDict", mesh)
@@ -356,6 +359,7 @@ def make_case(d, solver, mesh, fields, ctrl, schemes, solution, thermo_txt, setf
     sf = "setFields > log.setFields 2>&1 || exit 1\n" if setfields else ""
     (d / "Allrun").write_text(ALLRUN.format(app=app, setfields=sf))
     (d / "Allrun").chmod(0o755)
+    return True
 
 
 def schemes(solver, steady):
@@ -373,6 +377,18 @@ EXPANSION = {"A": (2.5, 15.0)}
 LEVELS = (50, 100, 200)
 SOD_N = {"rcf": (100, 200, 400, 800, 1600), "hisa": (100, 200, 400, 800)}
 FS_LEVELS = {"rcf": (0.5, 1, 2), "hisa": (1, 2)}
+# Variants (prefix -> solver, maxCo, pseudoTol override). The first two of each are the
+# attempt-1 tutorial defaults (D-010); *_co01 / *_tol6 are attempt 2 for the Sod failure (D-011).
+SOD_VARIANTS = {"rcf": ("rcf", 0.2, None), "hisa": ("hisa", 1, None),
+                "rcf_co01": ("rcf", 0.1, None), "hisa_tol6": ("hisa", 1, "1e-6")}
+FS_VARIANTS = {"rcf": ("rcf", 0.2, None, (0.5, 1, 2)), "hisa": ("hisa", None, None, (1, 2)),
+               "rcf_co01": ("rcf", 0.1, None, (0.5, 1, 2)), "hisa_tol6": ("hisa", None, "1e-6", (1,))}
+
+
+def set_pseudo_tol(sol, tol):
+    """Replace the pseudoTime pseudoTol line (all four entries) with `tol`."""
+    import re
+    return re.sub(r"pseudoTol\s+[^;]*;", f"pseudoTol         {tol} ({tol} {tol} {tol}) {tol};", sol)
 N_FLOWTHROUGH = 8         # rcf time marching to steady state
 HISA_STEADY_ITERS = 5000  # >= 2000-iteration window for the steady check
 
@@ -382,18 +398,18 @@ def main():
     a_inf = np.sqrt(g * C.R_AIR * T_INF)
     made = []
     # Sod
-    for solver, Ns in SOD_N.items():
-        for N in Ns:
-            d = VAL / "sod" / f"{solver}_N{N}"
+    for pre, (solver, co, tol) in SOD_VARIANTS.items():
+        for N in SOD_N[solver]:
+            d = VAL / "sod" / f"{pre}_N{N}"
             if solver == "rcf":
-                ctrl = control("rhoCentralFoam", SOD_T, 1e-8, SOD_T, True, 0.2)
+                ctrl = control("rhoCentralFoam", SOD_T, 1e-8, SOD_T, True, co)
                 sol = RCF_SOLUTION
             else:
-                ctrl = control("hisa", SOD_T, 1e-8, SOD_T, True, 1)
-                sol = HISA_SOL_SOD
-            make_case(d, solver, mesh_sod(N), fields_sod(), ctrl, schemes(solver, False), sol, thermo(),
-                      setfields=sod_setfields())
-            made.append(d)
+                ctrl = control("hisa", SOD_T, 1e-8, SOD_T, True, co)
+                sol = HISA_SOL_SOD if tol is None else set_pseudo_tol(HISA_SOL_SOD, tol)
+            if make_case(d, solver, mesh_sod(N), fields_sod(), ctrl, schemes(solver, False), sol, thermo(),
+                         setfields=sod_setfields()):
+                made.append(d)
     # wedge / expansion (steady)
     for fam, conds, mesher, length in (("wedge", WEDGE, mesh_wedge, 1.25), ("expansion", EXPANSION, mesh_expansion, 1.7)):
         for cid, (M, th) in conds.items():
@@ -411,17 +427,17 @@ def main():
                         ctrl = control("hisa", HISA_STEADY_ITERS, 1, 250, False, None, ("inlet", "outlet"),
                                        purge=12, write_by_step=True)
                         sol = HISA_SOL_STEADY
-                    make_case(d, solver, mesher(n, np.radians(th)), fields_external(solver, P_INF, T_INF, U),
-                              ctrl, schemes(solver, True), sol, thermo())
-                    made.append(d)
+                    if make_case(d, solver, mesher(n, np.radians(th)), fields_external(solver, P_INF, T_INF, U),
+                                 ctrl, schemes(solver, True), sol, thermo()):
+                        made.append(d)
     # forward step (Woodward & Colella 1984): rho 1.4, p 1, M 3, normalised gas -> T = 1, a = 1
-    for solver, fs in FS_LEVELS.items():
+    for pre, (solver, co, tol, fs) in FS_VARIANTS.items():
         for f in fs:
             tag = {0.5: "dx40", 1: "dx80", 2: "dx160"}[f]
-            d = VAL / "forwardStep" / f"{solver}_{tag}"
+            d = VAL / "forwardStep" / f"{pre}_{tag}"
             flds = fields_external(solver, 1.0, 1.0, 3.0, wall="obstacle", sym=("top", "bottom"))
             if solver == "rcf":
-                ctrl = control("rhoCentralFoam", 4.0, 0.002 / f, 0.5, True, 0.2)
+                ctrl = control("rhoCentralFoam", 4.0, 0.002 / f, 0.5, True, co)
                 sol = RCF_SOLUTION
             else:
                 # examples/forwardStep: fixed dt 0.005 at dx = 1/120 (acoustic Co ~ 2.4); keep Co ~ 2.4
@@ -429,8 +445,10 @@ def main():
                 ctrl = control("hisa", 4.0, dt, 0.5, False)
                 sol = (HISA_EX / "forwardStep/simulation/system/fvSolution").read_text().split("// * * * *", 1)[-1]
                 sol = sol.split("\n", 1)[1]
-            make_case(d, solver, mesh_forward_step(f), flds, ctrl, schemes(solver, False), sol, thermo(True))
-            made.append(d)
+                if tol is not None:
+                    sol = set_pseudo_tol(sol, tol)
+            if make_case(d, solver, mesh_forward_step(f), flds, ctrl, schemes(solver, False), sol, thermo(True)):
+                made.append(d)
     for d in made:
         print(d.relative_to(ROOT))
     # reference values for the record
