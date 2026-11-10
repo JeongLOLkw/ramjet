@@ -36,7 +36,7 @@
         HiSA 4 MPI 437 s(3.7만 셀). 두 해 모두 Mach 3 forward step의 활꼴 충격파·Mach stem·반사 구조. 셀 수·해상도가 달라 두 해의
         정량 비교(밀도 최대 6.5 vs 8.2)는 하지 않음 — 검증이 아니라 '실행 확인'
   - [ ] `docs/benchmarks/I2.md` MPI 속도표 — 미작성
-  - [x] HiSA 비정상 지원 여부 `decisions.md` 기록 — D-004, D-006 (소스 + 예제 실행)
+  - [x] HiSA 비정상 지원 여부 `decisions.md` 기록 — D-004, D-007 (소스 + 예제 실행)
   - [ ] WSL 최대 메모리 10 GB 이내 — 현재 설정 10 GB, 판정은 실측 후
   - [ ] 커밋 — 진행 중(속도 실측 후 최종)
 - 남은 문제:
@@ -59,9 +59,14 @@
   2. 서지 미확인: Anderson MCF 판본, Van Wie 장 저자, Edney FFA 보고서 번호, Celik 외 저자, Waltrup–Billig 계수 50·170 원문 확인
   3. 디지털 자료 없음(디지타이저 필요): Settles 24°, Emami 압력, Wagner, Trapier
   4. 벽 조건 미확인: Settles, Emami, Trapier
-  5. Wieting Table 11 쐐기각 오식 판단(12.5°) — 원문 PDF로 재확인 필요
+  5. (해소 2026-11-10) Wieting 쐐기각 12.5° — NTRS 원문 쪽 이미지로 확인 완료. 새 문제: 본문 최대 열전달 증폭 10.14 vs 부록 E 표 9.52 (원인 판단 불가, 표 값 사용)
   6. I4 정량 허용치는 사용자 결정
   7. 선행연구 조사는 영어권 DB 위주 (중국어 학술지·학위논문 미포함)
+- 후속 (2026-11-10):
+  - Claude Code 담당 2건 완료: (1) `docs/checks/wieting_wedge_angle.md` — 12.5° 확인, CSV 열유속 49행·압력 24행 전부 원문 표와 대조해 불일치 0건. (2) `scripts/digitize.py` + `tests/test_digitize.py` (테스트 먼저, 변이 6종으로 테스트 강도 확인, 전체 pytest 37개 통과). 실제 논문 그림에는 아직 미적용(PDF 없음)
+  - `validation_data.md` §3의 런 번호 서술을 원문에 맞게 정정 (15°는 런 27–30, 런 23은 없음, δ=10 인쇄는 런 10–30만)
+  - Science 후속 프롬프트 `docs/science_prompt_I1b.md` 작성(PDF 첨부 없는 조건). 결과 대기
+  - 사용자 PDF 접근 불가 → 유료 논문(Waltrup–Billig 원문, Häberle & Gülhan)은 공개 사본·독립 2차 인용으로만 확인
 - 소요: 벽시계 수 분(점검) / 클라우드 $0 / /usage 미기록 (사용자 확인 필요)
 
 ## 오류 기록
