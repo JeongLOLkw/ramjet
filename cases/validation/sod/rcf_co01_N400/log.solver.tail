@@ -1,0 +1,300 @@
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07034706233 0.1000918658
+Time = 0.0006094389838
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.43 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07036966452 0.1000879248
+Time = 0.0006101582509
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.43 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.0703930312 0.1000810802
+Time = 0.000610877518
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.43 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07041660385 0.100078478
+Time = 0.0006115967852
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.43 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07043968218 0.1000810574
+Time = 0.0006123160523
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.43 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07046201778 0.1000804119
+Time = 0.0006130353194
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.43 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07048402307 0.1000765956
+Time = 0.0006137545866
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.43 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07050647522 0.1000689173
+Time = 0.0006144738537
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.43 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07052972112 0.1000612571
+Time = 0.0006151931208
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.43 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07055334449 0.1000643638
+Time = 0.000615912388
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.43 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07057658241 0.1000640086
+Time = 0.0006166316551
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07059903558 0.1000600147
+Time = 0.0006173509222
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.0706210315 0.100052306
+Time = 0.0006180701894
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07064332838 0.1000412481
+Time = 0.0006187894565
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07066639823 0.1000422346
+Time = 0.0006195087236
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.0706900089 0.1000424984
+Time = 0.0006202279907
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07071341444 0.1000391394
+Time = 0.0006209472579
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07073607396 0.1000319811
+Time = 0.000621666525
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07075811074 0.100021111
+Time = 0.0006223857921
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07078022101 0.1000157513
+Time = 0.0006231050593
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07080303782 0.1000164892
+Time = 0.0006238243264
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07082655237 0.1000136085
+Time = 0.0006245435935
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07085009103 0.1000070403
+Time = 0.0006252628607
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07087298981 0.09999686855
+Time = 0.0006259821278
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07089516386 0.09998597147
+Time = 0.0006267013949
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07091718707 0.09998741155
+Time = 0.0006274206621
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07093977363 0.09998520879
+Time = 0.0006281399292
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07096313214 0.09997937618
+Time = 0.0006288591963
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07098674287 0.09997004445
+Time = 0.0006295784635
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07100985154 0.09995734153
+Time = 0.0006302977306
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.07103217213 0.09995705722
+Time = 0.0006310169977
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.0710541508 0.09995543232
+Time = 0.0006317362649
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+deltaT = 7.192671324e-07
+Mean and max Courant Numbers = 0.0710765508 0.09995035088
+Time = 0.000632455532
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+ExecutionTime = 0.44 s  ClockTime = 1 s
+
+End
+

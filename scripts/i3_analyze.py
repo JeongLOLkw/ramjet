@@ -229,8 +229,8 @@ def fs_case(case):
 def forward_step():
     rows, fields = [], {}
     for case in sorted((VAL / "forwardStep").glob("*_dx*")):
-        if not time_dirs(case):
-            continue
+        if not time_dirs(case) or " rc 0" not in (case / "run_info.txt").read_text():
+            continue  # not run, or stopped/failed (e.g. hisa_tol6_dx80 stopped by the user)
         r, f = fs_case(case)
         rows.append(r)
         fields[case.name] = f

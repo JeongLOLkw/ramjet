@@ -12,6 +12,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.ticker  # noqa: E402,F401
 import numpy as np  # noqa: E402
 from matplotlib.colors import LinearSegmentedColormap  # noqa: E402
 from matplotlib.tri import Triangulation  # noqa: E402
@@ -38,30 +39,39 @@ plt.rcParams.update({
 
 
 def sod_fig(m):
-    fig, (a, b) = plt.subplots(1, 2, figsize=(10, 3.8))
+    """(a) finest attempt-2 profiles vs exact, (b) zoom: rcf maxCo 0.2 vs 0.1, (c) L1(rho) vs dx, both attempts."""
+    fig, (a, z, b) = plt.subplots(1, 3, figsize=(13.5, 3.9))
     xe = np.linspace(-0.5, 0.5, 4001)
     t = m["sod"]["rcf"][0]["t"]
     rho_e, _, _ = gd.riemann_profile(xe, t, SOD_L, SOD_R, G)
-    a.plot(xe, rho_e, color=INK, lw=1.0, label="exact (Toro 2009)")
-    for case, col, lab in (("rcf_N100", COL["rcf"], "rcf N=100"), ("rcf_N1600", COL["third"], "rcf N=1600"),
-                           ("hisa_N100", COL["hisa"], "HiSA N=100")):
+    for ax in (a, z):
+        ax.plot(xe, rho_e, color=INK, lw=1.0, label="exact (Toro 2009)")
+    for case, col, ls, lab, axes in (
+            ("rcf_co01_N1600", COL["rcf"], "-", "rcf maxCo 0.1, N=1600", (a, z)),
+            ("hisa_tol6_N800", COL["hisa"], "--", "HiSA pseudoTol 1e-6, N=800", (a,)),
+            ("rcf_N1600", COL["third"], "-", "rcf maxCo 0.2 (attempt 1), N=1600", (z,))):
         d = VAL / "sod" / case
         f = load(d, time_dirs(d)[-1])
         o = np.argsort(f["x"])
-        a.plot(f["x"][o], f["rho"][o], color=col, lw=1.2, label=lab, ls="-" if "rcf" in case else "--")
-    a.set(xlabel="x [m]", ylabel="density [kg/m³]", title=f"Sod shock tube, t = {t*1e3:.3f} ms")
-    a.legend(loc="lower left")
-    for s in ("rcf", "hisa"):
-        rows = m["sod"][s]
+        for ax in axes:
+            ax.plot(f["x"][o], f["rho"][o], color=col, lw=1.2, ls=ls, label=lab)
+    a.set(xlabel="x [m]", ylabel="density [kg/m³]", title=f"Sod, t = {t*1e3:.3f} ms (attempt 2)")
+    a.legend(loc="lower left", fontsize=8)
+    z.set(xlim=(0.15, 0.38), ylim=(0.1, 0.5), xlabel="x [m]", title="zoom: contact–shock region")
+    z.legend(loc="upper right", fontsize=8)
+    for pre, col, ls, mk, lab in (("rcf", COL["rcf"], "--", "o", "rcf maxCo 0.2 (att. 1)"),
+                                  ("hisa", COL["hisa"], "--", "s", "HiSA pseudoTol 1e-4 (att. 1)"),
+                                  ("rcf_co01", COL["rcf"], "-", "o", "rcf maxCo 0.1 (att. 2)"),
+                                  ("hisa_tol6", COL["hisa"], "-", "s", "HiSA pseudoTol 1e-6 (att. 2)")):
+        rows = m["sod"][pre]
         h = np.array([r["dx"] for r in rows])
         e = np.array([r["L1_rho"] for r in rows])
-        b.loglog(h, e, "o-", color=COL[s], ms=5, label=LABEL[s])
-    h = np.array([r["dx"] for r in m["sod"]["rcf"]])
-    e0 = m["sod"]["rcf"][0]["L1_rho"]
-    for p, ls in ((1, ":"), (0.5, "-.")):
-        b.loglog(h, e0 * (h / h[0]) ** p, color=INK2, lw=0.8, ls=ls, label=f"slope {p}")
+        b.loglog(h, e, ls=ls, marker=mk, color=col, ms=5, mfc="white" if "att. 1" in lab else col, label=lab)
+    h = np.array([r["dx"] for r in m["sod"]["rcf_co01"]])
+    e0 = m["sod"]["rcf_co01"][0]["L1_rho"]
+    b.loglog(h, e0 * (h / h[0]), color=INK2, lw=0.8, ls=":", label="slope 1")
     b.set(xlabel="Δx [m]", ylabel="L1(ρ) [kg/m²]", title="density L1 error vs grid")
-    b.legend()
+    b.legend(fontsize=7.5)
     fig.tight_layout()
     fig.savefig(OUT / "I3_sod.png", dpi=140)
     plt.close(fig)
@@ -101,7 +111,9 @@ def wedge_fig(m):
             ax2.plot(n, [100 * r["err_p"] for r in rr], "s--", color=COL[s], ms=5, label=f"{LABEL[s]} p₂/p₁")
         ax2.axhspan(-1, 1, color=GRID, alpha=0.5, lw=0, label="±1 % (criterion)")
         ax2.axhline(0, color=INK2, lw=0.6)
-        ax2.set(xscale="log", xticks=[50, 100, 200], xticklabels=["50", "100", "200"],
+        ax2.set(xscale="log")
+        ax2.xaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())
+        ax2.set(xticks=[50, 100, 200], xticklabels=["50", "100", "200"],
                 xlabel="cells per unit length n", ylabel="error vs theory [%]", title=f"wedge {cid}: error vs grid")
         ax2.legend(fontsize=8)
     fig.tight_layout()
@@ -118,7 +130,7 @@ def expansion_fig(m):
     M2 = gd.expansion_corner(M1, theta, G)["M2"]
     for ang, lab in ((np.arcsin(1 / M1), "leading Mach line"), (np.arcsin(1 / M2) - theta, "trailing Mach line")):
         a.plot([0, 1.15 * np.cos(ang)], [0, 1.15 * np.sin(ang)], color=INK, lw=0.9, ls="--")
-    a.text(0.75, 0.42, "theory fan edges (dashed)", color=INK, fontsize=8)
+    a.text(-0.45, 0.9, "dashed: theory fan edges", color=INK, fontsize=8)
     fig.colorbar(tc, ax=a, shrink=0.8, label="Mach")
     psi_e = np.linspace(-theta, np.radians(35), 400)
     b.plot(np.degrees(psi_e), [gd.fan_mach_at_ray(p, M1, theta, G) for p in psi_e], color=INK, lw=1.0,
