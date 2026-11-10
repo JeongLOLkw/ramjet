@@ -36,3 +36,21 @@
 - OpenFOAM: 사용자 안내 "이미 설치"는 2412 기준으로 확인됨. v2512는 미설치이나 이미 등록된 apt 저장소(`dl.openfoam.com noble`)에
   `openfoam2512 2512.0-2` 후보가 있음 → 2412와 병존 설치 가능(2412를 지우지 않음). D-002 선택지 (a) 권장 유지.
 - 파이썬 환경 `inlet` 생성(conda-forge). 주의: `~/.local`의 numpy 2.5.4가 환경을 가림 → `PYTHONNOUSERSITE=1` 또는 `python -s` 필요.
+
+## D-006 I1 후속 처리안 — 제안, 승인 대기 (2026-11-10)
+I1 점검에서 나온 문제와 담당 제안. 담당: **Code** = Claude Code, **Science** = Claude Science, **User** = 사용자.
+
+| # | 문제 | 제안 | 담당 | 시점 |
+|---|---|---|---|---|
+| 1 | Reinartz는 정압만 측정, 열유속 없음 | I7·I10 압력/스로틀링 검증을 Emami TP-3502로 교체. 열유속 검증은 Häberle & Gülhan 전문 확보 후 채택 여부 결정 | User 승인 → Code가 plan.md 반영 | I7 전 |
+| 2 | Häberle & Gülhan 전문 유료 | AIAA 접근 가능하면 PDF를 `docs/papers/`(gitignore)에 넣고 Science가 조건·치수·데이터 공개 여부 추출 | User(PDF 제공) → Science | I7 전 |
+| 3 | 서지 미확인(MCF 판본, Van Wie 저자, FFA 번호, Celik 저자) | 보유 판본은 User가 알려줌. 나머지는 Science가 학술지 사이트·출판사 페이지로 확인해 references.md 갱신 | Science + User | I18 전, 낮은 우선순위 |
+| 4 | Waltrup–Billig 계수 50·170이 2차 인용 | 원문(AIAA J. 11(10), 식 번호 포함) 확인. 확인 전에는 I10 비교에 쓰지 않음(규칙 11) | User(PDF) → Science | I10 전 |
+| 5 | 그림에서만 얻는 자료(Settles, Emami, Wagner, Trapier) | `scripts/digitize.py`(축 보정 + 점 추출)를 pytest로 먼저 검증(합성 그림, 규칙 10) 후 사용. 우선순위: Emami(I7·I10) > Wagner 주파수·속도(I9) > Settles 박리 길이(I4) > Trapier(정성만, 후순위). 추출값은 CSV로 저장하고 불확도를 함께 적음 | Code(스크립트) + User(축 눈금 육안 확인) | 각 단계 직전 |
+| 6 | 벽 조건 미확인(Settles, Emami, Trapier) | 원문에서 확인. 못 찾으면 가정(단열/등온)을 사용자가 정하고 케이스 설정에 기록(규칙 1) | Science(원문 확인) → User(가정 결정) | I4, I7 전 |
+| 7 | Wieting 쐐기각 12.5°(Table 11은 10°) | NTRS PDF를 내려받아 Table 11·그림 82·본문 3.x절을 직접 확인. 일치하면 케이스 설정에 근거 기록 | Code | I11a 전 |
+| 8 | I4 성공 기준 정량화 | TMR 2DZPH `cf_vandriestII.dat`, Duan M6Tw076 대비 C_f·2St/C_f 오차 허용치를 사용자가 정함. 제안 값은 Code가 첫 실행 결과를 보고 제시 | User 결정 | I4 시작 때 |
+| 9 | 선행연구 범위(영어 DB 위주) | I18 전에 Science가 중국어 학술지·학위논문 보강 검색. 결론의 "없음"은 그때까지 잠정 표기 | Science | I18 전 |
+| 10 | I9 차별점 | Galaktionov 외(2019)의 방법과 겹침을 인정하고 마하 간격·초기장 민감도 보고를 I9 성공 기준에 추가 제안 | User 승인 → Code | I9 전 |
+
+원칙: 위 1·10은 plan.md(계획 변경)에 해당하므로 사용자 승인 전에는 plan.md를 고치지 않는다.

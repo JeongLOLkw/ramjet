@@ -4,3 +4,4 @@ __pycache__/
 cases/runs/
 cases/**/processor*/
 .claude/
+docs/papers/

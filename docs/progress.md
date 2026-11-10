@@ -42,5 +42,23 @@
   4. 계획 자체 모순: §2 CLAUDE.md "WSL 12 GB" vs §8 성공 기준 "10 GB 이내"
 - 소요: 벽시계 — / 클라우드 $0 / /usage — 기록 예정
 
+## I1 — 문헌·검증 자료 (2026-11-10) — 산출물 도착, Claude Code 점검 완료
+- 모델·노력·UT: 계획상 Fable 5.2 · 높음 (Claude Science). 산출물은 Claude Science가 작성, 점검은 Claude Code(Sonnet 5.5)
+- 한 일: Science 산출물 4개 + Wieting RUN 21 CSV 2개를 `docs/`에 반입, Claude Code가 독립 점검
+- 결과:
+  - `references.md` · `validation_data.md` · `prior_work.md` · `exercises.md` · `wieting1987_run21_cylinder*.csv`
+  - 연습 문제 7개 답을 Python으로 재계산 → 모두 일치 (정체조건, 수직충격파, θ-β-M, Kantrowitz, 회복온도, Van Driest II→St, Waltrup–Billig)
+  - Wieting SI 환산, Wagner·Settles p₀/T₀ 환산, CSV의 q/Q₀↔W/m² 환산 일치
+  - 문서에 적힌 DOI 50개를 Crossref로 조회 → 전부 실재, 제목·연도 일치
+- 남은 문제 (해결안은 decisions.md D-006):
+  1. 검증 케이스 교체 제안(Reinartz → Emami TP-3502; 열유속은 Häberle & Gülhan 전문 확보 후) — 계획 변경이라 승인 필요
+  2. 서지 미확인: Anderson MCF 판본, Van Wie 장 저자, Edney FFA 보고서 번호, Celik 외 저자, Waltrup–Billig 계수 50·170 원문 확인
+  3. 디지털 자료 없음(디지타이저 필요): Settles 24°, Emami 압력, Wagner, Trapier
+  4. 벽 조건 미확인: Settles, Emami, Trapier
+  5. Wieting Table 11 쐐기각 오식 판단(12.5°) — 원문 PDF로 재확인 필요
+  6. I4 정량 허용치는 사용자 결정
+  7. 선행연구 조사는 영어권 DB 위주 (중국어 학술지·학위논문 미포함)
+- 소요: 벽시계 수 분(점검) / 클라우드 $0 / /usage 미기록 (사용자 확인 필요)
+
 ## 오류 기록
 - 없음
