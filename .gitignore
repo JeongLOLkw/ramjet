@@ -19,3 +19,9 @@ cases/validation/*/*/log.solver
 cases/validation/flatplate/*/0/
 cases/validation/ramp24/*/0/
 cases/validation/**/dynamicCode/
+# I5 흡입구 케이스: 생성 격자·시간 디렉터리·런타임 산출물은 커밋하지 않는다(설정·로그만)
+cases/inlet/*/0/
+cases/inlet/**/polyMesh/
+cases/inlet/**/[1-9]*/
+cases/inlet/**/dynamicCode/
+cases/inlet/*/log.solver
