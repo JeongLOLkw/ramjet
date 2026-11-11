@@ -232,7 +232,11 @@ def ramp(case):
     cols = wall_columns(case, w)
     inc = {}
     for xr in (-0.0635, -0.0508):          # the two reported positions of the incoming-layer survey (validation_data.md §2)
-        s = station(f, w, cols, int(np.argmin(np.abs(w["x"] - xr))), fs)
+        try:
+            s = station(f, w, cols, int(np.argmin(np.abs(w["x"] - xr))), fs)
+        except ValueError as e:      # e.g. the station lies inside reversed flow (no 0.99 u_e edge)
+            inc[f"{xr * 1e3:.1f}mm"] = dict(error=str(e))
+            continue
         inc[f"{xr * 1e3:.1f}mm"] = dict(delta99=s["delta99"], dstar=s["dstar"], theta=s["theta"], re_theta=s["re_theta"])
     res.update(y_plus_max=ymax, y_plus_ok=bool(ok), sep=d["sep"], reatt=d["reatt"], L_sep=d["L_sep"],
                bubble_open=d["bubble_open"], incoming=inc,
