@@ -1,0 +1,6 @@
+commit 94649768cf26099241ea016d8358765f5544cdf0
+dirty_files 0
+start 2026-11-11T11:04:31+09:00
+host DESKTOP-DMEHFG7
+np 4
+init_from uniform

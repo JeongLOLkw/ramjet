@@ -1,0 +1,5 @@
+case flatplate/M5tw05_L2
+options wall-bc=fixed kw-schemes=sstExample inflow-turb=tmr
+M 5  T_inf 300 K  p_inf 13734.6 Pa  U_inf 1736.12 m/s  rho_inf 0.159486 kg/m3  mu_inf 1.84592e-05 Pa s  Re/m 1.5e+07
+T_w 817.5 K  T_aw(r=0.89) 1635 K  T_w/T_aw 0.5
+mesh cells 229376  nx 512  ny 448  dy1 1.125e-06  dx_le 0.001  dx_end 0.0134963  dy_top 0.0218486  r_y 1.02234

@@ -1,0 +1,1 @@
+wall: y+ max 0.8153 at x = 0.002, mean 0.1608 -> PASS (limit < 1)
