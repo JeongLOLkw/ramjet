@@ -1,0 +1,106 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2512                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _bd2b6720-20260127 OPENFOAM=2512 version=2512
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar
+Date   : Nov 12 2026
+Time   : 00:22:09
+Host   : DESKTOP-DMEHFG7
+PID    : 33561
+I/O    : uncollated
+Case   : /home/toto/ramjet/cases/validation/ramp24/L0
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+memory pool : not available
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh
+
+Create mesh
+
+Calculating distribution of cells
+Decomposition method scotch [4] (region region0)
+
+Finished decomposition in 0.06 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 21709
+    Number of points = 44036
+    Number of faces shared with processor 1 = 122
+    Number of processor patches = 1
+    Number of processor faces = 122
+    Number of boundary faces = 43912
+
+Processor 1
+    Number of cells = 21421
+    Number of points = 43468
+    Number of faces shared with processor 0 = 122
+    Number of faces shared with processor 3 = 114
+    Number of processor patches = 2
+    Number of processor faces = 236
+    Number of boundary faces = 43230
+
+Processor 2
+    Number of cells = 21393
+    Number of points = 43402
+    Number of faces shared with processor 3 = 124
+    Number of processor patches = 1
+    Number of processor faces = 124
+    Number of boundary faces = 43276
+
+Processor 3
+    Number of cells = 21493
+    Number of points = 43614
+    Number of faces shared with processor 1 = 114
+    Number of faces shared with processor 2 = 124
+    Number of processor patches = 2
+    Number of processor faces = 238
+    Number of boundary faces = 43374
+
+Number of processor faces = 360
+Max number of cells = 21709 (0.9533110119% above average 21504)
+Max number of processor patches = 2 (33.33333333% above average 1.5)
+Max number of faces between processors = 238 (32.22222222% above average 180)
+
+Time = 0
+Using dynamicCode for patch wall on field omega at line 31 in "/home/toto/ramjet/cases/validation/ramp24/L0/0/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/ramp24/L0/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/ramp24/L0/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: cannot open shared object file: No such file or directory
+Creating new library in "dynamicCode/menterOmegaWall/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+Invoking wmake libso /home/toto/ramjet/cases/validation/ramp24/L0/dynamicCode/menterOmegaWall
+wmake libso /home/toto/ramjet/cases/validation/ramp24/L0/dynamicCode/menterOmegaWall
+    ln: ./lnInclude
+    dep: fixedValueFvPatchFieldTemplate.C
+    Ctoo: fixedValueFvPatchFieldTemplate.C
+    link: /home/toto/ramjet/cases/validation/ramp24/L0/dynamicCode/menterOmegaWall/../platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so
+Could not load "/home/toto/ramjet/cases/validation/ramp24/L0/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/ramp24/L0/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+
+End
+
