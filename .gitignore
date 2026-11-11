@@ -15,3 +15,7 @@ cases/validation/wedge/*/0/
 cases/validation/expansion/*/0/
 cases/validation/forwardStep/*_dx*/0/
 cases/validation/*/*/log.solver
+# I4 생성 케이스: 셀 중심이 든 0/, 런타임 컴파일 산출물
+cases/validation/flatplate/*/0/
+cases/validation/ramp24/*/0/
+cases/validation/**/dynamicCode/
