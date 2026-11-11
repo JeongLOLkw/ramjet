@@ -4,7 +4,8 @@
 exec >> /var/log/i4-startup.log 2>&1
 md(){ curl -s -H Metadata-Flavor:Google "http://metadata.google.internal/computeMetadata/v1/instance/attributes/$1"; }
 BUCKET=$(md bucket); CHAINS=$(md chains); HARD=$(md hard_stop_h)
-echo "=== startup $(date -Is) bucket=$BUCKET chains=$CHAINS hard=$HARD"
+MODE=$(curl -sf -H Metadata-Flavor:Google "http://metadata.google.internal/computeMetadata/v1/instance/attributes/mode")   # -f: missing key -> empty
+echo "=== startup $(date -Is) bucket=$BUCKET chains=$CHAINS hard=$HARD mode=${MODE:-worker}"
 export DEBIAN_FRONTEND=noninteractive
 command -v gcloud >/dev/null || snap install google-cloud-cli --classic
 id toto >/dev/null 2>&1 || useradd -m -s /bin/bash toto
@@ -31,13 +32,16 @@ if gcloud storage ls "gs://$BUCKET/inputs/cloud/" >/dev/null 2>&1; then
 fi
 # A boot means "run (or finish) the chains": a stale end marker must not power the VM off right away.
 rm -f /home/toto/ramjet/cases/runs/WORKER_DONE
+# mode=handoff: continue one handed-over running case (handoff_vm.sh); otherwise the chain worker as before.
+if [ "$MODE" = handoff ]; then EXEC="/home/toto/ramjet/scripts/cloud/handoff_vm.sh $BUCKET $HARD"
+else EXEC="/home/toto/ramjet/scripts/cloud/worker.sh $BUCKET $HARD $CHAINS"; fi
 cat > /etc/systemd/system/i4-worker.service <<UNIT
 [Unit]
 Description=I4 cloud worker
 After=network-online.target
 [Service]
 User=toto
-ExecStart=/home/toto/ramjet/scripts/cloud/worker.sh $BUCKET $HARD $CHAINS
+ExecStart=$EXEC
 Restart=on-failure
 RestartSec=60
 UNIT
