@@ -60,7 +60,7 @@ def main():
     if 0 <= avail < 1500:
         anomalies.append(f"가용 메모리 {avail} MB")
     nproc = subprocess.run("pgrep -c -x hisa", shell=True, capture_output=True, text=True).stdout.strip()
-    if done_all and not anomalies:
+    if done_all and not anomalies and not running:
         print("STATUS=DONE")
     elif anomalies:
         print("STATUS=ANOMALY(" + "; ".join(anomalies) + ")")
