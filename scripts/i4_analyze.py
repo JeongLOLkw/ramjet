@@ -207,13 +207,13 @@ def ramp_distribution(case, t):
     w = case_heat_flux(case, t, "wall")
     # arc length from the corner (x = 0): negative upstream, positive along the ramp
     s = np.where(w["x"] < 0, w["x"], np.hypot(w["x"], w["y"]))
-    seps = bl.sign_changes(s, w["tau_w"])
-    near = [(x0, k) for x0, k in seps if abs(x0) < 0.19]       # ignore the leading-edge region
-    sep = next((x0 for x0, k in near if k == "sep"), None)
-    rea = next((x0 for x0, k in reversed(near) if k == "reatt"), None)
+    # whole wall except the first 0.1 m after the plate leading edge (the old |s| < 0.19 m window silently
+    # missed a bubble that started further upstream); open = reversed flow still at the outlet
+    o = np.argsort(s)
+    ext = bl.separation_extent(s[o], w["tau_w"][o], x_min=-RAMP["L_plate"] + 0.1)
     return dict(s=s, x=w["x"], cf=bl.skin_friction(w["tau_w"], fs["rho"], fs["U"]), p_ratio=w["p_w"] / fs["p"],
-                q_w=w["q_w"], y_plus=w["y_plus"], sep=sep, reatt=rea,
-                L_sep=(rea - sep) if sep is not None and rea is not None else 0.0), w
+                q_w=w["q_w"], y_plus=w["y_plus"], sep=ext["sep"], reatt=ext["reatt"], L_sep=ext["L_sep"],
+                bubble_open=ext["open"]), w
 
 
 def ramp(case):
@@ -234,7 +234,8 @@ def ramp(case):
     for xr in (-0.0635, -0.0508):          # the two reported positions of the incoming-layer survey (validation_data.md §2)
         s = station(f, w, cols, int(np.argmin(np.abs(w["x"] - xr))), fs)
         inc[f"{xr * 1e3:.1f}mm"] = dict(delta99=s["delta99"], dstar=s["dstar"], theta=s["theta"], re_theta=s["re_theta"])
-    res.update(y_plus_max=ymax, y_plus_ok=bool(ok), sep=d["sep"], reatt=d["reatt"], L_sep=d["L_sep"], incoming=inc,
+    res.update(y_plus_max=ymax, y_plus_ok=bool(ok), sep=d["sep"], reatt=d["reatt"], L_sep=d["L_sep"],
+               bubble_open=d["bubble_open"], incoming=inc,
                settles_incoming=dict(delta=23e-3, dstar=6.1e-3, theta=1.2e-3),
                dist={k: v.tolist() for k, v in d.items() if isinstance(v, np.ndarray)})
     return res
@@ -253,6 +254,8 @@ def summary(r):
                  f"  -Bq {r['ref']['minus_bq']:.4f} (Duan {r['duan']['minus_bq']})")
     if "L_sep" in r:
         line += f"  sep {r['sep']}  reatt {r['reatt']}  L_sep {r['L_sep']:.4g} m"
+        if r["bubble_open"]:
+            line += "  BUBBLE OPEN AT OUTLET (reversed flow leaves no reattachment in the domain)"
     return line
 
 

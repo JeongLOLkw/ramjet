@@ -157,3 +157,27 @@ def sign_changes(x, f):
             x0 = x[i] - a * (x[i + 1] - x[i]) / (b - a)
             out.append((float(x0), "sep" if a > 0 else "reatt"))
     return out
+
+
+def separation_extent(x, tau_w, x_min):
+    """Extent of the separated region along a wall (x increasing downstream), ignoring x <= x_min.
+
+    sep   = first separation (+ -> -) downstream of x_min,
+    reatt = last reattachment (- -> +), so attached islands inside one bubble are merged.
+    open  = True if the flow is still reversed at the last wall point (no reattachment in the
+            domain): then reatt is None and L_sep is NaN — never reported as 0.
+    Attached everywhere: sep = reatt = None, L_sep = 0.0, open = False.
+    """
+    x, tau_w = np.asarray(x, float), np.asarray(tau_w, float)
+    keep = x > x_min
+    x, tau_w = x[keep], tau_w[keep]
+    ev = sign_changes(x, tau_w)
+    is_open = bool(tau_w[-1] < 0)
+    seps = [x0 for x0, k in ev if k == "sep"]
+    reatts = [x0 for x0, k in ev if k == "reatt"]
+    if not seps and not is_open:
+        return dict(sep=None, reatt=None, L_sep=0.0, open=False)
+    sep = seps[0] if seps else None
+    reatt = None if is_open else (reatts[-1] if reatts else None)
+    L = reatt - sep if (sep is not None and reatt is not None) else float("nan")
+    return dict(sep=sep, reatt=reatt, L_sep=L, open=is_open)

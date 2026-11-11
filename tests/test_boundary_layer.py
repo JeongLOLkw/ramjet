@@ -112,3 +112,47 @@ def test_sign_changes():
     assert bl.sign_changes(x, np.abs(f)) == []
     # exact zero at a node is reported once
     assert bl.sign_changes(x, np.array([1.0, 0.0, -1.0, -1.0, -1.0])) == [(1.0, "sep")]
+
+
+# --- separation extent on the ramp wall (I4): tests written before the implementation (rule 10) ---
+def _tau(x, bubbles):
+    """+1 everywhere except -1 inside the given (start, end) intervals."""
+    t = np.ones_like(x)
+    for a, b in bubbles:
+        t[(x > a) & (x < b)] = -1.0
+    return t
+
+
+def test_separation_extent_attached():
+    x = np.linspace(-1.0, 0.2, 1201)
+    r = bl.separation_extent(x, np.ones_like(x), x_min=-0.9)
+    assert r == dict(sep=None, reatt=None, L_sep=0.0, open=False)
+
+
+def test_separation_extent_closed_bubble():
+    x = np.linspace(-1.0, 0.2, 1201)                      # spacing 1e-3
+    r = bl.separation_extent(x, _tau(x, [(-0.0205, 0.0305)]), x_min=-0.9)
+    assert r["open"] is False
+    assert abs(r["sep"] + 0.0205) < 1e-3 and abs(r["reatt"] - 0.0305) < 1e-3
+    assert abs(r["L_sep"] - 0.051) < 2e-3
+
+
+def test_separation_extent_merges_attached_island():
+    # small attached spot at the corner inside one bubble (seen in the SST ramp solution)
+    x = np.linspace(-1.0, 0.2, 1201)
+    r = bl.separation_extent(x, _tau(x, [(-0.0205, 0.0005), (0.0025, 0.0305)]), x_min=-0.9)
+    assert abs(r["sep"] + 0.0205) < 1e-3 and abs(r["reatt"] - 0.0305) < 1e-3 and r["open"] is False
+
+
+def test_separation_extent_open_at_outlet():
+    # reversed flow reaches the end of the wall: no reattachment inside the domain
+    x = np.linspace(-1.0, 0.2, 1201)
+    r = bl.separation_extent(x, _tau(x, [(-0.8305, 0.0005), (0.0025, 1.0)]), x_min=-0.9)
+    assert r["open"] is True and r["reatt"] is None and np.isnan(r["L_sep"])
+    assert abs(r["sep"] + 0.8305) < 1e-3                 # found although it is far from the corner
+
+
+def test_separation_extent_ignores_leading_edge_region():
+    x = np.linspace(-1.0, 0.2, 1201)
+    r = bl.separation_extent(x, _tau(x, [(-0.995, -0.985), (-0.0205, 0.0305)]), x_min=-0.9)
+    assert abs(r["sep"] + 0.0205) < 1e-3 and abs(r["reatt"] - 0.0305) < 1e-3
