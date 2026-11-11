@@ -4,7 +4,7 @@
 - 계획 §7의 이름은 `inlet-mach-sweep/`이지만, 실제 저장소는 `~/ramjet`에 둔다 (사용자가 계획 파일을 이 경로에 둠).
 - 이름 변경이 필요하면 사용자 결정.
 
-## D-002 OpenFOAM 판본 — 보류 (승인 대기)
+## D-002 OpenFOAM 판본 — **해소: (a) v2512 설치** (아래 2026-11-10 항목)
 - 계획: ESI v2512 (CLAUDE.md 환경 항목, 다른 판본은 사용자 승인 필요).
 - 현 상태: `openfoam2412` (2412.260127-1) 설치됨. v2512 미설치.
 - 선택지:
@@ -136,7 +136,7 @@ I1 점검에서 나온 문제와 담당 제안. 담당: **Code** = Claude Code, 
 4. **비정상 템플릿(I9·I10) 기본값은 I9 직전에 결정**(A1). 후보 rcf maxCo 0.1, HiSA pseudoTol 1e-6을 D-008 재측정(실제 점성 격자)과 함께 비교한다.
 
 ## D-013 I4 솔버 검증 B — 물리 계수·케이스·판정 기준 (실행 전 고정, 2026-11-11)
-계획(`i4` 계획 문서)을 사용자가 2026-11-11 승인. A~D는 **승인됨**, E~G는 **미결(사용자 답 대기)** — 미결 항목이 정해지기 전에는 본 실행을 하지 않는다.
+계획(`i4` 계획 문서)을 사용자가 2026-11-11 승인. A~D는 **승인됨**, E~G는 2026-11-11 사용자가 **모두 권장안(1)으로 승인**. 본 실행 가능.
 
 **승인된 항목**
 - **A. Sutherland 계수**: μ_ref 1.716e-5 Pa·s, T_ref 273.15 K, S 110.4 K → OpenFOAM 형식 As = 1.45793e-6, Ts = 110.4. `src/constants.py`에만 둔다(규칙 4).
@@ -154,7 +154,8 @@ I1 점검에서 나온 문제와 담당 제안. 담당: **Code** = Claude Code, 
   TMR 조건의 T∞ = 300 K는 TMR이 이론 곡선에 쓴 값. 압력은 단위 Re에서 역산. 이미 결정: Settles 24° 벽 = 등온 275.1 K [가정](D-012).
 - **기준 자료 원본**: `docs/validation_data/`(TMR `cf_vandriestII.dat`, `LOTW_vandriestI.dat`, Duan `M6Tw076_Stat.dat`; 2026-11-11 https://tmbwg.github.io/turbmodels/ 에서 내려받음).
 
-**미결 항목(사용자 결정 필요 — 규칙 1·2)**
+**E~G — 승인됨 (사용자 2026-11-11: "E,F,G는 모두 권장대로" = E-1, F-1, G-1). 아래 후보 설명은 결정 당시 원문**
+- **결정 요약**: E = 순수 고정값 벽(k=0, nut=0, alphat=0, ω=Menter 벽값 10·6ν_w/(β1·Δy²)); F = basicFinner의 k·ω 항목만 추가(대류 `bounded Gauss limitedLinear 1`, 기울기 `cellLimited Gauss linear 0.9`, 완화 0.5); G = TMR 유입 난류값(강도 0.002~0.004%, μt/μ = 0.009). 케이스 설정·커밋 메시지에 'D-013 E-1 F-1 G-1'로 적는다(규칙 1).
 - **E. SST 벽 경계 종류**: HiSA의 SST 예제(basicFinner, agardB 등)는 모두 y+ < 1에서도 `kLowReWallFunction` + `omegaWallFunction` +
   `boundaryCorrectedNutLowReWallFunction`을 쓴다(SA인 flatPlate 예제도 nut에 같은 형식). 이름·코드상 벽 함수 계열이라 규칙 2와 충돌 여부를 사용자가 정해야 한다.
   후보: (1) 순수 고정값 — k = 0, nut = 0, alphat = 0, ω = Menter 벽값 10·6ν_w/(β1·Δy²)(TMR SST 정의), (2) HiSA 예제의 저Re 형식(규칙 2의 예외로 기록), (3) 평판 한 조건에서 둘 다 계산해 비교. Claude Code 권장 (1).
