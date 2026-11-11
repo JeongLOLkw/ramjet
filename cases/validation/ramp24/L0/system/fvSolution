@@ -35,6 +35,6 @@ pseudoTime
 {
     pseudoTol         1e-8 (1e-8 1e-8 1e-8) 1e-8;
     pseudoCoNum       10.0;
-    pseudoCoNumMax    200.0;
+    pseudoCoNumMax    50.0;
     localTimestepping true;
 }

@@ -2,4 +2,4 @@ case ramp24/L0
 options wall-bc=fixed kw-schemes=sstExample inflow-turb=tmr
 M 2.84  T_inf 100.263 K  p_inf 23921.7 Pa  U_inf 570.083 m/s  rho_inf 0.83115 kg/m3  mu_inf 6.94803e-06 Pa s  Re/m 6.81956e+07
 T_w 275.1 K  T_aw(r=0.89) 244.209 K  T_w/T_aw 1.126
-mesh cells 50176  nx 448  ny 112  dy1 1e-06  dx_corner 0.001  dx_mid 0.0446991  r_y 1.09403
+mesh cells 86016  nx 768  ny 112  dy1 1e-06  dx_corner 0.001  dx_mid 0.0446991  r_y 1.09403

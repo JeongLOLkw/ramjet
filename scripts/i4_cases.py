@@ -10,7 +10,7 @@ Cases (calorically perfect air, Sutherland viscosity, Prt 0.9 — all from src/c
   ramp24/L<k>             Settles 24 deg compression ramp, M 2.84, isothermal wall 275.1 K (D-012, assumption)
 Flow numerics: HiSA examples/flatPlate steady settings unchanged (D-012):
   AUSMPlusUp, wVanLeer, Gauss linear gradients, bounded dualTime steadyState, GMRES + LUSGS,
-  local time stepping, pseudoCoNum 10 -> 200.
+  local time stepping, pseudoCoNum 10 -> 200 (ramp: ceiling 50, D-016).
 Boundaries: characteristic far field at inlet and top (examples/flatPlate), outlet zeroGradient
 (no pressure imposed, CLAUDE.md rule 6), symmetry plane upstream of the leading edge, no-slip isothermal wall.
 """
@@ -76,7 +76,7 @@ _T_R = 262.0 / (1 + (G - 1) / 2 * _M_R**2)
 _P_R = 690e3 * (1 + (G - 1) / 2 * _M_R**2) ** (-G / (G - 1))
 RAMP = dict(fs=freestream(_M_R, _T_R, rho=_P_R / (C.R_AIR * _T_R)), T_w=1.05 * 262.0, theta=np.radians(24.0),
             L_plate=2.8,   # leading edge to corner [m]; pre-run estimate for delta = 23 mm, to be calibrated
-            L_up=0.1, L_c=0.2, L_ramp=0.18, H=0.25, dy1=1e-6)
+            L_up=0.1, L_c=0.2, L_ramp=0.5, H=0.25, dy1=1e-6)  # L_ramp 0.18 -> 0.5 m: D-016
 LEVELS = {0: 0.5, 1: 1.0, 2: 2.0}        # flat plate refinement factors (cells per direction)
 RAMP_LEVELS = {0: 0.5, 1: 2 ** -0.5, 2: 1.0}
 TU = {"tmr": lambda M: 4e-5 if M < 3 else 2e-5,   # TMR 2DZPH SST page: 0.004 % (M 2), 0.002 % (M 5), mu_t/mu 0.009
@@ -274,6 +274,12 @@ pseudoTime
 }
 """
 
+# D-016 (user-approved 2026-11-12): ramp only, pseudo CFL ceiling 200 -> 50. At 200 the 0.5 m ramp solution
+# kept a ~1,000-step pseudo-time limit cycle (residual stuck near 1e-3); at 50 it converged (scratch diagnostics
+# D / D50, progress.md). Converged steady solution is unchanged by the pseudo-time step; only the path differs.
+SOLUTION_RAMP = SOLUTION.replace("pseudoCoNumMax    200.0;", "pseudoCoNumMax    50.0;")
+assert SOLUTION_RAMP != SOLUTION
+
 # Menter (1994) wall value omega_w = 10 * 6 nu_w / (beta1 d^2), d = wall distance of the first cell centre
 # (form given on the NASA TMR SST page; equation number in Menter, AIAA J. 32(8), 1994 not checked).
 OMEGA_WALL_FIXED = f"""type codedFixedValue; value uniform 1e8; name menterOmegaWall;
@@ -373,7 +379,7 @@ exit $rc
 """
 
 
-def make_case(d, mesh, flds, ctrl, schemes_txt, np_, note):
+def make_case(d, mesh, flds, ctrl, schemes_txt, np_, note, solution=SOLUTION):
     """Write the case; returns False (untouched) if it has already been run (run_info.txt exists)."""
     if (d / "run_info.txt").exists():
         return False
@@ -382,7 +388,7 @@ def make_case(d, mesh, flds, ctrl, schemes_txt, np_, note):
     write(d / "system/blockMeshDict", "dictionary", "blockMeshDict", mesh)
     write(d / "system/controlDict", "dictionary", "controlDict", ctrl)
     write(d / "system/fvSchemes", "dictionary", "fvSchemes", schemes_txt)
-    write(d / "system/fvSolution", "dictionary", "fvSolution", SOLUTION)
+    write(d / "system/fvSolution", "dictionary", "fvSolution", solution)
     write(d / "system/decomposeParDict", "dictionary", "decomposeParDict", DECOMPOSE.format(np=np_))
     write(d / "constant/thermophysicalProperties", "dictionary", "thermophysicalProperties", thermo())
     write(d / "constant/turbulenceProperties", "dictionary", "turbulenceProperties", TURB)
@@ -422,14 +428,14 @@ def main(argv=None):
     todo = []
     for cond, c in FLATPLATE.items():
         for lvl, f in LEVELS.items():
-            todo.append((f"flatplate/{cond}_L{lvl}{a.suffix}", c["fs"], c["T_w"], mesh_flatplate(c, f)))
+            todo.append((f"flatplate/{cond}_L{lvl}{a.suffix}", c["fs"], c["T_w"], mesh_flatplate(c, f), SOLUTION))
     for lvl, f in RAMP_LEVELS.items():
-        todo.append((f"ramp24/L{lvl}{a.suffix}", RAMP["fs"], RAMP["T_w"], mesh_ramp(RAMP, f)))
-    for name, fs, T_w, (mesh, info) in todo:
+        todo.append((f"ramp24/L{lvl}{a.suffix}", RAMP["fs"], RAMP["T_w"], mesh_ramp(RAMP, f), SOLUTION_RAMP))
+    for name, fs, T_w, (mesh, info), solution in todo:
         if a.only and name not in a.only:
             continue
         made = make_case(a.out / name, mesh, fields(fs, T_w, a.wall_bc, a.inflow_turb), ctrl,
-                         SCHEMES[a.kw_schemes], a.np, note_text(name, fs, T_w, info, opts))
+                         SCHEMES[a.kw_schemes], a.np, note_text(name, fs, T_w, info, opts), solution)
         print(f"{'wrote' if made else 'kept '} {name}: {info['cells']} cells ({info['nx']} x {info['ny']}), "
               f"dy1 {info['dy1']:.3g} m, r_y {info['r_y']:.4f}")
     return 0
