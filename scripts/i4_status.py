@@ -31,7 +31,7 @@ def main():
     state = {}
     for line in lines:
         m = re.match(r"\S+ (\S+) (RUNNING|DONE|MISSING)(.*)", line)
-        if m:
+        if m and m.group(1) != "ALL":  # "<time> ALL DONE" is the end-of-script marker, not a case
             state[m.group(1)] = (m.group(2), m.group(3).strip())
     running = [c for c, (s, _) in state.items() if s == "RUNNING"]
     failed = [(c, x) for c, (s, x) in state.items() if s == "DONE" and not x.startswith("rc=0")]
