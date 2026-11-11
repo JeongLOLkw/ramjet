@@ -134,3 +134,41 @@ I1 점검에서 나온 문제와 담당 제안. 담당: **Code** = Claude Code, 
    출처는 2차 인용 1건이라 [가정, 미확정]으로 케이스 설정·커밋 메시지에 적는다. Emami·Wagner·Trapier 벽 조건은 I7·I10 전에 따로 묻는다.
 3. **전진 계단 이격 거리 기준 미충족은 그대로 기록**(A3). 사전 고정 기준(D-010)을 바꾸지 않고, 이 항목은 '정보용'이며 I4 이후 판단 근거로 쓰지 않는다.
 4. **비정상 템플릿(I9·I10) 기본값은 I9 직전에 결정**(A1). 후보 rcf maxCo 0.1, HiSA pseudoTol 1e-6을 D-008 재측정(실제 점성 격자)과 함께 비교한다.
+
+## D-013 I4 솔버 검증 B — 물리 계수·케이스·판정 기준 (실행 전 고정, 2026-11-11)
+계획(`i4` 계획 문서)을 사용자가 2026-11-11 승인. A~D는 **승인됨**, E~G는 **미결(사용자 답 대기)** — 미결 항목이 정해지기 전에는 본 실행을 하지 않는다.
+
+**승인된 항목**
+- **A. Sutherland 계수**: μ_ref 1.716e-5 Pa·s, T_ref 273.15 K, S 110.4 K → OpenFOAM 형식 As = 1.45793e-6, Ts = 110.4. `src/constants.py`에만 둔다(규칙 4).
+  세 값의 1차 출처는 확인하지 않았다(널리 쓰이는 공기 값, `validation_data.md`와 같은 값). S = 110.4 K·T∞ = 300 K로 TMR `cf_vandriestII.dat`가 1e-6 이내로 재현됨(pytest).
+- **B. 난류 모델**: OpenFOAM v2512 표준 `kOmegaSST`, 기본 상수(소스 확인: αk1 0.85, αk2 1.0, αω1 0.5, αω2 0.856, γ2 0.44, β1 0.075, β2 0.0828, β* 0.09, a1 0.31, b1 1, c1 10).
+  **압축성 보정 없음** — plan §5의 "k-ω SST(압축성 보정)"과 다르다. TMR의 SST 결과도 보정 없는 표준 모델이다(2DZPH SST-Vm 페이지).
+- **C. Pr·Prt**: `Prt 0.9`(RAS 계수로 지정; v2512 `EddyDiffusivity.C` 기본값 1.0 확인). 층류 열전도도는 OpenFOAM `sutherland` 수송 모델 내장식
+  κ = μ·Cv·(1.32 + 1.77 R/Cv)(`sutherlandTransportI.H` 확인) 그대로 → γ = 1.4에서 **Pr = 0.6903**(상수). 기준 자료는 Pr 0.71(Duan)·0.72 계열이라 약 3~4% 차이가 있고, 고치지 않고 보고서에 적는다.
+- **D. 평판 조건(3개)**:
+  | 이름 | M | T∞ (K) | T_w (K) | 단위 Re (/m) | 기준 |
+  |---|---|---|---|---|---|
+  | `M2aw` | 2.0 | 300 | 513.6 (Tw/T∞ 1.712, Tw/Taw ≈ 1.0, 등온) | 15e6 | TMR 2DZPH Van Driest II·I |
+  | `M5tw05` | 5.0 | 300 | 817.5 (Tw/T∞ 2.725, Tw/Taw ≈ 0.5, 등온) | 15e6 | 같음 |
+  | `M6Tw076` | 5.86 | 55.0 | 300.0 (Tw/Tr 0.76) | ρ∞ 0.043, U∞ 870.4 m/s에서 환산 | Duan DNS(Zhang 외 2018) `M6Tw076_Stat.dat` |
+  TMR 조건의 T∞ = 300 K는 TMR이 이론 곡선에 쓴 값. 압력은 단위 Re에서 역산. 이미 결정: Settles 24° 벽 = 등온 275.1 K [가정](D-012).
+- **기준 자료 원본**: `docs/validation_data/`(TMR `cf_vandriestII.dat`, `LOTW_vandriestI.dat`, Duan `M6Tw076_Stat.dat`; 2026-11-11 https://tmbwg.github.io/turbmodels/ 에서 내려받음).
+
+**미결 항목(사용자 결정 필요 — 규칙 1·2)**
+- **E. SST 벽 경계 종류**: HiSA의 SST 예제(basicFinner, agardB 등)는 모두 y+ < 1에서도 `kLowReWallFunction` + `omegaWallFunction` +
+  `boundaryCorrectedNutLowReWallFunction`을 쓴다(SA인 flatPlate 예제도 nut에 같은 형식). 이름·코드상 벽 함수 계열이라 규칙 2와 충돌 여부를 사용자가 정해야 한다.
+  후보: (1) 순수 고정값 — k = 0, nut = 0, alphat = 0, ω = Menter 벽값 10·6ν_w/(β1·Δy²)(TMR SST 정의), (2) HiSA 예제의 저Re 형식(규칙 2의 예외로 기록), (3) 평판 한 조건에서 둘 다 계산해 비교. Claude Code 권장 (1).
+- **F. k·ω 이산화**: 유동 쪽은 D-012대로 flatPlate 예제 정상 설정. k·ω 항목은 예제 flatPlate에 없어서 정해야 한다.
+  후보: (1) basicFinner의 k·ω 항목만 추가(대류 `bounded Gauss limitedLinear 1`, 기울기 `cellLimited Gauss linear 0.9`, 완화 0.5), (2) basicFinner 전체(faceLeastSquares, 의사 CFL 1→20, 벽 거리 Poisson), (3) 1차 upwind. 권장 (1).
+- **G. 유입 난류값**: 후보 (1) TMR 값(난류 강도 0.002~0.004%, μt/μ = 0.009 — CFL3D·FUN3D 설정), (2) HiSA 예제 값(강도 1%, 혼합 길이 1e-5 m). 권장 (1).
+
+**판정 기준(결과를 보기 전에 고정)**
+1. y+: 모든 벽 면에서 첫 셀 y+ < 1(`scripts/yplus_check.py`, 규칙 2). 위반 케이스는 실패.
+2. 정상 판정(규칙 5): 유입·유출 질량 유량 불균형 < 0.5% + 감시 지표가 마지막 2,000 스텝 동안 0.2% 이내.
+   감시 지표 — 평판: Re_θ = 10,000 위치(M6Tw076은 9,455)의 C_f, 벽 최대 열유속. 램프: 박리 길이, 벽 최대 열유속.
+3. 평판 C_f(plan §6): **가장 세밀한 격자**에서 4,000 ≤ Re_θ ≤ 13,000 구간(완전 난류)의 |C_f/C_f,VDII − 1| 최댓값 ≤ 10% (`M2aw`, `M5tw05`).
+   Re_θ = ρ∞U∞θ/μ∞, θ는 벽에서 3·δ99까지 적분(자유류 기준).
+4. 평판 열유속: `M6Tw076`의 C_f, 2St/C_f, −B_q, 평균 속도·온도 분포를 Duan DNS와 비교. **허용치는 첫 실행 결과를 보고 Claude Code가 제안, 사용자가 결정**(D-006 #8).
+   주의: Duan 파일 머리말의 −B_q = 0.02는 유효숫자 1자리라 그 자체로 ±25% 불확도.
+5. 램프(plan §6 "박리 길이 크기 수준 일치"): 기준값(Settles 1979 그림)을 구한 뒤 판정. 원문 그림을 못 구하면 판정 보류.
+6. 격자: 조·중·세 3단계, 지표의 격자 간 변화를 함께 보고.
