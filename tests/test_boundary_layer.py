@@ -156,3 +156,19 @@ def test_separation_extent_ignores_leading_edge_region():
     x = np.linspace(-1.0, 0.2, 1201)
     r = bl.separation_extent(x, _tau(x, [(-0.995, -0.985), (-0.0205, 0.0305)]), x_min=-0.9)
     assert abs(r["sep"] + 0.0205) < 1e-3 and abs(r["reatt"] - 0.0305) < 1e-3
+
+
+def test_peak_heat_flux_signed_largest_magnitude():
+    assert bl.peak_heat_flux([1.0, 3.0, 2.0]) == (3.0, 1)                      # all positive: max
+    assert bl.peak_heat_flux([-1.0, -3.0, -2.0]) == (-3.0, 1)                  # all negative: most negative
+    assert bl.peak_heat_flux([2.0, -5.0, 4.0]) == (-5.0, 1)                    # mixed signs
+    assert bl.peak_heat_flux([2.0, -1.0, 4.0]) == (4.0, 2)
+    v, i = bl.peak_heat_flux(np.array([-2.0, 2.0, 1.0]))                       # tie in magnitude: first index
+    assert (v, i) == (-2.0, 0)
+    assert isinstance(v, float) and isinstance(i, int)
+
+
+@pytest.mark.parametrize("bad", [[], [1.0, float("nan")], [float("inf"), 1.0], [-float("inf")]])
+def test_peak_heat_flux_rejects_empty_and_nonfinite(bad):
+    with pytest.raises(ValueError):
+        bl.peak_heat_flux(np.array(bad))

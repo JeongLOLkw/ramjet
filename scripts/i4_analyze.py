@@ -98,11 +98,22 @@ def station(f, w, cols, i, fs):
                 re_theta=fs["rho"] * fs["U"] * theta / fs["mu"], u_edge_ratio=u_loc / fs["U"])
 
 
+def latest_flux(d):
+    """Last-column value of the last data row of the surfaceFieldValue*.dat under d with the largest last time.
+    After a solver restart OpenFOAM writes a new file (new start-time dir or surfaceFieldValue_<time>.dat); the
+    first match can be stale. Files without data rows are ignored."""
+    best = None
+    for f in d.rglob("surfaceFieldValue*.dat"):
+        rows = [l.split() for l in f.read_text().splitlines() if l.strip() and not l.lstrip().startswith("#")]
+        if rows and (best is None or float(rows[-1][0]) > best[0]):
+            best = (float(rows[-1][0]), float(rows[-1][-1]))
+    if best is None:
+        raise ValueError(f"no surfaceFieldValue data under {d}")
+    return best[1]
+
+
 def mass_imbalance(case):
-    flux = {}
-    for d in sorted((case / "postProcessing").glob("mf_*")):
-        f = next(d.rglob("surfaceFieldValue.dat"))
-        flux[d.name[3:]] = float(f.read_text().strip().splitlines()[-1].split()[-1])
+    flux = {d.name[3:]: latest_flux(d) for d in sorted((case / "postProcessing").glob("mf_*"))}
     return vt.mass_imbalance(flux), flux
 
 
@@ -216,17 +227,43 @@ def ramp_distribution(case, t):
                 bubble_open=ext["open"]), w
 
 
+def info_change(its, q, s, window):
+    """Information-only wall-heat-flux changes over the last `window` steps (same window as vt.relative_change).
+    q[time, face], its = iteration numbers, s = arc length (ramp surface: s > 0). Not part of the steady verdict.
+    q_pointwise: max over faces of (max - min over the window) / |q at the last time| (0/0 -> 0);
+    q_ramp_peak: vt.relative_change of max|q_w| over the ramp faces. ValueError if the history is shorter than window."""
+    its, q, s = np.asarray(its, float), np.asarray(q, float), np.asarray(s, float)
+    q_ramp_peak = vt.relative_change(its, np.abs(q[:, s > 0]).max(axis=1), window)
+    w = q[its >= its[-1] - window]
+    rng, last = w.max(axis=0) - w.min(axis=0), np.abs(q[-1])
+    return dict(q_pointwise=float(np.max(np.divide(rng, last, out=np.zeros_like(rng), where=last > 0))),
+                q_ramp_peak=q_ramp_peak)
+
+
 def ramp(case):
     fs = RAMP["fs"]
     times = time_dirs(case)
+    cache = {}
+
+    def dist(t):
+        if t not in cache:
+            cache[t] = ramp_distribution(case, t)
+        return cache[t]
 
     def monitor(t):
-        d = ramp_distribution(case, t)[0]
-        return dict(L_sep=d["L_sep"], q_max=float(d["q_w"].max()))
+        d = dist(t)[0]
+        # q_max = magnitude of the peak wall heat flux, D-017 (docs/decisions.md); identical to max(q_w) on a wall
+        # with q_w > 0, and (unlike max(q_w)) the largest magnitude on the hot ramp wall where q_w < 0
+        return dict(L_sep=d["L_sep"], q_max=abs(bl.peak_heat_flux(d["q_w"])[0]))
 
     res = dict(case=str(case.relative_to(case.parents[1])), **run_meta(case))
     res.update(steady(case, times, monitor))
-    d, w = ramp_distribution(case, times[-1])
+    try:
+        res["info_change"] = info_change([int(float(t)) for t in times], [dist(t)[0]["q_w"] for t in times],
+                                         dist(times[-1])[0]["s"], STEADY_WINDOW)
+    except ValueError:
+        pass
+    d, w = dist(times[-1])
     ok, ymax = yplus_check.check(d["y_plus"])
     f = load_fields(case, times[-1])
     cols = wall_columns(case, w)
@@ -251,6 +288,9 @@ def summary(r):
     rc = ", ".join(f"{k} {v:.2e}" if v is not None else f"{k} n/a" for k, v in r["rel_change"].items())
     line = (f"{r['case']:<28} it {r['iterations']:>6}  y+max {r['y_plus_max']:.3f} {'ok' if r['y_plus_ok'] else 'FAIL'}"
             f"  mass {r['mass_imbalance']:.2e}  d2000[{rc}]  {'STEADY' if r['steady'] else 'not steady'}")
+    if "info_change" in r:
+        ic = ", ".join(f"{k} {v:.1e}" if v is not None else f"{k} n/a" for k, v in r["info_change"].items())
+        line += f"  info[{ic}]"
     if "cf_err_max" in r and r["cf_err_max"] is not None:
         line += f"  |Cf/VDII-1|max {100 * r['cf_err_max']:.2f}% ({r['n_in_range']} pts) {'PASS' if r['cf_pass'] else 'FAIL'}"
     if "two_st_over_cf" in r:

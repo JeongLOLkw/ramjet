@@ -142,6 +142,19 @@ def minus_b_q(q_w, rho_w, tau_w, T_w):
     return np.asarray(q_w, float) / (rho_w * C.CP_AIR * u_tau * T_w)
 
 
+def peak_heat_flux(q_w):
+    """(value, index) of the wall heat flux with the largest magnitude; the value keeps its sign.
+
+    Equals max(q_w) on a wall with q_w > 0 (heated from the flow) and min(q_w) on a wall with q_w < 0
+    (wall hotter than the recovery temperature). Ties: first index. ValueError for empty / non-finite input.
+    """
+    q = np.asarray(q_w, float)
+    if q.size == 0 or not np.all(np.isfinite(q)):
+        raise ValueError("q_w must be non-empty and finite")
+    i = int(np.argmax(np.abs(q)))
+    return float(q[i]), i
+
+
 def sign_changes(x, f):
     """Positions where f changes sign along x (linear interpolation).
 
