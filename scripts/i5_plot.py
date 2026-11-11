@@ -98,7 +98,7 @@ def fig_geometry(p, out):
                 arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.6))
     a1.annotate(f"ramp 2: +{p.delta2_deg:g}° (total {p.delta1_deg + p.delta2_deg:g}°)", (0.5 * (K[0] + S[0]), 0.5 * (K[1] + S[1])),
                 (K[0] + 10, 0.12 * yc), **t, arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.6))
-    a1.annotate(f"kink ({K[0]:.1f}, {K[1]:.1f})", K, (K[0] - 20, K[1] - 22), **t, arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.6))
+    a1.annotate(f"kink ({K[0]:.1f}, {K[1]:.1f})", K, (K[0] - 95, K[1] + 52), **t, arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.6))
     a1.annotate(f"lip focus ({F[0]:.1f}, {F[1]:.1f})\nR_lip {p.lip_radius * MM:g} mm", F, (F[0] - 95, F[1] + 26), **t,
                 arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.6))
     a1.annotate(f"isolator: H_th {d['H_th'] * MM:.2f} mm, L {d['L_iso'] * MM:.1f} mm (L/H {p.iso_L_over_H:g}), constant area",
@@ -204,14 +204,53 @@ def fig_mesh(p, case, out):
     plt.close(fig)
 
 
+def fig_flow(p, case, time, out, tag):
+    """Mach number and pressure of a (smoke) solution on the cell centres — a picture for checking where the
+    shocks sit, not a converged result. One-hue sequential ramp (light = low)."""
+    from matplotlib.colors import LinearSegmentedColormap
+    from src import constants as C
+    from src.foam_reader import read_internal_field as rd
+    case = Path(case)
+    d = ip.design(p)
+    x, y = rd(case / "0/Cx") * MM, rd(case / "0/Cy") * MM
+    T, pr, U = rd(case / time / "T"), rd(case / time / "p"), rd(case / time / "U")
+    mach = np.hypot(U[:, 0], U[:, 1]) / np.sqrt(C.GAMMA_AIR * C.R_AIR * T)
+    cmap = LinearSegmentedColormap.from_list("blue", ["#f3f8fe", "#cde2fb", "#86b6ef", "#3987e5", "#1c5cab", "#0d366b"])
+    F, S = np.array(d["F"]) * MM, np.array(d["S"]) * MM
+    views = [((-p.x_up * MM, d["x_exit"] * MM), (0, 1.9 * F[1])), ((F[0] - 45, S[0] + 95), (S[1] - 12, F[1] + 22))]
+    fig, axs = plt.subplots(2, 2, figsize=(13.5, 7.6), facecolor=SURFACE, gridspec_kw=dict(width_ratios=[1.25, 1.0]))
+    for row, (val, name) in enumerate(((mach, "Mach number"), (pr / pr.max(), "p / p_max"))):
+        for ax, (xl, yl) in zip(axs[row], views):
+            style(ax, xlabel=row == 1)
+            ax.grid(False)
+            k = (x > xl[0] - 5) & (x < xl[1] + 5) & (y > yl[0] - 5) & (y < yl[1] + 5)
+            cs = ax.tricontourf(x[k], y[k], val[k], levels=np.linspace(0, float(val[k].max()), 25), cmap=cmap)
+            draw_walls(ax, p, d, lw=1.0)
+            ax.set_xlim(*xl), ax.set_ylim(*yl)
+            cb = fig.colorbar(cs, ax=ax, fraction=0.035, pad=0.02)
+            cb.ax.tick_params(labelsize=7, colors=MUTED)
+            ax.set_title(name, color=INK, fontsize=10, loc="left")
+    fig.suptitle(f"{case.name}, iteration {time} — smoke run, not a converged result", color=INK, fontsize=11, x=0.01, ha="left")
+    fig.tight_layout()
+    fig.savefig(out / f"I5_smoke_{tag}.png", dpi=150)
+    plt.close(fig)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--set", nargs="*", default=[], metavar="NAME=VALUE")
     ap.add_argument("--mesh-case", type=Path)
+    ap.add_argument("--flow-case", type=Path, help="case with a solution: writes I5_smoke_<tag>.png only")
+    ap.add_argument("--time", help="time directory of --flow-case")
+    ap.add_argument("--tag", default="flow")
     ap.add_argument("--out", type=Path, default=ROOT / "docs/benchmarks")
     a = ap.parse_args(argv)
     p = ip.with_overrides(ip.InletParams(), a.set)
     a.out.mkdir(parents=True, exist_ok=True)
+    if a.flow_case:
+        fig_flow(p, a.flow_case, a.time, a.out, a.tag)
+        print("wrote", a.out / f"I5_smoke_{a.tag}.png")
+        return 0
     fig_geometry(p, a.out)
     fig_blocks(p, a.out)
     if a.mesh_case and (a.mesh_case / "constant/polyMesh/points").exists():
