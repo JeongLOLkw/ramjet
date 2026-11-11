@@ -1,0 +1,300 @@
+bounding k, min: 0 max: 61099.51769 average: 1572.22019
+ExecutionTime = 16154.65 s  ExecutionStepTime = 0.52 s  ClockTime = 16157 s
+
+Time = 19980
+
+pseudoTime: iteration 19980
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716635755e-07 Mean: 0.0003382373342 Max: 0.005338100084
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.002745060187 (0.0002779356554 0.000216151028 2.210150883e-17) 0.002480639547 
+  GMRES iteration: 7   Residual: 4.367744198e-05 (2.489438699e-05 1.825145582e-05 0) 4.317221361e-05 
+smoothSolver:  Solving for omega, Initial residual = 6.521776156e-05, Final residual = 1.710617682e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 6.757028954e-05, Final residual = 6.315346566e-06, No Iterations 1
+bounding k, min: 0 max: 61105.1566 average: 1572.16662
+ExecutionTime = 16155.1 s  ExecutionStepTime = 0.45 s  ClockTime = 16157 s
+
+Time = 19981
+
+pseudoTime: iteration 19981
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716635763e-07 Mean: 0.0003383052452 Max: 0.00533810014
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.002535789319 (0.0002715862769 0.0001571089076 2.211575982e-17) 0.002249108129 
+  GMRES iteration: 12   Residual: 3.357806528e-05 (1.689962559e-05 1.458457955e-05 0) 3.540082237e-05 
+smoothSolver:  Solving for omega, Initial residual = 6.772625376e-05, Final residual = 1.626399547e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 6.947057185e-05, Final residual = 6.473042962e-06, No Iterations 1
+bounding k, min: 0 max: 61106.86786 average: 1572.108449
+ExecutionTime = 16155.8 s  ExecutionStepTime = 0.7 s  ClockTime = 16158 s
+
+Time = 19982
+
+pseudoTime: iteration 19982
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716635626e-07 Mean: 0.0003383949605 Max: 0.005338100293
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.002702646177 (0.0003148422619 0.0002319847285 2.217317357e-17) 0.002468925159 
+  GMRES iteration: 6   Residual: 5.314794972e-05 (2.926430106e-05 2.27070667e-05 0) 5.425913503e-05 
+smoothSolver:  Solving for omega, Initial residual = 6.340384087e-05, Final residual = 1.790441237e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 7.439023405e-05, Final residual = 6.937973129e-06, No Iterations 1
+bounding k, min: 0 max: 61109.36031 average: 1572.063673
+ExecutionTime = 16156.18 s  ExecutionStepTime = 0.38 s  ClockTime = 16158 s
+
+Time = 19983
+
+pseudoTime: iteration 19983
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716633376e-07 Mean: 0.0003384604751 Max: 0.005338100491
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.002479540115 (0.0002623400773 0.0001663862887 2.22078003e-17) 0.002227788843 
+  GMRES iteration: 13   Residual: 3.101802941e-05 (1.630681761e-05 1.365556856e-05 0) 3.228679319e-05 
+smoothSolver:  Solving for omega, Initial residual = 6.516637064e-05, Final residual = 1.586945325e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 7.833494604e-05, Final residual = 7.355496983e-06, No Iterations 1
+bounding k, min: 0 max: 61111.58816 average: 1572.004053
+ExecutionTime = 16156.97 s  ExecutionStepTime = 0.79 s  ClockTime = 16159 s
+
+Time = 19984
+
+pseudoTime: iteration 19984
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716634496e-07 Mean: 0.000338561266 Max: 0.005338100651
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.002588177723 (0.0002618756941 0.000126387502 2.224348247e-17) 0.002360139647 
+  GMRES iteration: 12   Residual: 2.725795145e-05 (1.322550635e-05 1.179524514e-05 0) 2.79256319e-05 
+smoothSolver:  Solving for omega, Initial residual = 6.660631825e-05, Final residual = 1.820459689e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 7.283542394e-05, Final residual = 6.768434051e-06, No Iterations 1
+bounding k, min: 0 max: 61113.34168 average: 1571.95367
+ExecutionTime = 16157.72 s  ExecutionStepTime = 0.75 s  ClockTime = 16160 s
+
+Time = 19985
+
+pseudoTime: iteration 19985
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716634513e-07 Mean: 0.0003386574623 Max: 0.005338100803
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.002640844629 (0.0002632118816 0.0001138327648 2.255836997e-17) 0.002429239628 
+  GMRES iteration: 14   Residual: 2.49392374e-05 (1.385168542e-05 1.124479598e-05 0) 2.633365495e-05 
+smoothSolver:  Solving for omega, Initial residual = 6.676286567e-05, Final residual = 1.859956955e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 8.002530673e-05, Final residual = 7.537681385e-06, No Iterations 1
+bounding k, min: 0 max: 61113.47429 average: 1571.897532
+ExecutionTime = 16158.55 s  ExecutionStepTime = 0.83 s  ClockTime = 16160 s
+
+Time = 19986
+
+pseudoTime: iteration 19986
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.71663573e-07 Mean: 0.0003387714839 Max: 0.005338100928
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.002678332999 (0.0002551767934 0.0001090153617 2.272568084e-17) 0.002474187356 
+  GMRES iteration: 12   Residual: 2.251423748e-05 (1.180926927e-05 1.008329469e-05 0) 2.321225965e-05 
+smoothSolver:  Solving for omega, Initial residual = 6.493493347e-05, Final residual = 1.841111681e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 7.734797237e-05, Final residual = 7.272130504e-06, No Iterations 1
+bounding k, min: 0 max: 61117.1684 average: 1571.847381
+ExecutionTime = 16159.26 s  ExecutionStepTime = 0.71 s  ClockTime = 16161 s
+
+Time = 19987
+
+pseudoTime: iteration 19987
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716635507e-07 Mean: 0.0003388770197 Max: 0.005338101057
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.002531913959 (0.0002288118228 0.0001525102124 2.280889205e-17) 0.002304425678 
+  GMRES iteration: 11   Residual: 2.945109712e-05 (1.42162287e-05 1.361170065e-05 0) 3.061326685e-05 
+smoothSolver:  Solving for omega, Initial residual = 6.168267546e-05, Final residual = 1.708378453e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 8.676848932e-05, Final residual = 8.213089464e-06, No Iterations 1
+bounding k, min: 0 max: 61123.73708 average: 1571.801623
+ExecutionTime = 16159.95 s  ExecutionStepTime = 0.69 s  ClockTime = 16162 s
+
+Time = 19988
+
+pseudoTime: iteration 19988
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 100 Mean: 199.9740912 Max: 200
+Pseudo deltaT: Min: 2.716634963e-07 Mean: 0.0003389522014 Max: 0.005338101223
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.002271451707 (0.0002116421096 0.0001781345492 2.295068543e-17) 0.002009924277 
+  GMRES iteration: 7   Residual: 3.664291414e-05 (2.047919162e-05 1.734682523e-05 0) 3.785147661e-05 
+smoothSolver:  Solving for omega, Initial residual = 5.565645796e-05, Final residual = 1.516953482e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 8.658488677e-05, Final residual = 8.277153176e-06, No Iterations 1
+bounding k, min: 0 max: 61129.50693 average: 1571.750827
+ExecutionTime = 16160.4 s  ExecutionStepTime = 0.45 s  ClockTime = 16162 s
+
+Time = 19989
+
+pseudoTime: iteration 19989
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.71663326e-07 Mean: 0.000339068374 Max: 0.005338101464
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.001916155538 (0.0002015954544 0.0001672040943 2.320806573e-17) 0.001622999466 
+  GMRES iteration: 7   Residual: 3.235641995e-05 (1.889212013e-05 1.45428313e-05 0) 3.14989674e-05 
+smoothSolver:  Solving for omega, Initial residual = 5.110964012e-05, Final residual = 1.275033163e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 9.047356867e-05, Final residual = 8.627940544e-06, No Iterations 1
+bounding k, min: 0 max: 61135.18633 average: 1571.70212
+ExecutionTime = 16160.85 s  ExecutionStepTime = 0.45 s  ClockTime = 16163 s
+
+Time = 19990
+
+pseudoTime: iteration 19990
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716634922e-07 Mean: 0.0003391529833 Max: 0.0053381018
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.001674345195 (0.0002027792808 0.0001169507672 2.357326279e-17) 0.001389494643 
+  GMRES iteration: 13   Residual: 2.340097737e-05 (1.304107899e-05 1.142384145e-05 0) 2.403600025e-05 
+smoothSolver:  Solving for omega, Initial residual = 5.200017275e-05, Final residual = 1.244956463e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 9.121168574e-05, Final residual = 8.805639295e-06, No Iterations 1
+bounding k, min: 0 max: 61140.44331 average: 1571.653961
+ExecutionTime = 16161.6 s  ExecutionStepTime = 0.75 s  ClockTime = 16164 s
+
+Time = 19991
+
+pseudoTime: iteration 19991
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716635584e-07 Mean: 0.0003392767394 Max: 0.005338102163
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.001763638644 (0.00021430089 0.0001879651503 2.370899946e-17) 0.00154253642 
+  GMRES iteration: 7   Residual: 3.303807519e-05 (1.981339582e-05 1.536657848e-05 0) 3.214437657e-05 
+smoothSolver:  Solving for omega, Initial residual = 4.899043341e-05, Final residual = 1.362388946e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 9.236773081e-05, Final residual = 8.975814172e-06, No Iterations 1
+bounding k, min: 0 max: 61146.24536 average: 1571.609349
+ExecutionTime = 16162.06 s  ExecutionStepTime = 0.45 s  ClockTime = 16164 s
+
+Time = 19992
+
+pseudoTime: iteration 19992
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716635758e-07 Mean: 0.0003393645821 Max: 0.005338102563
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.00169705697 (0.0001883402108 9.641668872e-05 2.379832423e-17) 0.001491473559 
+  GMRES iteration: 15   Residual: 1.943385188e-05 (9.883906864e-06 9.515078124e-06 0) 1.916826056e-05 
+smoothSolver:  Solving for omega, Initial residual = 4.873437472e-05, Final residual = 1.234692625e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 9.616164381e-05, Final residual = 9.352849598e-06, No Iterations 1
+bounding k, min: 0 max: 61148.2268 average: 1571.574165
+ExecutionTime = 16162.99 s  ExecutionStepTime = 0.93 s  ClockTime = 16165 s
+
+Time = 19993
+
+pseudoTime: iteration 19993
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 100 Mean: 199.9143017 Max: 200
+Pseudo deltaT: Min: 2.716635758e-07 Mean: 0.0003393917316 Max: 0.005338103041
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.001834232447 (0.0001974019271 0.0001053599518 2.371433798e-17) 0.00167692307 
+  GMRES iteration: 16   Residual: 2.080271882e-05 (1.096092155e-05 1.011582014e-05 0) 2.156838424e-05 
+smoothSolver:  Solving for omega, Initial residual = 4.839235617e-05, Final residual = 1.318910087e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0001112015232, Final residual = 1.104262936e-05, No Iterations 1
+bounding k, min: 0 max: 61150.24977 average: 1571.533343
+ExecutionTime = 16163.92 s  ExecutionStepTime = 0.93 s  ClockTime = 16166 s
+
+Time = 19994
+
+pseudoTime: iteration 19994
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 50 Mean: 199.9711017 Max: 200
+Pseudo deltaT: Min: 2.716635711e-07 Mean: 0.0003396000465 Max: 0.005338103536
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.002004226672 (0.0001921857153 0.0001228687156 2.356155042e-17) 0.001877358126 
+  GMRES iteration: 12   Residual: 2.320232027e-05 (1.185981955e-05 1.107980226e-05 0) 2.36891165e-05 
+smoothSolver:  Solving for omega, Initial residual = 4.571317078e-05, Final residual = 1.282954847e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0001092538294, Final residual = 1.090301043e-05, No Iterations 1
+bounding k, min: 0 max: 61160.9838 average: 1571.500173
+ExecutionTime = 16164.65 s  ExecutionStepTime = 0.73 s  ClockTime = 16167 s
+
+Time = 19995
+
+pseudoTime: iteration 19995
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 100 Mean: 199.994021 Max: 200
+Pseudo deltaT: Min: 2.716635531e-07 Mean: 0.0003397414416 Max: 0.005338104012
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.001967313208 (0.0001681394649 0.0001238976117 2.337128226e-17) 0.001823553073 
+  GMRES iteration: 10   Residual: 2.618902779e-05 (1.30264964e-05 1.231080238e-05 0) 2.601449066e-05 
+smoothSolver:  Solving for omega, Initial residual = 4.180433179e-05, Final residual = 1.145185003e-08, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0001102670544, Final residual = 1.19554115e-06, No Iterations 2
+bounding k, min: 0 max: 61174.64512 average: 1571.454458
+ExecutionTime = 16165.26 s  ExecutionStepTime = 0.61 s  ClockTime = 16167 s
+
+Time = 19996
+
+pseudoTime: iteration 19996
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716635676e-07 Mean: 0.0003398464841 Max: 0.005338104418
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.001815719389 (0.0001599110701 0.0001623558657 2.319664234e-17) 0.001647469724 
+  GMRES iteration: 6   Residual: 3.057756615e-05 (1.560130635e-05 1.270063869e-05 0) 2.697755773e-05 
+smoothSolver:  Solving for omega, Initial residual = 3.587537268e-05, Final residual = 9.679563336e-09, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0001113512659, Final residual = 1.211004327e-06, No Iterations 2
+bounding k, min: 0 max: 61187.14589 average: 1571.413959
+ExecutionTime = 16165.71 s  ExecutionStepTime = 0.45 s  ClockTime = 16168 s
+
+Time = 19997
+
+pseudoTime: iteration 19997
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716635467e-07 Mean: 0.0003399128336 Max: 0.005338104618
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.001516806442 (0.0001436980408 0.0001710261833 2.310882982e-17) 0.001309619894 
+  GMRES iteration: 7   Residual: 2.713908826e-05 (1.422179726e-05 1.234383491e-05 0) 2.514984092e-05 
+smoothSolver:  Solving for omega, Initial residual = 3.270704305e-05, Final residual = 7.962086556e-09, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0001140412483, Final residual = 1.245262675e-06, No Iterations 2
+bounding k, min: 0 max: 61196.41612 average: 1571.376943
+ExecutionTime = 16166.27 s  ExecutionStepTime = 0.56 s  ClockTime = 16168 s
+
+Time = 19998
+
+pseudoTime: iteration 19998
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716635757e-07 Mean: 0.000339986473 Max: 0.005338104638
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.001361778172 (0.0001416519894 9.811340253e-05 2.312533143e-17) 0.001150158972 
+  GMRES iteration: 12   Residual: 1.806685202e-05 (9.407197943e-06 9.003563038e-06 0) 1.801085073e-05 
+smoothSolver:  Solving for omega, Initial residual = 3.261465268e-05, Final residual = 7.889835462e-09, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0001184027481, Final residual = 1.302814505e-06, No Iterations 2
+bounding k, min: 0 max: 61203.4748 average: 1571.344703
+ExecutionTime = 16167.04 s  ExecutionStepTime = 0.77 s  ClockTime = 16169 s
+
+Time = 19999
+
+pseudoTime: iteration 19999
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716635739e-07 Mean: 0.0003400919675 Max: 0.005338104591
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.001395755028 (0.0001552073287 0.0001658950369 2.341970499e-17) 0.001215750278 
+  GMRES iteration: 6   Residual: 2.423026099e-05 (1.47298215e-05 1.132613623e-05 0) 2.082250317e-05 
+smoothSolver:  Solving for omega, Initial residual = 2.932467508e-05, Final residual = 8.10751037e-09, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0001205325208, Final residual = 1.380402116e-06, No Iterations 2
+bounding k, min: 0 max: 61213.52137 average: 1571.317508
+ExecutionTime = 16167.43 s  ExecutionStepTime = 0.39 s  ClockTime = 16169 s
+
+Time = 20000
+
+pseudoTime: iteration 20000
+Pseudo Courant No: 200
+Damped pseudo Courant No: Min: 200 Mean: 200 Max: 200
+Pseudo deltaT: Min: 2.716635287e-07 Mean: 0.0003401558119 Max: 0.005338104644
+Solving for (rho rhoU rhoE)
+  GMRES iteration: 0   Residual: 0.001287390054 (0.0001312935609 0.0001086964998 2.362370298e-17) 0.001109677177 
+  GMRES iteration: 8   Residual: 2.095874571e-05 (1.235210416e-05 1.0517287e-05 0) 1.948361811e-05 
+smoothSolver:  Solving for omega, Initial residual = 2.692297205e-05, Final residual = 7.100839419e-09, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0001235171278, Final residual = 1.390389727e-06, No Iterations 2
+bounding k, min: 0 max: 61222.64865 average: 1571.295315
+ExecutionTime = 16168.02 s  ExecutionStepTime = 0.59 s  ClockTime = 16170 s
+
+End
+
+Finalising parallel run

@@ -1,0 +1,9 @@
+commit 94649768cf26099241ea016d8358765f5544cdf0
+dirty_files 799
+start 2026-11-11T02:12:00+00:00
+host ramjet-i4-b
+np 4
+init_from /home/toto/ramjet/cases/validation/flatplate/M6Tw076_L0
+restart 2026-11-11T02:34:03+00:00 np 4 host ramjet-i4-b
+restart 2026-11-11T02:34:31+00:00 np 4 host ramjet-i4-b
+end 2026-11-11T03:21:56+00:00 rc 0

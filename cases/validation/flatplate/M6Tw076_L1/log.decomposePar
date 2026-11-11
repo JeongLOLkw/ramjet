@@ -1,0 +1,103 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2512                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _bd2b6720-20260127 OPENFOAM=2512 version=2512
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar
+Date   : Nov 11 2026
+Time   : 02:12:11
+Host   : ramjet-i4-b
+PID    : 5698
+I/O    : uncollated
+Case   : /home/toto/ramjet/cases/validation/flatplate/M6Tw076_L1
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+memory pool : not available
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh
+
+Create mesh
+
+Calculating distribution of cells
+Decomposition method scotch [4] (region region0)
+
+Finished decomposition in 0.05 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 14330
+    Number of points = 29160
+    Number of faces shared with processor 1 = 120
+    Number of faces shared with processor 2 = 132
+    Number of faces shared with processor 3 = 6
+    Number of processor patches = 3
+    Number of processor faces = 258
+    Number of boundary faces = 28900
+
+Processor 1
+    Number of cells = 14475
+    Number of points = 29436
+    Number of faces shared with processor 0 = 120
+    Number of faces shared with processor 3 = 123
+    Number of processor patches = 2
+    Number of processor faces = 243
+    Number of boundary faces = 29191
+
+Processor 2
+    Number of cells = 14336
+    Number of points = 29156
+    Number of faces shared with processor 0 = 132
+    Number of faces shared with processor 3 = 111
+    Number of processor patches = 2
+    Number of processor faces = 243
+    Number of boundary faces = 28911
+
+Processor 3
+    Number of cells = 14203
+    Number of points = 28888
+    Number of faces shared with processor 0 = 6
+    Number of faces shared with processor 1 = 123
+    Number of faces shared with processor 2 = 111
+    Number of processor patches = 3
+    Number of processor faces = 240
+    Number of boundary faces = 28646
+
+Number of processor faces = 492
+Max number of cells = 14475 (0.9695870536% above average 14336)
+Max number of processor patches = 3 (20% above average 2.5)
+Max number of faces between processors = 258 (4.87804878% above average 246)
+
+Time = 0
+Using dynamicCode for patch wall on field omega at line 57869 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L1/0/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+
+End
+

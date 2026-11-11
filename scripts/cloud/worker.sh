@@ -1,7 +1,10 @@
 #!/bin/bash
 # VM worker:  worker.sh <bucket> <hard stop hours> <case base>...
 # Runs one chain (levels 1 and 2) per case in parallel, syncs results to the bucket every 5 min, stops everything
-# at the hard time limit (cost guard), does a final sync and then deletes this VM (CLAUDE.md rules 7, 8).
+# at the hard time limit (cost guard), does a final sync and writes cases/runs/WORKER_DONE (CLAUDE.md rules 7, 8).
+# Power-off is done by i4-poweroff.path (installed by vm_startup.sh) 3 min after WORKER_DONE appears.
+# The VM service account has no Compute permission, so the VM is NOT deleted here: deleting it is done from the
+# laptop after the results are pulled and the user confirms (D-015). Exit 0 at the end so systemd does not restart us.
 cd "$(dirname "$0")/../.." || exit 1
 BUCKET=$1; HARD=$2; shift 2
 mkdir -p cases/runs
@@ -38,10 +41,6 @@ ok=1; for i in 1 2 3 4 5; do sync_once && { ok=0; break; }; sleep 30; done
 say "worker finished rcs:$rcs hard_stopped=$stopped final_sync_rc=$ok"
 echo "rcs:$rcs hard_stopped=$stopped final_sync_rc=$ok $(date -Is)" > cases/runs/WORKER_DONE
 sync_once
-if [ $ok -eq 0 ]; then
-  zone=$(curl -s -H Metadata-Flavor:Google http://metadata.google.internal/computeMetadata/v1/instance/zone | awk -F/ '{print $NF}')
-  say "deleting VM $(hostname) in $zone"
-  gcloud compute instances delete "$(hostname)" --zone "$zone" --quiet >> $LOG 2>&1
-else
-  say "final sync FAILED - VM kept for manual rescue"
-fi
+[ $ok -eq 0 ] || say "final sync FAILED - results stay on the VM disk for manual rescue"
+say "WORKER_DONE written; i4-poweroff.path powers this VM off in 3 min"
+exit 0

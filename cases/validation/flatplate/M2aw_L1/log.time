@@ -1,0 +1,34 @@
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ramjet-i4-a
+  System call: unlink(2) /dev/shm/vader_segment.ramjet-i4-a.1001.dc10001.3
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ramjet-i4-a:02952] 3 more processes have sent help message help-opal-shmem-mmap.txt / sys call fail
+[ramjet-i4-a:02952] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	Command being timed: "mpirun -np 4 hisa -parallel"
+	User time (seconds): 14623.88
+	System time (seconds): 184.61
+	Percent of CPU this job got: 398%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:01:53
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 149800
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 190
+	Minor (reclaiming a frame) page faults: 77216045
+	Voluntary context switches: 107300
+	Involuntary context switches: 255607
+	Swaps: 0
+	File system inputs: 25328
+	File system outputs: 450408
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
