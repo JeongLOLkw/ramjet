@@ -12,7 +12,7 @@ blockMesh > log.blockMesh 2>&1 || exit 1
 checkMesh > log.checkMesh 2>&1 || exit 1
 postProcess -func writeCellCentres -time 0 > log.cc 2>&1 || exit 1
 if [ -n "$INIT_FROM" ]; then
-    mapFields "$INIT_FROM" -sourceTime latestTime -consistent > log.mapFields 2>&1 || exit 1
+    mapFields "$INIT_FROM" -sourceTime latestTime -consistent -mapMethod cellPointInterpolate > log.mapFields 2>&1 || exit 1
 fi
 decomposePar > log.decomposePar 2>&1 || exit 1
 /usr/bin/time -v mpirun -np 4 hisa -parallel > log.solver 2> log.time

@@ -279,6 +279,10 @@ pseudoTime
 # D / D50, progress.md). Converged steady solution is unchanged by the pseudo-time step; only the path differs.
 SOLUTION_RAMP = SOLUTION.replace("pseudoCoNumMax    200.0;", "pseudoCoNumMax    50.0;")
 assert SOLUTION_RAMP != SOLUTION
+# Ramp level k > 0 initialisation (pre-approved adjustment (c)): mapFields' default 'interpolate' method segfaults
+# on the ramp meshes (L0 -> L1, v2512, reproducible); 'cellPointInterpolate' maps all fields (checked: T, p, rho > 0,
+# same ranges as the source). Initial guess only — the converged steady solution does not depend on it.
+RAMP_MAP_OPTS = " -mapMethod cellPointInterpolate"
 
 # Menter (1994) wall value omega_w = 10 * 6 nu_w / (beta1 d^2), d = wall distance of the first cell centre
 # (form given on the NASA TMR SST page; equation number in Menter, AIAA J. 32(8), 1994 not checked).
@@ -367,7 +371,7 @@ blockMesh > log.blockMesh 2>&1 || exit 1
 checkMesh > log.checkMesh 2>&1 || exit 1
 postProcess -func writeCellCentres -time 0 > log.cc 2>&1 || exit 1
 if [ -n "$INIT_FROM" ]; then
-    mapFields "$INIT_FROM" -sourceTime latestTime -consistent > log.mapFields 2>&1 || exit 1
+    mapFields "$INIT_FROM" -sourceTime latestTime -consistent{map_opts} > log.mapFields 2>&1 || exit 1
 fi
 decomposePar > log.decomposePar 2>&1 || exit 1
 /usr/bin/time -v mpirun -np {np} hisa -parallel > log.solver 2> log.time
@@ -379,7 +383,7 @@ exit $rc
 """
 
 
-def make_case(d, mesh, flds, ctrl, schemes_txt, np_, note, solution=SOLUTION):
+def make_case(d, mesh, flds, ctrl, schemes_txt, np_, note, solution=SOLUTION, map_opts=""):
     """Write the case; returns False (untouched) if it has already been run (run_info.txt exists)."""
     if (d / "run_info.txt").exists():
         return False
@@ -395,7 +399,7 @@ def make_case(d, mesh, flds, ctrl, schemes_txt, np_, note, solution=SOLUTION):
     for name, (cls, body) in flds.items():
         write(d / "0.orig" / name, cls, name, body)
     (d / "case_info.txt").write_text(note)
-    (d / "Allrun").write_text(ALLRUN.format(np=np_))
+    (d / "Allrun").write_text(ALLRUN.format(np=np_, map_opts=map_opts))
     (d / "Allrun").chmod(0o755)
     return True
 
@@ -428,14 +432,16 @@ def main(argv=None):
     todo = []
     for cond, c in FLATPLATE.items():
         for lvl, f in LEVELS.items():
-            todo.append((f"flatplate/{cond}_L{lvl}{a.suffix}", c["fs"], c["T_w"], mesh_flatplate(c, f), SOLUTION))
+            todo.append((f"flatplate/{cond}_L{lvl}{a.suffix}", c["fs"], c["T_w"], mesh_flatplate(c, f), SOLUTION, ""))
     for lvl, f in RAMP_LEVELS.items():
-        todo.append((f"ramp24/L{lvl}{a.suffix}", RAMP["fs"], RAMP["T_w"], mesh_ramp(RAMP, f), SOLUTION_RAMP))
-    for name, fs, T_w, (mesh, info), solution in todo:
+        todo.append((f"ramp24/L{lvl}{a.suffix}", RAMP["fs"], RAMP["T_w"], mesh_ramp(RAMP, f), SOLUTION_RAMP,
+                     RAMP_MAP_OPTS))
+    for name, fs, T_w, (mesh, info), solution, map_opts in todo:
         if a.only and name not in a.only:
             continue
         made = make_case(a.out / name, mesh, fields(fs, T_w, a.wall_bc, a.inflow_turb), ctrl,
-                         SCHEMES[a.kw_schemes], a.np, note_text(name, fs, T_w, info, opts), solution)
+                         SCHEMES[a.kw_schemes], a.np, note_text(name, fs, T_w, info, opts), solution,
+                         map_opts)
         print(f"{'wrote' if made else 'kept '} {name}: {info['cells']} cells ({info['nx']} x {info['ny']}), "
               f"dy1 {info['dy1']:.3g} m, r_y {info['r_y']:.4f}")
     return 0
