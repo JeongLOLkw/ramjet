@@ -199,3 +199,33 @@ def riemann_profile(x, t, left, right, g, x0=0.0):
                     st_ = (rR * c ** (2 / gm), 2 / gp * (-aR + gm / 2 * uR + s), pR * c ** (2 * g / gm))
         rho[i], u[i], p[i] = st_
     return rho, u, p
+
+
+# --- area ratio and inlet starting limits (I5) --------------------------------
+
+def area_ratio(M, g):
+    """Isentropic area ratio A/A* (NACA 1135 eq. 80)."""
+    return (1 / M) * ((2 / (g + 1)) * (1 + 0.5 * (g - 1) * M**2)) ** ((g + 1) / (2 * (g - 1)))
+
+
+def isentropic_limit(M, g):
+    """Smallest throat/inlet area ratio A_th/A_i a started inlet can keep: sonic throat, no losses
+    (= A*/A at the inlet Mach number, NACA 1135 eq. 80)."""
+    return 1 / area_ratio(M, g)
+
+
+def kantrowitz_limit(M, g):
+    """Self-starting limit A_th/A_i (the inlet starts if its A_th/A_i is larger).
+
+    Kantrowitz & Donaldson (1945), NACA ACR L5D20: a normal shock stands at the inlet (Mach M),
+    the subsonic flow behind it accelerates isentropically to M = 1 at the throat, so
+    A_th/A_i = (A*/A)(M_2) with M_2 from NACA 1135 eq. 96. The equation number in the 1945 report
+    was not checked; the form is the one worked in docs/exercises.md problem 4.
+    """
+    return 1 / area_ratio(normal_shock(M, g)["M2"], g)
+
+
+def mach_min_attached(theta, g):
+    """Lowest upstream Mach number with an attached oblique shock for deflection theta
+    (root of theta_max(M) = theta, eq. 138)."""
+    return brentq(lambda M: theta_max(M, g)[0] - theta, 1.0 + 1e-9, 100.0, xtol=1e-12)

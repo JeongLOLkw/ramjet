@@ -174,3 +174,36 @@ def test_riemann_profile_far_field_and_dimensional_scaling():
     np.testing.assert_allclose(r2, r1, rtol=1e-8)
     np.testing.assert_allclose(u2, u1 * s, rtol=1e-8, atol=1e-10)
     np.testing.assert_allclose(p2, p1 * s**2, rtol=1e-8)
+
+
+# --- area ratio, starting limits (I5) ----------------------------------------
+# Reference: docs/exercises.md problem 4 (I1; A/A* = 1.6875 at M 2 is the isentropic-table value).
+
+def test_area_ratio_table_values():
+    assert gd.area_ratio(1.0, G) == pytest.approx(1.0, abs=1e-14)
+    assert gd.area_ratio(2.0, G) == pytest.approx(1.6875, rel=1e-12)
+    assert gd.area_ratio(3.0, G) == pytest.approx(4.2346, rel=2e-5)      # NACA 1135 Table II
+
+
+@pytest.mark.parametrize("M, isen, kant", [(2.0, 0.5926, 0.8220), (4.0, 0.0933, 0.6724), (6.0, 0.0188, 0.6342)])
+def test_starting_limits_exercise_4(M, isen, kant):
+    assert gd.isentropic_limit(M, G) == pytest.approx(isen, abs=6e-5)
+    assert gd.kantrowitz_limit(M, G) == pytest.approx(kant, abs=6e-5)
+
+
+def test_kantrowitz_second_form_and_asymptote():
+    # same value from (A*/A)(M) / (p02/p01)  (docs/exercises.md problem 4b)
+    for M in (1.5, 2.5, 3.432, 7.0):
+        alt = 1 / gd.area_ratio(M, G) / gd.normal_shock(M, G)["p02_p01"]
+        assert gd.kantrowitz_limit(M, G) == pytest.approx(alt, rel=1e-12)
+    assert gd.kantrowitz_limit(1.0, G) == pytest.approx(1.0, abs=1e-12)
+    assert gd.kantrowitz_limit(1e4, G) == pytest.approx(0.600, abs=1e-3)
+
+
+def test_mach_min_attached_is_inverse_of_theta_max():
+    for M in (1.3, 2.0, 3.5):
+        th = gd.theta_max(M, G)[0]
+        assert gd.mach_min_attached(th, G) == pytest.approx(M, rel=1e-7)
+    # docs/i5/detach_mach_two_ramp.csv (Science, independent implementation): 8 deg -> 1.348, 12 deg -> 1.496
+    assert gd.mach_min_attached(np.radians(8.0), G) == pytest.approx(1.348, abs=6e-4)
+    assert gd.mach_min_attached(np.radians(12.0), G) == pytest.approx(1.496, abs=6e-4)
