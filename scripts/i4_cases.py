@@ -65,7 +65,7 @@ def freestream(M, T, re_unit=None, rho=None):
 FLATPLATE = {
     # TMR 2DZPH: Re = 15e6 per unit length, T_inf = 300 K (value TMR used for the theory curves)
     "M2aw": dict(fs=freestream(2.0, 300.0, re_unit=15e6), T_w=1.712 * 300.0, L=2.0, H=1.0, dy1=3e-6),
-    "M5tw05": dict(fs=freestream(5.0, 300.0, re_unit=15e6), T_w=2.725 * 300.0, L=2.0, H=1.0, dy1=6e-6),
+    "M5tw05": dict(fs=freestream(5.0, 300.0, re_unit=15e6), T_w=2.725 * 300.0, L=2.0, H=1.0, dy1=4.5e-6),  # 6e-6 gave y+ max 1.06 (L0, x=0.002): rule 2 FAIL
     # Zhang, Duan & Choudhari (2018) case M6Tw076: M 5.86, T_inf 55.0 K, rho_inf 0.043 kg/m3, T_w 300 K
     # (file header of docs/validation_data/M6Tw076_Stat.dat; U_inf follows from M and T with this project's R).
     "M6Tw076": dict(fs=freestream(5.86, 55.0, rho=0.043), T_w=300.0, L=3.0, H=1.0, dy1=1.5e-5),
