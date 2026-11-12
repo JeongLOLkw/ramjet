@@ -46,6 +46,20 @@ wait_heartbeat(){
   done
   return 1
 }
+# After a first good heartbeat: watch for <max s> more; fail if the VM leaves RUNNING, the heartbeat belongs to another
+# job or reports no running solver, or the step did not advance over the whole period.  confirm_alive <P> <tag> <max s>
+confirm_alive(){
+  local t0=$SECONDS vs s s0
+  s0=$(sed -n 's/.*step=\([0-9]*\).*/\1/p' <<<"$HB")
+  while (( SECONDS - t0 < $3 )); do
+    sleep 30
+    vs=$(gcloud compute instances describe "$VM" --zone "$ZONE" --project "$PROJECT" --format='value(status)' 2>/dev/null) || continue
+    [ "$vs" = RUNNING ] || { HB="VM is $vs"; return 1; }
+    HB=$(gcloud storage cat "$1/out/HEARTBEAT" 2>/dev/null) || continue
+    [[ " $HB " == *" tag=$2 "* ]] && [[ $HB == *state=running* || $HB == *state=done* ]] || return 1
+  done
+  s=$(sed -n 's/.*step=\([0-9]*\).*/\1/p' <<<"$HB"); [ "${s:-0}" -gt "${s0:-0}" ]
+}
 
 # ---- case inspection -------------------------------------------------------------------------------------
 _times(){ ls -1 "$1" 2>/dev/null | grep -E '^[1-9][0-9]*$' | sort -rn; }   # numeric time dirs > 0, newest first
