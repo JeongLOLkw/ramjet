@@ -10,7 +10,7 @@ application     hisa;
 startFrom       latestTime;
 startTime       0;
 stopAt          endTime;
-endTime         20000;
+endTime         26000;
 deltaT          1;
 writeControl    timeStep;
 writeInterval   250;
