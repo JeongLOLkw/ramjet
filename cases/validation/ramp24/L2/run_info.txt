@@ -9,3 +9,8 @@ vm-code-commit 614d890da2b5402a6fa27d61c2cead4a4350a1cc host ramjet-i4-a 2026-11
 restart 2026-11-12T01:20:12+00:00 np 8 host ramjet-i4-a
 end 2026-11-12T12:57:23+00:00 rc 0
 yplus 2026-11-12T12:58:32+00:00 time 20000 rc 0 host ramjet-i4-a
+settings-commit ce0ec782012525031be429bd731391eeda2aeb85 D-020 pseudoCoNumMax 20 endTime 28000 2026-11-13T02:19:32+09:00
+vm-code-commit ce0ec782012525031be429bd731391eeda2aeb85 host ramjet-i4-a 2026-11-12T17:22:09+00:00
+restart 2026-11-12T17:22:09+00:00 np 8 host ramjet-i4-a
+end 2026-11-12T19:41:49+00:00 rc 0
+yplus 2026-11-12T19:44:46+00:00 time 28000 rc 0 host ramjet-i4-a
