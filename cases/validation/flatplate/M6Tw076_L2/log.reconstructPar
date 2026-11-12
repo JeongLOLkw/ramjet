@@ -1,0 +1,832 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2512                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _bd2b6720-20260127 OPENFOAM=2512 version=2512
+Arch   : "LSB;label=32;scalar=64"
+Exec   : reconstructPar
+Date   : Nov 11 2026
+Time   : 20:39:33
+Host   : ramjet-i4-b
+PID    : 40928
+I/O    : uncollated
+Case   : /home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+memory pool : not available
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Reconstructing fields
+region=region0
+
+Time = 250
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 500
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 750
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 1000
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/1000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/1000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/1000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/1000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 1250
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/1250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/1250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/1250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/1250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 5250
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/5250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/5250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/5250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/5250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 5500
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/5500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/5500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/5500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/5500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 5750
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/5750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/5750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/5750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/5750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 6000
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/6000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/6000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/6000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/6000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 6250
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/6250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/6250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/6250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/6250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 6500
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/6500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/6500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/6500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/6500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 6750
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/6750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/6750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/6750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/6750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 7000
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/7000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/7000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/7000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/7000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 7250
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/7250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/7250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/7250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/7250/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 7500
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/7500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/7500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/7500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/7500/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 7750
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/7750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/7750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/7750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/7750/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+Time = 8000
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        alphat
+        k
+        nut
+        omega
+Using dynamicCode for patch wall on field omega at line 57390 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor0/8000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57622 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor1/8000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57730 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor2/8000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 57790 in "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/processor3/8000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+        p
+        pseudoCoField
+        rho
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No finite-area fields
+
+
+End
+

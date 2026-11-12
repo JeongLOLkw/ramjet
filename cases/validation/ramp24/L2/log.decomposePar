@@ -1,0 +1,143 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2512                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _bd2b6720-20260127 OPENFOAM=2512 version=2512
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar
+Date   : Nov 12 2026
+Time   : 01:20:03
+Host   : ramjet-i4-a
+PID    : 12689
+I/O    : uncollated
+Case   : /home/toto/ramjet/cases/validation/ramp24/L2
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+memory pool : not available
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh
+
+Create mesh
+
+Calculating distribution of cells
+Decomposition method scotch [8] (region region0)
+
+Finished decomposition in 0.19 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 43255
+    Number of points = 87436
+    Number of faces shared with processor 1 = 272
+    Number of faces shared with processor 4 = 129
+    Number of faces shared with processor 5 = 125
+    Number of processor patches = 3
+    Number of processor faces = 526
+    Number of boundary faces = 86908
+
+Processor 1
+    Number of cells = 42949
+    Number of points = 86808
+    Number of faces shared with processor 0 = 272
+    Number of faces shared with processor 2 = 259
+    Number of processor patches = 2
+    Number of processor faces = 531
+    Number of boundary faces = 86275
+
+Processor 2
+    Number of cells = 42904
+    Number of points = 86716
+    Number of faces shared with processor 1 = 259
+    Number of faces shared with processor 3 = 272
+    Number of processor patches = 2
+    Number of processor faces = 531
+    Number of boundary faces = 86183
+
+Processor 3
+    Number of cells = 43089
+    Number of points = 87068
+    Number of faces shared with processor 2 = 272
+    Number of processor patches = 1
+    Number of processor faces = 272
+    Number of boundary faces = 86794
+
+Processor 4
+    Number of cells = 43063
+    Number of points = 87126
+    Number of faces shared with processor 0 = 129
+    Number of faces shared with processor 5 = 384
+    Number of faces shared with processor 7 = 112
+    Number of processor patches = 3
+    Number of processor faces = 625
+    Number of boundary faces = 86499
+
+Processor 5
+    Number of cells = 42907
+    Number of points = 86852
+    Number of faces shared with processor 0 = 125
+    Number of faces shared with processor 4 = 384
+    Number of faces shared with processor 7 = 145
+    Number of processor patches = 3
+    Number of processor faces = 654
+    Number of boundary faces = 86196
+
+Processor 6
+    Number of cells = 42920
+    Number of points = 86712
+    Number of faces shared with processor 7 = 260
+    Number of processor patches = 1
+    Number of processor faces = 260
+    Number of boundary faces = 86450
+
+Processor 7
+    Number of cells = 42977
+    Number of points = 86862
+    Number of faces shared with processor 4 = 112
+    Number of faces shared with processor 5 = 145
+    Number of faces shared with processor 6 = 260
+    Number of processor patches = 3
+    Number of processor faces = 517
+    Number of boundary faces = 86343
+
+Number of processor faces = 1958
+Max number of cells = 43255 (0.574311756% above average 43008)
+Max number of processor patches = 3 (33.33333333% above average 2.25)
+Max number of faces between processors = 654 (33.60572012% above average 489.5)
+
+Time = 0
+Using dynamicCode for patch wall on field omega at line 347181 in "/home/toto/ramjet/cases/validation/ramp24/L2/0/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/ramp24/L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/ramp24/L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/ramp24/L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/ramp24/L2/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+Processor 4: field transfer
+Processor 5: field transfer
+Processor 6: field transfer
+Processor 7: field transfer
+
+End
+

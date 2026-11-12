@@ -1,0 +1,99 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2512                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _bd2b6720-20260127 OPENFOAM=2512 version=2512
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar
+Date   : Nov 12 2026
+Time   : 02:43:24
+Host   : DESKTOP-DMEHFG7
+PID    : 43942
+I/O    : uncollated
+Case   : /home/toto/ramjet/cases/validation/ramp24/L1
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+memory pool : not available
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh
+
+Create mesh
+
+Calculating distribution of cells
+Decomposition method scotch [4] (region region0)
+
+Finished decomposition in 0.09 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 42447
+    Number of points = 85756
+    Number of faces shared with processor 1 = 158
+    Number of faces shared with processor 2 = 162
+    Number of processor patches = 2
+    Number of processor faces = 320
+    Number of boundary faces = 85434
+
+Processor 1
+    Number of cells = 42660
+    Number of points = 86178
+    Number of faces shared with processor 0 = 158
+    Number of processor patches = 1
+    Number of processor faces = 158
+    Number of boundary faces = 86018
+
+Processor 2
+    Number of cells = 43272
+    Number of points = 87432
+    Number of faces shared with processor 0 = 162
+    Number of faces shared with processor 3 = 191
+    Number of processor patches = 2
+    Number of processor faces = 353
+    Number of boundary faces = 87077
+
+Processor 3
+    Number of cells = 43051
+    Number of points = 87010
+    Number of faces shared with processor 2 = 191
+    Number of processor patches = 1
+    Number of processor faces = 191
+    Number of boundary faces = 86817
+
+Number of processor faces = 511
+Max number of cells = 43272 (0.967158607% above average 42857.5)
+Max number of processor patches = 2 (33.33333333% above average 1.5)
+Max number of faces between processors = 353 (38.16046967% above average 255.5)
+
+Time = 0
+Using dynamicCode for patch wall on field omega at line 173650 in "/home/toto/ramjet/cases/validation/ramp24/L1/0/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+
+End
+

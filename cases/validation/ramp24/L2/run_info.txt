@@ -1,0 +1,11 @@
+commit 94649768cf26099241ea016d8358765f5544cdf0
+dirty_files 805
+start 2026-11-12T01:13:54+00:00
+host ramjet-i4-a
+np 8
+init_from /home/toto/ramjet/cases/validation/ramp24/L1
+prepared 2026-11-12T01:20:11+00:00
+vm-code-commit 614d890da2b5402a6fa27d61c2cead4a4350a1cc host ramjet-i4-a 2026-11-12T01:20:11+00:00
+restart 2026-11-12T01:20:12+00:00 np 8 host ramjet-i4-a
+end 2026-11-12T12:57:23+00:00 rc 0
+yplus 2026-11-12T12:58:32+00:00 time 20000 rc 0 host ramjet-i4-a

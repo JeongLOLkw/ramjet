@@ -1,0 +1,15 @@
+commit 365d4ef87b2f4b54c0f850ca5113e164840ba126
+dirty_files 0
+start 2026-11-12T02:42:10+09:00
+host DESKTOP-DMEHFG7
+np 4
+init_from /home/toto/ramjet/cases/validation/ramp24/L0
+handoff-stop 2026-11-12T09:29:34+09:00 step 18000 host DESKTOP-DMEHFG7
+vm-code-commit 614d890da2b5402a6fa27d61c2cead4a4350a1cc host ramjet-i4-a 2026-11-12T00:32:01+00:00
+restart 2026-11-12T00:32:01+00:00 np 4 host ramjet-i4-a
+end 2026-11-12T01:12:50+00:00 rc 0
+yplus 2026-11-12T01:13:52+00:00 time 20000 rc 0 host ramjet-i4-a
+extend 2026-11-12T10:36:40+09:00 endTime 20000 -> 26000 commit 386b6dc88d10c18a6954d4a01ab6b63388def00d (rule 5 miss: L_sep d2000 2.09e-3)
+vm-code-commit 386b6dc88d10c18a6954d4a01ab6b63388def00d host ramjet-i4-b 2026-11-12T01:38:53+00:00
+restart 2026-11-12T01:38:54+00:00 np 4 host ramjet-i4-b
+end 2026-11-12T03:45:03+00:00 rc 0

@@ -1,0 +1,88 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2512                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _bd2b6720-20260127 OPENFOAM=2512 version=2512
+Arch   : "LSB;label=32;scalar=64"
+Exec   : blockMesh
+Date   : Nov 11 2026
+Time   : 03:21:57
+Host   : ramjet-i4-b
+PID    : 6199
+I/O    : uncollated
+Case   : /home/toto/ramjet/cases/validation/flatplate/M6Tw076_L2
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+memory pool : not available
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from "system/blockMeshDict"
+--> FOAM IOWarning :
+    Found [v1012] 'convertToMeters' entry instead of 'scale' in dictionary "system/blockMeshDict"
+
+    This keyword is 180 months old.
+
+Creating block edges
+No non-planar block faces defined
+Creating topology blocks
+
+Creating topology patches - from boundary section
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 1
+		Number of boundary faces : 10
+		Number of defined boundary faces : 10
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list (topological search)...
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale (1 1 1)
+    Block 0 cell size :
+        i : 0.01503569904 .. 0.001
+        j : 3.75e-06 .. 0.01889424066
+        k : 0.01 .. 0.01
+
+    Block 1 cell size :
+        i : 0.0009999999999 .. 0.02382647158
+        j : 3.75e-06 .. 0.01889424066
+        k : 0.01 .. 0.01
+
+No patch pairs to merge
+
+Writing polyMesh with 0 cellZones
+----------------
+Mesh Information
+----------------
+  boundingBox: (-0.5 0 -0.005) (3 1 0.005)
+  nPoints: 460674
+  nCells: 229376
+  nFaces: 918464
+  nInternalFaces: 457792
+----------------
+Patches
+----------------
+  patch 0 (start: 457792 size: 448) name: inlet
+  patch 1 (start: 458240 size: 448) name: outlet
+  patch 2 (start: 458688 size: 512) name: top
+  patch 3 (start: 459200 size: 96) name: sym
+  patch 4 (start: 459296 size: 416) name: wall
+  patch 5 (start: 459712 size: 458752) name: frontAndBack
+
+End
+

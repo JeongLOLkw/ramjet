@@ -1,0 +1,67 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2512                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _bd2b6720-20260127 OPENFOAM=2512 version=2512
+Arch   : "LSB;label=32;scalar=64"
+Exec   : mapFields /home/toto/ramjet/cases/validation/ramp24/L0 -sourceTime latestTime -consistent -mapMethod cellPointInterpolate
+Date   : Nov 12 2026
+Time   : 02:42:16
+Host   : DESKTOP-DMEHFG7
+PID    : 43674
+I/O    : uncollated
+Case   : /home/toto/ramjet/cases/validation/ramp24/L1
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+memory pool : not available
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Source: "/home/toto/ramjet/cases/validation/ramp24" "L0"
+Target: "/home/toto/ramjet/cases/validation/ramp24" "L1"
+Mapping method: cellPointInterpolate
+
+Create databases as time
+
+Source time: 20000
+Target time: 0
+Create meshes
+
+Source mesh size: 86016	Target mesh size: 171430
+
+
+Consistently creating and mapping fields for time 20000
+
+    interpolating T
+    interpolating alphat
+    interpolating k
+    interpolating nut
+    interpolating omega
+Using dynamicCode for patch wall on field omega at line 87605 in "/home/toto/ramjet/cases/validation/ramp24/L0/20000/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: cannot open shared object file: No such file or directory
+Creating new library in "dynamicCode/menterOmegaWall/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+Invoking wmake libso /home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/menterOmegaWall
+wmake libso /home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/menterOmegaWall
+    ln: ./lnInclude
+    dep: fixedValueFvPatchFieldTemplate.C
+    Ctoo: fixedValueFvPatchFieldTemplate.C
+    link: /home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/menterOmegaWall/../platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so
+Could not load "/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Using dynamicCode for patch wall on field omega at line 31 in "/home/toto/ramjet/cases/validation/ramp24/L1/0/omega/boundaryField/wall"
+Could not load "/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+Could not load "/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so"
+/home/toto/ramjet/cases/validation/ramp24/L1/dynamicCode/platforms/linux64GccDPInt32Opt/lib/libmenterOmegaWall_1cea2bc332b3c55bec11d46ee41b7eed696d1299.so: undefined symbol: _ZTIN4Foam27compressibleTurbulenceModelE
+    interpolating p
+    interpolating pseudoCoField
+    interpolating rho
+    interpolating U
+
+End
+
