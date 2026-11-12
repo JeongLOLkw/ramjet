@@ -35,6 +35,6 @@ pseudoTime
 {
     pseudoTol         1e-8 (1e-8 1e-8 1e-8) 1e-8;
     pseudoCoNum       10.0;
-    pseudoCoNumMax    50.0;
+    pseudoCoNumMax    20.0;   // D-020 (2026-11-13): 50 -> 20 from the 20000-step checkpoint, pre-approved adjustment (a)
     localTimestepping true;
 }

@@ -10,11 +10,11 @@ application     hisa;
 startFrom       latestTime;
 startTime       0;
 stopAt          endTime;
-endTime         20000;
+endTime         28000;   // D-020: continue 20000 -> 28000
 deltaT          1;
 writeControl    timeStep;
 writeInterval   250;
-purgeWrite      12;
+purgeWrite      0;   // D-020: keep every checkpoint (oscillation history; output only)
 writeFormat     ascii;
 writePrecision  10;
 writeCompression off;
