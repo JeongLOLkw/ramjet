@@ -272,3 +272,5 @@ I1 점검에서 나온 문제와 담당 제안. 담당: **Code** = Claude Code, 
 3. **M6Tw076 허용치(D-006 #8, D-013 기준 4)** — **L2 결과(C_f −3.5%, −B_q 0.0175)를 본 뒤 정했다**: C_f ±10%(평판 VDII 기준과 같은 값), −B_q·2St/C_f ±25%(Duan 파일의 −B_q = 0.02가 유효숫자 1자리라 그 자체 불확도 ±25%), 평균 u/U∞·T/T∞ 분포는 0.1 < y/δ < 1 구간 최대 편차를 보고하고 ±10%를 기준으로 한다.
 4. **GCP 리소스**: VM B(`ramjet-i4-b`)와 디스크는 결과가 로컬·버킷에 모두 있음을 확인한 뒤 바로 삭제. VM A와 디스크는 램프 L2 결과를 내려받아 대조한 뒤 삭제. 버킷은 `results/`만 백업으로 남기고 일회성 묶음은 지운다.
 5. **예상 비용**: L2 8,000스텝 × 2.1~2.5 s ≈ 5~6 h × $0.34/h ≈ $2(CFL 10 재시도 포함 최대 약 $5). I4 누계 최대 약 $20(예산 $40, D-019).
+- **`enabled` 상태의 출처 확정(2026-11-13)**: 이전 세션 기록(2026-11-11 02:33 UTC, 첫 GCP 시험 직후)에서 VM 2대에 SSH로 `[Install]` 절이 든 손으로 쓴 `i4-poweroff.path`를 만들고 `systemctl enable --now i4-poweroff.path`를 실행한 것을 찾았다. 저장소의 `vm_startup.sh`는 어느 판에도 이 유닛에 `[Install]`이 없다(git 이력 확인). 즉 수동 조작이 남긴 부팅 시 자동 시작 링크가 원인이었다.
+  확인: 2026-11-12 17:21 UTC VM A 부팅(D-020 L2 이어 계산)의 시동 로그 `pre-state: WORKER_DONE=present … poweroff.service=inactive poweroff.path=inactive … enabled=static static static` — 묵은 표지가 있어도 전원 종료가 걸리지 않았다. 재발 방지: VM 설정은 SSH 수동 조작 대신 `vm_startup.sh`(커밋된 코드)로만 바꾼다.
