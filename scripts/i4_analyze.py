@@ -162,6 +162,18 @@ def at_re_theta(d, key, target):
     return float(d[key][i] + s * (d[key][i + 1] - d[key][i]))
 
 
+def cf_verdict_mask(re_theta):
+    """Stations of the C_f verdict, D-013 criterion 3 as written: 4,000 <= Re_theta <= 13,000 (whole plate)."""
+    re_theta = np.asarray(re_theta, float)
+    return (re_theta >= RE_THETA_RANGE[0]) & (re_theta <= RE_THETA_RANGE[1])
+
+
+def cf_restricted_mask(re_theta, x, L):
+    """The narrower selection used up to 2026-11-13 (additionally x > 0.25 L, a choice of commit 8c75c85 that is not
+    in D-013). Kept as information only (cf_err_max_x025)."""
+    return cf_verdict_mask(re_theta) & (np.asarray(x, float) > 0.25 * L)
+
+
 def flatplate(case):
     cond = case.name.split("_L")[0]
     c = FLATPLATE[cond]
@@ -179,12 +191,14 @@ def flatplate(case):
     ok, ymax = yplus_check.check(d["y_plus"])
     res.update(y_plus_max=ymax, y_plus_ok=bool(ok), re_theta_max=float(d["re_theta"].max()),
                u_edge_dev_max=float(np.max(np.abs(d["u_edge_ratio"] - 1))))
-    sel = (d["re_theta"] >= RE_THETA_RANGE[0]) & (d["re_theta"] <= RE_THETA_RANGE[1]) & (d["x"] > 0.25 * c["L"])
+    sel = cf_verdict_mask(d["re_theta"])
+    sel_x = cf_restricted_mask(d["re_theta"], d["x"], c["L"])
     if cond != "M6Tw076":
         cf_vd = bl.cf_van_driest_ii(d["re_theta"], fs["M"], T_w / fs["T"], T_e=fs["T"])
         err = d["cf"] / cf_vd - 1
         res.update(n_in_range=int(sel.sum()),
                    cf_err_max=float(np.max(np.abs(err[sel]))) if sel.any() else None,
+                   cf_err_max_x025=float(np.max(np.abs(err[sel_x]))) if sel_x.any() else None,
                    cf_err_at_ref=float(at_re_theta(dict(re_theta=d["re_theta"], e=err), "e", target)),
                    cf_pass=bool(sel.any() and np.max(np.abs(err[sel])) <= CF_TOL))
     else:

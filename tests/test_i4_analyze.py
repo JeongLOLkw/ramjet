@@ -144,3 +144,17 @@ def test_main_explicit_cases_may_name_failed_archive(tmp_path, capsys):
     (tmp_path / "ramp24/L0_failed_Lramp018").mkdir(parents=True)
     ia.main(["--root", str(tmp_path), "--cases", "ramp24/L0_failed_Lramp018", "--no-json"])
     assert "L0_failed_Lramp018: not run" in capsys.readouterr().out
+
+
+# --------------------------------------------------------------------------- C_f verdict range (D-013 criterion 3)
+
+def test_cf_verdict_mask_is_the_whole_re_theta_range():
+    # D-013 criterion 3: every station with 4,000 <= Re_theta <= 13,000, wherever it lies on the plate
+    re = np.array([500.0, 3999.0, 4000.0, 6000.0, 13000.0, 13001.0])
+    assert ia.cf_verdict_mask(re).tolist() == [False, False, True, True, True, False]
+
+
+def test_cf_restricted_mask_keeps_old_x_filter_for_information():
+    re = np.array([5000.0, 5000.0, 20000.0])
+    x = np.array([0.1, 0.9, 1.5])
+    assert ia.cf_restricted_mask(re, x, L=2.0).tolist() == [False, True, False]

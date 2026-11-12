@@ -228,7 +228,7 @@ def fig_cf_flatplate(results, path):
             x_, rt_, cf_ = (np.asarray(d[key]) for key in ("x", "re_theta", "cf"))
             vd_ = bl.cf_van_driest_ii(np.clip(rt_, 1.0, None), fs["M"], T_w / fs["T"], T_e=fs["T"])
             m_all = (rt_ > re[0]) & (rt_ < re[-1])
-            m = m_all & (x_ > 0.25 * c["L"])      # stations used by scripts/i4_analyze.py (x > 0.25 L)
+            m = ia.cf_verdict_mask(rt_)           # stations of the verdict (D-013 criterion 3: 4,000-13,000)
             kw = dict(color=LEVEL_COL[k], ls=LEVEL_LS[k])
             for ax, y in ((top, cf_), (bot, 100 * (cf_ / vd_ - 1))):
                 ax.plot(rt_[m_all], y[m_all], alpha=0.35, lw=0.8, **kw)    # whole plate, faint
@@ -243,7 +243,7 @@ def fig_cf_flatplate(results, path):
         bot.xaxis.set_major_formatter(ScalarFormatter())
         bot.minorticks_off()
     fig.tight_layout(rect=(0, 0.03, 1, 1))
-    fig.text(0.5, 0.008, "bold lines: stations x > 0.25 L (used for the verdict); faint: rest of the plate",
+    fig.text(0.5, 0.008, "bold lines: 4,000 ≤ Re_θ ≤ 13,000 (verdict range, D-013 criterion 3); faint: rest of the plate",
              ha="center", fontsize=8, color=INK2)
     fig.savefig(path)
     plt.close(fig)
