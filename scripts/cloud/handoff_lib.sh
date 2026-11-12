@@ -133,7 +133,8 @@ stop_case(){
 # ---- packing ---------------------------------------------------------------------------------------------
 # Paths (relative to the case) that go into a tar; step = one checkpoint or ALL
 _pack_list(){ ( cd "$1" || exit 1; local e p t
-  for e in system constant 0.orig Allrun case_info.txt run_info.txt log.* postProcessing; do [ -e "$e" ] && echo "$e"; done
+  # "0" holds the cell centres (0/Cx, 0/Cy) that scripts/yplus_check.py reads
+  for e in system constant 0.orig 0 Allrun case_info.txt run_info.txt log.* postProcessing; do [ -e "$e" ] && echo "$e"; done
   for p in processor*; do [ -d "$p" ] || continue; [ -d "$p/constant" ] && echo "$p/constant"
     if [ "$2" = ALL ]; then for t in $(_times "$p") 0; do [ -d "$p/$t" ] && echo "$p/$t"; done; else [ -d "$p/$2" ] && echo "$p/$2"; fi
   done ) }

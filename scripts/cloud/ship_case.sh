@@ -52,10 +52,19 @@ pack_case "$c" "$N" "$tar" || { status "ship_case: pack failed"; exit 1; }
 sha=$(sha256sum "$tar" | cut -d' ' -f1)
 rinfo(){ awk -v k="$1" '$1==k{print $2; exit}' "$c/run_info.txt"; }
 end=$(awk '$1=="endTime"{gsub(";","",$2); print $2}' "$c/system/controlDict")
-printf 'case=%s\ntag=%s\nstep=%s\nnp=%s\ncommit=%s\ndirty=%s\nsha256=%s\nend=%s\n' "$rel" "$tag" "$N" "$(rinfo np)" "$(rinfo commit)" "$(rinfo dirty_files)" "$sha" "$end" > "$STATE/JOB_$VM"
+pub=no; [[ $c == $REPO/cases/validation/* ]] && pub=yes   # only repo cases are published to results/validation
+printf 'case=%s\ntag=%s\nstep=%s\nnp=%s\ncommit=%s\ndirty=%s\nsha256=%s\nend=%s\npublish=%s\n' "$rel" "$tag" "$N" "$(rinfo np)" "$(rinfo commit)" "$(rinfo dirty_files)" "$sha" "$end" "$pub" > "$STATE/JOB_$VM"
+# code of the current commit for the VM (y+ check, follow-up case files); hash goes into the VM's run_info.txt (rule 9)
+[ -z "$(git status --porcelain --untracked-files=no -- scripts src cases/validation/ramp24/L2)" ] || say "WARNING: tracked code files differ from HEAD — the VM gets HEAD"
+git archive --format=tar.gz -o "$STATE/code.tar.gz" HEAD scripts src cases/validation/ramp24/L2 && git rev-parse HEAD > "$STATE/code.commit" \
+  || { status "ship_case: git archive failed"; exit 1; }
 clean_bucket "$P" || { status "ship_case: could not clear old markers in $P — $rel NOT started"; exit 1; }
 up "$tar" "$P/in/$tag.tar.gz" && up "$STATE/JOB_$VM" "$P/in/JOB" || { status "ship_case: upload failed"; exit 1; }
 GQ storage cp scripts/cloud/*.sh "gs://$BUCKET/inputs/cloud/" || { status "ship_case: script upload failed"; exit 1; }
+up "$STATE/code.tar.gz" "gs://$BUCKET/inputs/code.tar.gz" && up "$STATE/code.commit" "gs://$BUCKET/inputs/code.commit" || { status "ship_case: code upload failed"; exit 1; }
+# optional VM-side follow-up (sourced by handoff_vm.sh after FINISHED); without NEXT_SH an old one is removed
+if [ -n "${NEXT_SH:-}" ]; then up "$NEXT_SH" "$P/in/NEXT.sh" || { status "ship_case: NEXT.sh upload failed"; exit 1; }
+else gcloud storage rm "$P/in/NEXT.sh" "$P/in/NEXT.env" "$P/in/next_case.tar.gz" >/dev/null 2>&1; fi
 echo "shipped $(date -Is) step $N to $VM" >> "$c/run_info.txt"
 GQ compute instances add-metadata "$VM" $GC --metadata "mode=handoff,hard_stop_h=$hard" \
   --metadata-from-file startup-script=scripts/cloud/vm_startup.sh || { status "ship_case: add-metadata failed"; exit 1; }
@@ -63,7 +72,7 @@ GQ compute instances add-metadata "$VM" $GC --metadata "mode=handoff,hard_stop_h
 GQ compute instances set-scheduling "$VM" $GC --max-run-duration="$((hard + 2))h" --instance-termination-action=STOP \
   || say "WARNING: set-scheduling failed — the VM keeps its previous max-run-duration"
 GQ compute instances start "$VM" $GC || { status "ship_case: start $VM failed"; exit 1; }
-if wait_heartbeat "$P" "$tag" "$N" 1200; then
+if wait_heartbeat "$P" "$tag" "$N" 1200 && confirm_alive "$P" "$tag" 360; then   # 6 more minutes: 2026-11-12 power-off defect
   printf 'case=%s\ntag=%s\nvm=%s\nstep=%s\nend=%s\ntime=%s\n' "$c" "$tag" "$VM" "$N" "$end" "$(date -Is)" > "$STATE/SHIPPED_$tag"
   status "SHIP OK: $rel is running on $VM ($HB)"
 else
