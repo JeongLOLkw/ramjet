@@ -42,7 +42,10 @@ fi
 # Code of the current commit (scripts/, src/, ramp L2 case files; `git archive` made by handoff.sh, hash in
 # inputs/code.commit) — the repo unpacked at VM creation is older. Only tracked files are overwritten.
 if gcloud storage cp "gs://$BUCKET/inputs/code.tar.gz" "gs://$BUCKET/inputs/code.commit" /tmp/ 2>/dev/null; then
-  tar xzf /tmp/code.tar.gz -C /home/toto/ramjet && cp /tmp/code.commit /home/toto/ramjet/cases/runs/code.commit
+  # --no-same-owner + chown: extracting as root must not hand cases/ and cases/validation/ to root (2026-11-12
+  # rehearsal: the worker could then not create a new case directory there)
+  tar xzf /tmp/code.tar.gz --no-same-owner -C /home/toto/ramjet && cp /tmp/code.commit /home/toto/ramjet/cases/runs/code.commit
+  chown toto:toto /home/toto/ramjet /home/toto/ramjet/cases /home/toto/ramjet/cases/validation
   chown -R toto:toto /home/toto/ramjet/scripts /home/toto/ramjet/src /home/toto/ramjet/cases/runs /home/toto/ramjet/cases/validation/ramp24 2>/dev/null
   echo "code refreshed to commit $(cat /tmp/code.commit)"
 fi
