@@ -247,6 +247,12 @@
   | M5tw05_L2 | 8,000 | 0.305 | 3.10e-8 | 3.66e-4 / 2.86e-8 | 통과 | \|Cf/VDII−1\| 최대 1.66%(118점) — 통과 |
   | M6Tw076_L2 | 8,000 | 0.335 | 5.37e-8 | 7.34e-4 / 0.00 | 통과 | Cf 9.483e-4(Duan 9.826e-4, −3.5%), 2St/Cf 1.160, −Bq 0.0175(Duan 0.02) — 허용치 미정(D-006 #8)이라 **미판정** |
   - M6Tw076의 q_max 변화가 정확히 0으로 나온 것은 확인 필요(같은 값이 반복 저장됐는지 미확인). 격자 수렴(L0·L1·L2 비교) 정리는 아직 안 함.
+- **VM B 연결 리허설**(스크래치 사본, 결과 아님, Sonnet 하위 세션 실행·본 세션 검토, VM 약 37분 ≈ $0.1):
+  - 1차(09:26~09:44): 조기 전원 종료 없음, 1단계 FINISHED, VM에서 y+ 검사 PASS(0.5157). **다음 격자 준비에서 실패**(`mkdir …/cases/validation/L1r: Permission denied`). 원인: 이번에 넣은 코드 묶음 풀기가 root로 실행돼 `cases/`·`cases/validation/` 소유자가 root로 바뀜. 수정(커밋 6dc5781: `--no-same-owner` + chown). 같은 원인 1회, 수정 후 해소.
+  - 2차(09:44~10:05): 1단계 FINISHED → y+ PASS → 다음 격자 준비(blockMesh·mapFields·decomposePar, 약 3분) → 실행 → `FINISHED` → 4분 20초 뒤 VM 스스로 TERMINATED. 스크래치 케이스는 `results/validation`에 올라가지 않음(확인).
+  - 리허설로 **검증되지 않은 구간**: 2단계 케이스(L1 사본)의 Allrun에 `PREP_ONLY`가 없어 준비 단계에서 솔버 100스텝까지 돌았다. 그래서 "준비만 된 0스텝 케이스에서 `Allrestart.sh`로 솔버를 새로 시작"하는 구간은 실제 L2에서 처음 실행된다(L2의 Allrun에는 `PREP_ONLY` 있음, 확인).
+  - VM B 아침 부팅 저널(22:39:37 UTC `Started i4-poweroff.path` → `Starting i4-poweroff.service`, 22:42:37 Finished, 22:43:08 작업기 정지)로 전원 종료 원인을 VM B에서도 확인.
+- 09:42 KST: VM A에 후속 스크립트(`in/NEXT.sh` = `next_ramp_L2.sh`) 올림. Haiku 하위 세션이 VM A 심박을 감시.
 - 남은 문제: (1) 램프 L1 종료 후 y+·규칙 5 판정, L2 실행(VM A, 예상 17~33 h), (2) M6Tw076 정확도 허용치 제안, (3) 로컬 `ship_ramp_L2.sh` 감시 프로세스(pid 79220)는 권한 분류기가 종료를 막아 남아 있음 — L1이 로컬에서 끝나지 않으므로 대기만 한다. 사용자가 `kill 79220`으로 정리, (4) VM 삭제는 결과 대조 뒤 사용자 확인, (5) `i4-poweroff.path`가 왜 enabled였는지 미확인(지금은 매 부팅 disable).
 - 소요: 클라우드 누계 약 $8.8(09시, 단가 추정) + 이번 구간 진행 중 / /usage 미기록(사용자 확인 필요)
 
