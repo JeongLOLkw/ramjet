@@ -124,3 +124,23 @@ def test_latest_flux_no_data_raises(tmp_path):
     (tmp_path / "0/surfaceFieldValue.dat").write_text("")
     with pytest.raises(ValueError):
         ia.latest_flux(tmp_path)
+
+
+# --------------------------------------------------------------------------- default case list
+
+def test_default_cases_skip_failed_archives_and_keep_order(tmp_path):
+    for d in ("flatplate/M2aw_L0", "flatplate/M2aw_L1", "flatplate/M5tw05_L0", "flatplate/M5tw05_L0_failed_dy6e-6",
+              "ramp24/L0", "ramp24/L0_failed_Lramp018", "ramp24/L1", "ramp24/notes"):
+        (tmp_path / d).mkdir(parents=True)
+    got = [str(p.relative_to(tmp_path)) for p in ia.default_cases(tmp_path)]
+    assert got == ["flatplate/M2aw_L0", "flatplate/M2aw_L1", "flatplate/M5tw05_L0", "ramp24/L0", "ramp24/L1"]
+
+
+def test_default_cases_empty_root(tmp_path):
+    assert ia.default_cases(tmp_path) == []
+
+
+def test_main_explicit_cases_may_name_failed_archive(tmp_path, capsys):
+    (tmp_path / "ramp24/L0_failed_Lramp018").mkdir(parents=True)
+    ia.main(["--root", str(tmp_path), "--cases", "ramp24/L0_failed_Lramp018", "--no-json"])
+    assert "L0_failed_Lramp018: not run" in capsys.readouterr().out

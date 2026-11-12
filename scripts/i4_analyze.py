@@ -303,14 +303,20 @@ def summary(r):
     return line
 
 
+def default_cases(root):
+    """Default case list: flat plates then ramp levels. Archived failed runs (`..._failed_...`) are excluded;
+    they can still be analysed by naming them in --cases."""
+    found = sorted((root / "flatplate").glob("*_L*")) + sorted((root / "ramp24").glob("L*"))
+    return [c for c in found if "_failed_" not in c.name]
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--root", type=Path, default=ROOT / "cases/validation")
     ap.add_argument("--cases", nargs="*")
     ap.add_argument("--no-json", action="store_true")
     a = ap.parse_args(argv)
-    cases = [a.root / c for c in a.cases] if a.cases else \
-        sorted((a.root / "flatplate").glob("*_L*")) + sorted((a.root / "ramp24").glob("L*"))
+    cases = [a.root / c for c in a.cases] if a.cases else default_cases(a.root)
     results = []
     for case in cases:
         if not (case / "run_info.txt").exists() or not time_dirs(case):
